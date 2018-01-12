@@ -51,8 +51,8 @@
 - (void)login
 {
     // 使用若琪账号登录，暂时不确定如何开放登录的接口
-    [RokidMobileSDK.account tempLoginWithName:Properties.shared.username
-                                     password:Properties.shared.password
+    [RokidMobileSDK.account tempLoginWithName:@"13805786604"
+                                     password:@"123456"
                                      complete:^(NSString * uid, NSString * token, RKError * error) {
         if (!error) {
             NSLog(@"[Login] OK" );
@@ -129,7 +129,7 @@
             removed: card array,
         }
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.CardListUpdated object:nil];
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.CardReceived object:nil];
     
     /*
         device manager 的 current device 改变

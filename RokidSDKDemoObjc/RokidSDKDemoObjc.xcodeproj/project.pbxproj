@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15F205CDF152A60267070FB9 /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
-		D43AFFDE1FFF6D5500324778 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */; };
-		D43AFFDF1FFF6D5500324778 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D43AFFE41FFF706C00324778 /* config-example.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE31FFF706C00324778 /* config-example.plist */; };
 		D43AFFE81FFF741900324778 /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AFFE71FFF741900324778 /* Properties.m */; };
 		D43AFFEA1FFF778E00324778 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE91FFF778E00324778 /* config.plist */; };
@@ -17,12 +16,14 @@
 		D43DCE131FD96D23005C158A /* BinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE121FD96D23005C158A /* BinderViewController.m */; };
 		D46AD4451FF2039B00C03FF3 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D406B0511FEAB854003AADEE /* RokidSDK.framework */; };
 		D46AD4461FF2039B00C03FF3 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D406B0511FEAB854003AADEE /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4D18C4A2008BB8B003DFEC3 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */; };
+		D4D18C4B2008BB8B003DFEC3 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4D18C4D2008C083003DFEC3 /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AFFE71FFF741900324778 /* Properties.m */; };
 		D4D38EEC1FF354790006BC0E /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE0F1FD96D0C005C158A /* DeviceListViewController.m */; };
 		D4D38EED1FF354790006BC0E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951451FCE5D360091179D /* MainViewController.m */; };
 		D4D38EEE1FF354790006BC0E /* BinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE121FD96D23005C158A /* BinderViewController.m */; };
 		D4D38EEF1FF354790006BC0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
 		D4D38EF01FF354790006BC0E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951421FCE5D360091179D /* AppDelegate.m */; };
-		D4D38EF21FF354790006BC0E /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		D4D38EF51FF354790006BC0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4D38EF61FF354790006BC0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4D38EF71FF354790006BC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F951471FCE5D360091179D /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4F951511FCE5D360091179D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
+		E144CBF70360D6FF96B18F38 /* Pods_DontUse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,13 +48,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4D38F041FF354F70006BC0E /* Embed Frameworks */ = {
+		D4D18C4C2008BB8B003DFEC3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D43AFFDF1FFF6D5500324778 /* RokidSDK.framework in Embed Frameworks */,
+				D4D18C4B2008BB8B003DFEC3 /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,9 +62,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		32D0739FAEAA03D9F78A7E1A /* Pods-RokidSDKDemoObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.release.xcconfig"; sourceTree = "<group>"; };
+		618DEB1C8EAE54D454752A25 /* Pods-RokidSDKDemoObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.release.xcconfig"; sourceTree = "<group>"; };
+		8F0290D688F18C4012EEDEAC /* Pods-DontUse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.debug.xcconfig"; sourceTree = "<group>"; };
+		942F6C272199D10C985F1A66 /* Pods-RokidSDKDemoObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.debug.xcconfig"; sourceTree = "<group>"; };
 		A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RokidSDKDemoObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C07495634B4974746487BFD5 /* Pods-RokidSDKDemoObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.debug.xcconfig"; sourceTree = "<group>"; };
 		D406B0511FEAB854003AADEE /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../Library/Developer/Xcode/DerivedData/rokid-fdtpzqabsnpigzehnkfolicscxkb/Build/Products/Debug-iphonesimulator/RokidSDK.framework"; sourceTree = "<group>"; };
 		D43AFFE31FFF706C00324778 /* config-example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "config-example.plist"; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 		D4F9514D1FCE5D360091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9514F1FCE5D360091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RokidSDKDemoObjc/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D4F951501FCE5D360091179D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D38EF21FF354790006BC0E /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
-				D43AFFDE1FFF6D5500324778 /* RokidSDK.framework in Frameworks */,
+				D4D18C4A2008BB8B003DFEC3 /* RokidSDK.framework in Frameworks */,
+				E144CBF70360D6FF96B18F38 /* Pods_DontUse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +109,7 @@
 			files = (
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 				D46AD4451FF2039B00C03FF3 /* RokidSDK.framework in Frameworks */,
+				15F205CDF152A60267070FB9 /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +119,10 @@
 		B112F3587189200CCE4CD74F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C07495634B4974746487BFD5 /* Pods-RokidSDKDemoObjc.debug.xcconfig */,
-				32D0739FAEAA03D9F78A7E1A /* Pods-RokidSDKDemoObjc.release.xcconfig */,
+				942F6C272199D10C985F1A66 /* Pods-RokidSDKDemoObjc.debug.xcconfig */,
+				618DEB1C8EAE54D454752A25 /* Pods-RokidSDKDemoObjc.release.xcconfig */,
+				8F0290D688F18C4012EEDEAC /* Pods-DontUse.debug.xcconfig */,
+				ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */,
+				E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,13 +231,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4D38EFC1FF354790006BC0E /* Build configuration list for PBXNativeTarget "DontUse" */;
 			buildPhases = (
-				D4D38EEA1FF354790006BC0E /* [CP] Check Pods Manifest.lock */,
+				A6819101D1341B88D02CA059 /* [CP] Check Pods Manifest.lock */,
 				D4D38EEB1FF354790006BC0E /* Sources */,
 				D4D38EF11FF354790006BC0E /* Frameworks */,
 				D4D38EF41FF354790006BC0E /* Resources */,
-				D4D38EF81FF354790006BC0E /* [CP] Embed Pods Frameworks */,
-				D4D38EF91FF354790006BC0E /* [CP] Copy Pods Resources */,
-				D4D38F041FF354F70006BC0E /* Embed Frameworks */,
+				D4D18C4C2008BB8B003DFEC3 /* Embed Frameworks */,
+				F0EF419D0F8FCE1BBE767879 /* [CP] Embed Pods Frameworks */,
+				28435E9D244E80DBB24C8CEC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,6 +338,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		28435E9D244E80DBB24C8CEC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-DontUse/Pods-DontUse-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		393A47C129C15F770947D7D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,7 +414,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D4D38EEA1FF354790006BC0E /* [CP] Check Pods Manifest.lock */ = {
+		A6819101D1341B88D02CA059 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -401,20 +425,20 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RokidSDKDemoObjc-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DontUse-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D4D38EF81FF354790006BC0E /* [CP] Embed Pods Frameworks */ = {
+		F0EF419D0F8FCE1BBE767879 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-frameworks.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-DontUse/Pods-DontUse-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/ProtocolBuffers-Swift/ProtocolBuffers.framework",
@@ -433,22 +457,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4D38EF91FF354790006BC0E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-DontUse/Pods-DontUse-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -458,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D18C4D2008C083003DFEC3 /* Properties.m in Sources */,
 				D4D38EEC1FF354790006BC0E /* DeviceListViewController.m in Sources */,
 				D4D38EED1FF354790006BC0E /* MainViewController.m in Sources */,
 				D4D38EEE1FF354790006BC0E /* BinderViewController.m in Sources */,
@@ -503,7 +513,7 @@
 /* Begin XCBuildConfiguration section */
 		D4D38EFD1FF354790006BC0E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C07495634B4974746487BFD5 /* Pods-RokidSDKDemoObjc.debug.xcconfig */;
+			baseConfigurationReference = 8F0290D688F18C4012EEDEAC /* Pods-DontUse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -527,7 +537,7 @@
 		};
 		D4D38EFE1FF354790006BC0E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32D0739FAEAA03D9F78A7E1A /* Pods-RokidSDKDemoObjc.release.xcconfig */;
+			baseConfigurationReference = ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -654,7 +664,7 @@
 		};
 		D4F951551FCE5D360091179D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C07495634B4974746487BFD5 /* Pods-RokidSDKDemoObjc.debug.xcconfig */;
+			baseConfigurationReference = 942F6C272199D10C985F1A66 /* Pods-RokidSDKDemoObjc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -678,7 +688,7 @@
 		};
 		D4F951561FCE5D360091179D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32D0739FAEAA03D9F78A7E1A /* Pods-RokidSDKDemoObjc.release.xcconfig */;
+			baseConfigurationReference = 618DEB1C8EAE54D454752A25 /* Pods-RokidSDKDemoObjc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

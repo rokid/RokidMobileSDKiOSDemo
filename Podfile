@@ -39,3 +39,19 @@ target 'RokidSDKDemoObjc' do
   pod 'CocoaAsyncSocket', '7.6.0'
   pod 'Starscream', '2.0.3'
 end
+
+
+target 'DontUse' do
+  project 'RokidSDKDemoObjc/RokidSDKDemoObjc.xcodeproj'
+
+  # sqlite
+  pod 'SQLite.swift', '~> 0.11.4'
+
+  # Model
+  pod 'HandyJSON', '~> 1.8.0'
+
+  pod 'ProtocolBuffers-Swift', '3.0.23'
+  pod 'SnapKit', '3.2.0'
+  pod 'CocoaAsyncSocket', '7.6.0'
+  pod 'Starscream', '2.0.3'
+end
