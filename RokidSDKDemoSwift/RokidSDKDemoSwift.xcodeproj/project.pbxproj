@@ -203,6 +203,7 @@
 				"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoSwift/Pods-RokidSDKDemoSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ProtocolBuffers-Swift/ProtocolBuffers.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -212,6 +213,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtocolBuffers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",

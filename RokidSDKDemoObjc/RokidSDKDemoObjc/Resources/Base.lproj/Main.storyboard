@@ -111,6 +111,49 @@
             </objects>
             <point key="canvasLocation" x="1037.5999999999999" y="417.8410794602699"/>
         </scene>
+        <!--Card List View Controller-->
+        <scene sceneID="42Z-Sf-gbQ">
+            <objects>
+                <viewController id="16A-98-RhE" customClass="CardListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rry-pg-rM0"/>
+                        <viewControllerLayoutGuide type="bottom" id="tx8-SY-lLh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E02-Q2-frg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uv8-BC-SwG">
+                                <rect key="frame" x="0.0" y="128" width="375" height="495"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="card" rowHeight="160" id="XoN-ra-nt6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XoN-ra-nt6" id="qOl-1b-gb0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tx8-SY-lLh" firstAttribute="top" secondItem="uv8-BC-SwG" secondAttribute="bottom" constant="44" id="C8n-mm-Hjj"/>
+                            <constraint firstItem="uv8-BC-SwG" firstAttribute="leading" secondItem="E02-Q2-frg" secondAttribute="leading" id="CAm-L6-Hcf"/>
+                            <constraint firstItem="uv8-BC-SwG" firstAttribute="top" secondItem="rry-pg-rM0" secondAttribute="bottom" constant="64" id="bwD-h2-nbh"/>
+                            <constraint firstAttribute="trailing" secondItem="uv8-BC-SwG" secondAttribute="trailing" id="xbV-Md-bA7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardListView" destination="uv8-BC-SwG" id="733-D2-KUv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4EE-9R-t2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1037.5999999999999" y="1100.5997001499252"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2RU-1s-lUC">
             <objects>
@@ -195,7 +238,7 @@
                                 </constraints>
                                 <state key="normal" title="获取card list"/>
                                 <connections>
-                                    <action selector="getCardList:" destination="gK2-z4-8Es" eventType="touchUpInside" id="4Fd-Hz-iaj"/>
+                                    <segue destination="16A-98-RhE" kind="show" id="nRC-1k-sxz"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="喜马拉雅 uid" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJh-vz-ANI">

@@ -23,6 +23,8 @@ target 'RokidSDKDemoSwift' do
   pod 'SnapKit', '3.2.0'
   pod 'CocoaAsyncSocket', '7.6.0'
   pod 'Starscream', '2.0.3'
+
+  pod 'MJRefresh'
 end
 
 target 'RokidSDKDemoObjc' do
@@ -38,6 +40,8 @@ target 'RokidSDKDemoObjc' do
   pod 'SnapKit', '3.2.0'
   pod 'CocoaAsyncSocket', '7.6.0'
   pod 'Starscream', '2.0.3'
+
+  pod 'MJRefresh'
 end
 
 
@@ -54,4 +58,6 @@ target 'DontUse' do
   pod 'SnapKit', '3.2.0'
   pod 'CocoaAsyncSocket', '7.6.0'
   pod 'Starscream', '2.0.3'
+
+  pod 'MJRefresh'
 end
