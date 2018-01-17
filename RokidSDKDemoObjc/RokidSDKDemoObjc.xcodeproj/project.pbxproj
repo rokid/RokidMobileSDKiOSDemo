@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15F205CDF152A60267070FB9 /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		D43AFFE41FFF706C00324778 /* config-example.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE31FFF706C00324778 /* config-example.plist */; };
 		D43AFFE81FFF741900324778 /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AFFE71FFF741900324778 /* Properties.m */; };
 		D43AFFEA1FFF778E00324778 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE91FFF778E00324778 /* config.plist */; };
 		D43DCE101FD96D0C005C158A /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE0F1FD96D0C005C158A /* DeviceListViewController.m */; };
 		D43DCE131FD96D23005C158A /* BinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE121FD96D23005C158A /* BinderViewController.m */; };
-		D46AD4451FF2039B00C03FF3 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D406B0511FEAB854003AADEE /* RokidSDK.framework */; };
-		D46AD4461FF2039B00C03FF3 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D406B0511FEAB854003AADEE /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4B5748E200F2B7A00C20D0E /* CardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5748D200F2B7A00C20D0E /* CardListViewController.m */; };
-		D4D18C4A2008BB8B003DFEC3 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */; };
-		D4D18C4B2008BB8B003DFEC3 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4B574B0200F9E0300C20D0E /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B574AF200F9E0300C20D0E /* RokidSDK.framework */; };
+		D4B574B6200FA06600C20D0E /* WebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B574B5200FA06600C20D0E /* WebviewViewController.m */; };
+		D4B574B7200FA0E400C20D0E /* CardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5748D200F2B7A00C20D0E /* CardListViewController.m */; };
+		D4B574B8200FA0E800C20D0E /* WebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B574B5200FA06600C20D0E /* WebviewViewController.m */; };
+		D4B574B9200FA0FA00C20D0E /* config-example.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE31FFF706C00324778 /* config-example.plist */; };
+		D4B574BA200FA0FA00C20D0E /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE91FFF778E00324778 /* config.plist */; };
+		D4B574BC200FA12A00C20D0E /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4B574AF200F9E0300C20D0E /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4B574BE200FA13900C20D0E /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D406B0511FEAB854003AADEE /* RokidSDK.framework */; };
+		D4B574BF200FA13900C20D0E /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D406B0511FEAB854003AADEE /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4B574C2200FA24600C20D0E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B574C1200FA24600C20D0E /* WebKit.framework */; };
+		D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B574C1200FA24600C20D0E /* WebKit.framework */; };
+		D4B574C7200FA68B00C20D0E /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = D4B574C6200FA68A00C20D0E /* test.html */; };
+		D4B574C8200FA68B00C20D0E /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = D4B574C6200FA68A00C20D0E /* test.html */; };
 		D4D18C4D2008C083003DFEC3 /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AFFE71FFF741900324778 /* Properties.m */; };
 		D4D38EEC1FF354790006BC0E /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE0F1FD96D0C005C158A /* DeviceListViewController.m */; };
 		D4D38EED1FF354790006BC0E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951451FCE5D360091179D /* MainViewController.m */; };
@@ -38,24 +46,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D46AD4441FF2009B00C03FF3 /* Embed Frameworks */ = {
+		D4B574BD200FA12A00C20D0E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D46AD4461FF2039B00C03FF3 /* RokidSDK.framework in Embed Frameworks */,
+				D4B574BC200FA12A00C20D0E /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4D18C4C2008BB8B003DFEC3 /* Embed Frameworks */ = {
+		D4B574C0200FA13900C20D0E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D4D18C4B2008BB8B003DFEC3 /* RokidSDK.framework in Embed Frameworks */,
+				D4B574BF200FA13900C20D0E /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +76,6 @@
 		942F6C272199D10C985F1A66 /* Pods-RokidSDKDemoObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.debug.xcconfig"; sourceTree = "<group>"; };
 		A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RokidSDKDemoObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D406B0511FEAB854003AADEE /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
-		D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../Library/Developer/Xcode/DerivedData/rokid-fdtpzqabsnpigzehnkfolicscxkb/Build/Products/Debug-iphonesimulator/RokidSDK.framework"; sourceTree = "<group>"; };
 		D43AFFE31FFF706C00324778 /* config-example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "config-example.plist"; sourceTree = "<group>"; };
 		D43AFFE61FFF741900324778 /* Properties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		D43AFFE71FFF741900324778 /* Properties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
@@ -79,6 +86,11 @@
 		D43DCE121FD96D23005C158A /* BinderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinderViewController.m; sourceTree = "<group>"; };
 		D4B5748C200F2B7A00C20D0E /* CardListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardListViewController.h; sourceTree = "<group>"; };
 		D4B5748D200F2B7A00C20D0E /* CardListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardListViewController.m; sourceTree = "<group>"; };
+		D4B574AF200F9E0300C20D0E /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/rokid-acxohssbdvezsyalkdiougeixsma/Build/Products/Debug-iphonesimulator/RokidSDK.framework"; sourceTree = "<group>"; };
+		D4B574B4200FA06600C20D0E /* WebviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewViewController.h; sourceTree = "<group>"; };
+		D4B574B5200FA06600C20D0E /* WebviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewViewController.m; sourceTree = "<group>"; };
+		D4B574C1200FA24600C20D0E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D4B574C6200FA68A00C20D0E /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		D4D38EFF1FF354790006BC0E /* DontUse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DontUse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D38F001FF354790006BC0E /* Info-dont-use.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-dont-use.plist"; path = "RokidSDKDemoObjc/Resources/Info-dont-use.plist"; sourceTree = SOURCE_ROOT; };
 		D4EF1D7F1FEBD84100195BE7 /* RokidSDKDemoObjc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RokidSDKDemoObjc.entitlements; sourceTree = "<group>"; };
@@ -101,8 +113,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D18C4A2008BB8B003DFEC3 /* RokidSDK.framework in Frameworks */,
+				D4B574C2200FA24600C20D0E /* WebKit.framework in Frameworks */,
 				E144CBF70360D6FF96B18F38 /* Pods_DontUse.framework in Frameworks */,
+				D4B574B0200F9E0300C20D0E /* RokidSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,9 +123,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
-				D46AD4451FF2039B00C03FF3 /* RokidSDK.framework in Frameworks */,
-				15F205CDF152A60267070FB9 /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
+				D4B574BE200FA13900C20D0E /* RokidSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +164,7 @@
 		D43AFFD91FFF6C7F00324778 /* dont-use */ = {
 			isa = PBXGroup;
 			children = (
-				D43AFFDD1FFF6CF300324778 /* RokidSDK.framework */,
+				D4B574AF200F9E0300C20D0E /* RokidSDK.framework */,
 			);
 			name = "dont-use";
 			sourceTree = "<group>";
@@ -171,6 +184,8 @@
 				D43DCE0F1FD96D0C005C158A /* DeviceListViewController.m */,
 				D43AFFE61FFF741900324778 /* Properties.h */,
 				D43AFFE71FFF741900324778 /* Properties.m */,
+				D4B574B4200FA06600C20D0E /* WebviewViewController.h */,
+				D4B574B5200FA06600C20D0E /* WebviewViewController.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -178,6 +193,7 @@
 		D43AFFE11FFF6DBF00324778 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4B574C6200FA68A00C20D0E /* test.html */,
 				D4F9514F1FCE5D360091179D /* Info.plist */,
 				D4F951501FCE5D360091179D /* main.m */,
 				D4EF1D7F1FEBD84100195BE7 /* RokidSDKDemoObjc.entitlements */,
@@ -223,6 +239,7 @@
 		D4F951571FCE5DEA0091179D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4B574C1200FA24600C20D0E /* WebKit.framework */,
 				A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */,
 				E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */,
 			);
@@ -240,9 +257,9 @@
 				D4D38EEB1FF354790006BC0E /* Sources */,
 				D4D38EF11FF354790006BC0E /* Frameworks */,
 				D4D38EF41FF354790006BC0E /* Resources */,
-				D4D18C4C2008BB8B003DFEC3 /* Embed Frameworks */,
 				F0EF419D0F8FCE1BBE767879 /* [CP] Embed Pods Frameworks */,
 				28435E9D244E80DBB24C8CEC /* [CP] Copy Pods Resources */,
+				D4B574BD200FA12A00C20D0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,7 +280,7 @@
 				D4F9513C1FCE5D360091179D /* Resources */,
 				393A47C129C15F770947D7D8 /* [CP] Embed Pods Frameworks */,
 				722B957E991B58181C375D0C /* [CP] Copy Pods Resources */,
-				D46AD4441FF2009B00C03FF3 /* Embed Frameworks */,
+				D4B574C0200FA13900C20D0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,6 +339,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B574B9200FA0FA00C20D0E /* config-example.plist in Resources */,
+				D4B574BA200FA0FA00C20D0E /* config.plist in Resources */,
+				D4B574C8200FA68B00C20D0E /* test.html in Resources */,
 				D4D38EF51FF354790006BC0E /* LaunchScreen.storyboard in Resources */,
 				D4D38EF61FF354790006BC0E /* Assets.xcassets in Resources */,
 				D4D38EF71FF354790006BC0E /* Main.storyboard in Resources */,
@@ -334,6 +354,7 @@
 			files = (
 				D43AFFE41FFF706C00324778 /* config-example.plist in Resources */,
 				D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */,
+				D4B574C7200FA68B00C20D0E /* test.html in Resources */,
 				D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */,
 				D4F951491FCE5D360091179D /* Main.storyboard in Resources */,
 				D43AFFEA1FFF778E00324778 /* config.plist in Resources */,
@@ -476,6 +497,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B574B8200FA0E800C20D0E /* WebviewViewController.m in Sources */,
+				D4B574B7200FA0E400C20D0E /* CardListViewController.m in Sources */,
 				D4D18C4D2008C083003DFEC3 /* Properties.m in Sources */,
 				D4D38EEC1FF354790006BC0E /* DeviceListViewController.m in Sources */,
 				D4D38EED1FF354790006BC0E /* MainViewController.m in Sources */,
@@ -491,6 +514,7 @@
 			files = (
 				D4B5748E200F2B7A00C20D0E /* CardListViewController.m in Sources */,
 				D43DCE101FD96D0C005C158A /* DeviceListViewController.m in Sources */,
+				D4B574B6200FA06600C20D0E /* WebviewViewController.m in Sources */,
 				D4F951461FCE5D360091179D /* MainViewController.m in Sources */,
 				D43AFFE81FFF741900324778 /* Properties.m in Sources */,
 				D43DCE131FD96D23005C158A /* BinderViewController.m in Sources */,
@@ -531,7 +555,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/yock/Library/Developer/Xcode/DerivedData/rokid-fdtpzqabsnpigzehnkfolicscxkb/Build/Products/Debug-iphonesimulator",
+					"/Users/yock/Library/Developer/Xcode/DerivedData/rokid-acxohssbdvezsyalkdiougeixsma/Build/Products/Debug-iphonesimulator",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info-dont-use.plist";
@@ -555,7 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/yock/Library/Developer/Xcode/DerivedData/rokid-fdtpzqabsnpigzehnkfolicscxkb/Build/Products/Debug-iphonesimulator",
+					"/Users/yock/Library/Developer/Xcode/DerivedData/rokid-acxohssbdvezsyalkdiougeixsma/Build/Products/Debug-iphonesimulator",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info-dont-use.plist";

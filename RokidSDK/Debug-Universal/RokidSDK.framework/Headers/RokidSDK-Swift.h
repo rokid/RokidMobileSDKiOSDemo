@@ -176,6 +176,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreBluetooth;
 @import ObjectiveC;
 @import CocoaAsyncSocket;
+@import WebKit;
 @import UIKit;
 #endif
 
@@ -481,6 +482,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 SWIFT_CLASS("_TtC8RokidSDK13RKSummaryCard")
 @interface RKSummaryCard : RKCard
+@end
+
+@class WKWebView;
+@class WKUserContentController;
+@class WKScriptMessage;
+
+SWIFT_CLASS("_TtC8RokidSDK15RKWebViewBridge")
+@interface RKWebViewBridge : NSObject <WKScriptMessageHandler>
+- (nonnull instancetype)init:(WKWebView * _Null_unspecified)webView OBJC_DESIGNATED_INITIALIZER;
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 

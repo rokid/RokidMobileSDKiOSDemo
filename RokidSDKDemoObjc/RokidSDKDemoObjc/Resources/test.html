@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<br>
+    <head>
+        <meta charset="utf-8">
+        <title>H5 Bridge Test</title>
+        <style>
+            button {
+                width: 45rem;
+                height: 6rem;
+                font-size: 3rem;
+            }
+
+            input {
+                width: 45rem;
+                height: 5rem;
+                font-size: 3rem;
+            }
+
+            label {
+                font-size: 6rem;
+            }
+            a {
+                font-size: 6rem;
+            }
+        </style>
+    </head>
+
+        <label>Pasteboard Set and Get</label>
+        <input id="pasteboardSet" type="text" placeholder="set" value="">
+        </br>
+        <input id="pasteboardGet" type="text" placeholder="get" value="">
+        </br>
+        <button type="button" onclick="pasteboardSet()">set</button>
+        </br>
+        <button type="button" onclick="pasteboardGet()">get</button>
+        
+    </body>
+    <script type="text/javascript">
+        (function() {
+            window.pasteboardSet = () => {
+                console.log("pasteboardSet")
+                const text = document.getElementById("pasteboardSet").value;
+                likeBridge.Phone.Pasteboard.set(text);
+            };
+
+            window.pasteboardGet = () => {
+              console.log("pasteboardGet")
+                var cb = function(params) {
+                  var text = params["result"]["text"]
+                  document.getElementById("pasteboardGet").value = text
+                  alert(text)
+                };
+                likeBridge.Phone.Pasteboard.get(cb);
+            };
+         
+            window.setTitle = () => {
+
+            };
+        })();
+    </script>
+</html>
