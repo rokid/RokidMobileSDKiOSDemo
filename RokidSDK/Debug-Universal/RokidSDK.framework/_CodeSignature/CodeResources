@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/RokidSDK-Swift.h</key>
 		<data>
-		A/+BtQQfhQGSXK33jqUfN4H4fW4=
+		UDg5jdq+gvqGdnKA0eeh4TAT+Kc=
 		</data>
 		<key>Headers/RokidSDK.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		r6t10+mK/3ohlu6DNVz8Wl0YJf0=
+		WS4jQMpAb9qKR5w6Ad1TxK3WtO8=
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -30,15 +30,11 @@
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		3laLU0BEHJkj9VyAhZTnL0JjfW4=
+		GBQpXy0YzNupMpctbUQ+0yIakkg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		KOhC9LXQe+tTxgAjNkBl4cgtWdg=
-		</data>
-		<key>bridge.js</key>
-		<data>
-		wq+r34x7YrkSo29g3wdS3B+pE08=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -47,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A/+BtQQfhQGSXK33jqUfN4H4fW4=
+			UDg5jdq+gvqGdnKA0eeh4TAT+Kc=
 			</data>
 			<key>hash2</key>
 			<data>
-			FC4YKZadMH2+yYSP/Inj0rp8MqpVxq5bYJjWeU3NZgg=
+			bW0RSa4QJzT643qT2bGtZcBrVkPDT6GeupbtQfz0fl4=
 			</data>
 		</dict>
 		<key>Headers/RokidSDK.h</key>
@@ -80,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			r6t10+mK/3ohlu6DNVz8Wl0YJf0=
+			WS4jQMpAb9qKR5w6Ad1TxK3WtO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			PvL8Jqf2pWAqNqMsKZXIdjk3hwnhDQpAYXzSMibkw5I=
+			uUV76bPru/0GxUGRKeuhpy5NBDgiuviE/AXQ/mZPbH4=
 			</data>
 		</dict>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
@@ -102,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3laLU0BEHJkj9VyAhZTnL0JjfW4=
+			GBQpXy0YzNupMpctbUQ+0yIakkg=
 			</data>
 			<key>hash2</key>
 			<data>
-			RVXwa4yl0rI/pwkeTuAh5cLbXiCvJdlEBLjKl2oEbGA=
+			H5mU51augUcTTBqYW3C7hLYMcOgQZvNJQbcZHBEzyvs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -118,17 +114,6 @@
 			<key>hash2</key>
 			<data>
 			zDn1XjMV6U29a3O86l7e9N587kv9tvHb9cxR30K4XcE=
-			</data>
-		</dict>
-		<key>bridge.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wq+r34x7YrkSo29g3wdS3B+pE08=
-			</data>
-			<key>hash2</key>
-			<data>
-			fpzcERzY/AS8Bo4IYM8AgmoBlQ/dOF05Bh3k/LyNdk8=
 			</data>
 		</dict>
 	</dict>

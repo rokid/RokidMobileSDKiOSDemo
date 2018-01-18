@@ -8,12 +8,15 @@
 
 #import "WebviewViewController.h"
 #import <WebKit/WebKit.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 @import RokidSDK;
 
-@interface WebviewViewController ()
+@interface WebviewViewController () <RKBridgeModuleViewDelegate>
 
 @property (strong, nonatomic) WKWebView *webView;
-@property (strong, nonatomic) RKWebViewBridge *webbridge;
+@property (weak, nonatomic) RKWebBridge *webbridge;
+
+@property (weak, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -24,7 +27,10 @@
     // Do any additional setup after loading the view.
     
     self.webView = [[WKWebView alloc] init];
-    self.webbridge = [[RKWebViewBridge alloc] init:self.webView];
+    self.webbridge = [RKWebBridge injectWebBridgeTo:self.webView];
+    
+    RKBridgeModuleView *module = (RKBridgeModuleView *) [self.webbridge getModuleBy:RKWebBridge.ModuleNameNativeUI];
+    module.delegate = self;
     
     [self.view addSubview:self.webView];
     self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -47,5 +53,44 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)toast:(NSString * _Nonnull)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = message;
+    hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
+    [hud hideAnimated:YES afterDelay:1.5f];
+}
+
+- (void)showLoading:(NSString * _Nonnull)message {
+    if (self.hud != nil) {
+        [self.hud hideAnimated:false];
+    }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.label.text = message;
+    self.hud = hud;
+}
+
+- (void)hideLoading {
+    [self.hud hideAnimated: true];
+}
+
+- (void)setNavigationBarTitle:(NSString * _Nonnull)title {
+    NSLog(@"setNavigationBarTitle %@", title);
+}
+
+- (void)setNavigationRightButton:(NSDictionary<NSString *,id> * _Nonnull)button {
+    NSLog(@"setNavigationRightButton %@", button);
+}
+
+- (void)setNavigationViewStyle:(NSString * _Nonnull)style {
+    NSLog(@"setNavigationViewStyle %@", style);
+}
+
+- (void)setRightViewDotStatus:(BOOL)status {
+    NSLog(@"setRightViewDotStatus %@", status ? @"YES" : @"NO");
+}
+
+
 
 @end

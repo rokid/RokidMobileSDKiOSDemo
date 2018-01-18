@@ -1,115 +1,119 @@
 function bridgeReq(moduleName, methodName, params, callback) {
-  window.RokidWebViewBridge.jsToNative("request", moduleName, methodName, params, callback);
+  window.RokidWebBridge.jsToNative("request", moduleName, methodName, params, callback);
 }
 
-const likeBridge = {}
+var taro = window.taro || {};
 
-likeBridge.Phone = {
-  version: "1.0",
-  moduleName: "Phone",
-  Pasteboard: {
+taro.Phone = new function() {
+  var self = this;
+  self.moduleName = "Phone";
+  self.version = "1.0";
+  self.Pasteboard = {
     set: function(text, callback) {
-      bridgeReq(likeBridge.Phone.moduleName, "pasteboardSet", {
+      bridgeReq(self.moduleName, "pasteboardSet", {
         "text": text
       }, callback);
     },
     get: function(callback) {
-      bridgeReq(likeBridge.Phone.moduleName, "pasteboardGet", {}, callback);
+      bridgeReq(self.moduleName, "pasteboardGet", {}, callback);
     }
-  },
-  Socket: {
+  };
+  self.Socket = {
     sendUdp: function(host, port, data, callback) {
-      bridgeReq(likeBridge.Phone.moduleName, "socketSendUdp", {
+      bridgeReq(self.moduleName, "socketSendUdp", {
         "host": host,
         "port": port,
         "data": data
       }, callback);
     }
-  },
+  };
 }
 
-likeBridge.App = {
-  version: "1.0",
-  moduleName: "App",
-  Account: {
+taro.App = new function() {
+  var self = this;
+  self.moduleName = "App",
+  self.version = "1.0",
+  self.Account = {
     getInfo: function(callback) {
-      bridgeReq(App.moduleName, "getUserInfo", {}, callback);
+      bridgeReq(self.moduleName, "getUserInfo", {}, callback);
     }
-  },
-  Wifi: {
+  };
+  self.Wifi = {
     getInfo: function(callback) {
-      bridgeReq(App.moduleName, "getWifiInfo", {}, callback);
+      bridgeReq(self.moduleName, "getWifiInfo", {}, callback);
     }
-  },
-  Device: {
+  };
+  self.Device = {
     switchDevice: function(auto_select, callback) {
-      bridgeReq(App.moduleName, "switchDevice", auto_select ? {
+      bridgeReq(self.moduleName, "switchDevice", auto_select ? {
         "auto_select": auto_select
       } : {}, callback);
     }
-  }
+  };
 }
 
-likeBridge.NativeUI = {
-  version: "1.0",
-  moduleName: "View",
-  Toast: {
+taro.NativeUI = new function() {
+  var self = this;
+  self.moduleName = "View";
+  self.version = "1.0";
+  self.Toast = {
     show: function(message, callback) {
-      bridgeReq(NativeUI.moduleName, "toast", {
+      bridgeReq(self.moduleName, "toast", {
         "message": message
       }, callback);
     }
-  },
-  Hub: {
+  };
+  self.Hub = {
     show: function(message, callback) {
-      bridgeReq(NativeUI.moduleName, "hud", {
+      bridgeReq(self.moduleName, "hud", {
         "action": "show",
         "message": message
       }, callback);
     },
     hide: function() {
-      bridgeReq(NativeUI.moduleName, "hud", {
+      bridgeReq(self.moduleName, "hud", {
         "action": "hide"
       }, callback);
     }
-  },
-  NavigationBar: {
+  };
+  self.NavigationBar = {
     setInfo: function(title, style, buttons, callback) {
-      bridgeReq(NativeUI.moduleName, "navigationBarInfo", {
+      bridgeReq(self.moduleName, "navigationBarInfo", {
         "title": title,
         "style": style,
         "buttons": buttons
       }, callback);
     },
     setRightDot: function(status, callback) {
-      bridgeReq(NativeUI.moduleName, "navigatorBarRightDot", {
+      bridgeReq(self.moduleName, "navigatorBarRightDot", {
         "status": status
       }, callback);
     }
-  }
+  };
 }
 
-likeBridge.Media = {
-  version: "1.0",
-  moduleName: "Media",
-  V1: {
+taro.Media = new function() {
+  var self = this;
+  self.moduleName = "Media";
+  self.version = "1.0";
+  self.V1 = {
     buildBody: function(intent, params, callback) {
-      bridgeReq(Media.moduleName, "buildBody", {
+      bridgeReq(self.moduleName, "buildBody", {
         "intent": intent,
         "params": params
       }, callback);
     }
-  },
-  V3: {
+  };
+  self.V3 = {
     buildRequest: function(appId, intent, params, callback) {
-      bridgeReq(Media.moduleName, "buildRequest", {
+      bridgeReq(self.moduleName, "buildRequest", {
         "appId": appId,
         "intent": intent,
         "params": params
       }, callback);
     },
     control: function(appId, intent, dataType, index, items, callback) {
-      bridgeReq(Media.moduleName, "control", {
+      bridgeReq(self.moduleName, "control", {
         "appId": appId,
         "intent": intent,
         "params": {
@@ -120,7 +124,7 @@ likeBridge.Media = {
       }, callback);
     },
     open: function(appId, url, dataType, id, extend) {
-      bridgeReq(Media.moduleName, "open", {
+      bridgeReq(self.moduleName, "open", {
         "appId": appId,
         "url": url,
         "params": {
@@ -130,36 +134,38 @@ likeBridge.Media = {
         }
       }, callback);
     }
-  }
+  };
 }
 
-likeBridge.OAuth = {
-  version: "1.0",
-  moduleName: "OAuth",
-  wechatAuth: function(callbackURL, callback) {
-    bridgeReq(OAuth.moduleName, "wechatAuth", {
+taro.OAuth = new function() {
+  var self = this;
+  self.moduleName = "OAuth";
+  self.version = "1.0";
+  self.wechatAuth = function(callbackURL, callback) {
+    bridgeReq(self.moduleName, "wechatAuth", {
       "callbackURL": callbackURL
     }, callback);
-  },
-  qqAuth: function(callbackURL, callback) {
-    bridgeReq(OAuth.moduleName, "qqAuth", {
+  };
+  self.qqAuth = function(callbackURL, callback) {
+    bridgeReq(self.moduleName, "qqAuth", {
       "callbackURL": callbackURL
     }, callback);
-  }
+  };
 }
 
-likeBridge.SmartHome = {
-  version: "1.0",
-  moduleName: "SmartHome",
-  MiHome: {
+taro.SmartHome = new function() {
+  var self = this;
+  self.moduleName = "SmartHome";
+  self.version = "1.0";
+  self.MiHome = {
     auth: function(did, callbackURL, callback) {
-      bridgeReq(SmartHome.moduleName, "miHomeAuth", {
+      bridgeReq(self.moduleName, "miHomeAuth", {
         "did": did,
         "callbackURL": callbackURL
       }, callback);
     },
     bind: function(did, dsn, model, token, timestamp, callbackURL, callback) {
-      bridgeReq(SmartHome.moduleName, "miHomeAuth", {
+      bridgeReq(self.moduleName, "miHomeAuth", {
         "did": did,
         "dsn": dsn,
         "model": model,
@@ -168,5 +174,5 @@ likeBridge.SmartHome = {
         "callbackURL": callbackURL
       }, callback);
     }
-  }
+  };
 }

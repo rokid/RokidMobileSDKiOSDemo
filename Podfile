@@ -42,6 +42,7 @@ target 'RokidSDKDemoObjc' do
   pod 'Starscream', '2.0.3'
 
   pod 'MJRefresh'
+  pod 'MBProgressHUD', '~> 1.1.0'
 end
 
 
@@ -60,4 +61,5 @@ target 'DontUse' do
   pod 'Starscream', '2.0.3'
 
   pod 'MJRefresh'
+  pod 'MBProgressHUD', '~> 1.1.0'
 end

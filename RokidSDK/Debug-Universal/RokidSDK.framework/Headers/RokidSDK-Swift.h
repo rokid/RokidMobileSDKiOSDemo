@@ -325,6 +325,32 @@ SWIFT_CLASS("_TtC8RokidSDK21RKBLEDeviceBinderData")
 @end
 
 
+SWIFT_CLASS("_TtC8RokidSDK17RKWebBridgeModule")
+@interface RKWebBridgeModule : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@protocol RKBridgeModuleViewDelegate;
+
+SWIFT_CLASS("_TtC8RokidSDK18RKBridgeModuleView")
+@interface RKBridgeModuleView : RKWebBridgeModule
+@property (nonatomic, strong) id <RKBridgeModuleViewDelegate> _Nullable delegate;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8RokidSDK26RKBridgeModuleViewDelegate_")
+@protocol RKBridgeModuleViewDelegate
+- (void)toast:(NSString * _Nonnull)message;
+- (void)showLoading:(NSString * _Nonnull)message;
+- (void)hideLoading;
+- (void)setNavigationBarTitle:(NSString * _Nonnull)title;
+- (void)setNavigationViewStyle:(NSString * _Nonnull)style;
+- (void)setNavigationRightButton:(NSDictionary<NSString *, id> * _Nonnull)button;
+- (void)setRightViewDotStatus:(BOOL)status;
+@end
+
+
 SWIFT_CLASS("_TtC8RokidSDK6RKCard")
 @interface RKCard : NSObject
 @property (nonatomic, copy) NSString * _Nullable msgStamp;
@@ -484,16 +510,24 @@ SWIFT_CLASS("_TtC8RokidSDK13RKSummaryCard")
 @interface RKSummaryCard : RKCard
 @end
 
-@class WKWebView;
 @class WKUserContentController;
 @class WKScriptMessage;
 
-SWIFT_CLASS("_TtC8RokidSDK15RKWebViewBridge")
-@interface RKWebViewBridge : NSObject <WKScriptMessageHandler>
-- (nonnull instancetype)init:(WKWebView * _Null_unspecified)webView OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC8RokidSDK11RKWebBridge")
+@interface RKWebBridge : NSObject <WKScriptMessageHandler>
+- (RKWebBridgeModule * _Nullable)getModuleBy:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 - (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
+
+@class WKWebView;
+
+@interface RKWebBridge (SWIFT_EXTENSION(RokidSDK))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ModuleNameNativeUI;)
++ (NSString * _Nonnull)ModuleNameNativeUI SWIFT_WARN_UNUSED_RESULT;
++ (RKWebBridge * _Nonnull)injectWebBridgeTo:(WKWebView * _Nonnull)webView SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 
 SWIFT_CLASS("_TtC8RokidSDK14RokidMobileSDK")
