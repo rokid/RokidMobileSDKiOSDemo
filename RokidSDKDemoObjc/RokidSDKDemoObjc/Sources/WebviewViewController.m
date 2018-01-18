@@ -27,8 +27,11 @@
     // Do any additional setup after loading the view.
     
     self.webView = [[WKWebView alloc] init];
+    
+    // 注入RKWebBridge
     self.webbridge = [RKWebBridge injectWebBridgeTo:self.webView];
     
+    // 设置 RKBridgeModuleViewDelegate，用于实现 Native UI 的功能
     RKBridgeModuleView *module = (RKBridgeModuleView *) [self.webbridge getModuleBy:RKWebBridge.ModuleNameNativeUI];
     module.delegate = self;
     
