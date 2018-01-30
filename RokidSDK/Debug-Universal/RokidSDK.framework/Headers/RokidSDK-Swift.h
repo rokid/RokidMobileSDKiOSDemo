@@ -374,6 +374,7 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @interface RKDevice : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
 @property (nonatomic, copy) NSString * _Nullable ota;
+@property (nonatomic, copy) NSString * _Nullable deviceTypeId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull nick;
 @property (nonatomic, copy) NSString * _Nonnull rcVersion;
 @property (nonatomic) BOOL alive;
@@ -392,9 +393,6 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 
 
 
-@interface RKDevice (SWIFT_EXTENSION(RokidSDK))
-@property (nonatomic, readonly, copy) NSString * _Nonnull typeId;
-@end
 
 
 @interface RKDevice (SWIFT_EXTENSION(RokidSDK))
@@ -544,6 +542,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKHomeManage
 + (RKHomeManager * _Nullable)home SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 - (void)initSDKWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret accessKey:(NSString * _Nonnull)accessKey completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable))completion SWIFT_METHOD_FAMILY(none);
+@property (nonatomic, copy) NSString * _Nullable customSchema;
 @property (nonatomic) BOOL debug;
 @end
 

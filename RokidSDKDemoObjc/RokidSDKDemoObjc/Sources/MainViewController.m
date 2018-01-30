@@ -42,8 +42,9 @@
             self.view.userInteractionEnabled = YES;
             
             [self addNotificationObserver];
-        }
+        };
 
+        RokidMobileSDK.shared.customSchema = @"xmly";
     }];
 
 }
