@@ -93,8 +93,6 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-RokidSDK
-
 # Android/IJ
 #
 .idea
