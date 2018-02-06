@@ -44,7 +44,7 @@
             [self addNotificationObserver];
         };
 
-        RokidMobileSDK.shared.customSchema = @"xmly";
+        //RokidMobileSDK.shared.customSchema = @"xmly";
     }];
 
 }

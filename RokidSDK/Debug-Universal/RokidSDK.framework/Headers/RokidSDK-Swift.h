@@ -325,6 +325,15 @@ SWIFT_CLASS("_TtC8RokidSDK21RKBLEDeviceBinderData")
 @end
 
 
+SWIFT_PROTOCOL("_TtP8RokidSDK25RKBridgeModuleAppDelegate_")
+@protocol RKBridgeModuleAppDelegate
+- (void)close;
+- (void)openWithTitle:(NSString * _Nonnull)title urlStr:(NSString * _Nonnull)urlStr;
+- (void)openNewWebViewWithTitle:(NSString * _Nonnull)title urlStr:(NSString * _Nonnull)urlStr;
+- (void)openExternalWithUrlStr:(NSString * _Nonnull)urlStr;
+@end
+
+
 SWIFT_CLASS("_TtC8RokidSDK17RKWebBridgeModule")
 @interface RKWebBridgeModule : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -341,13 +350,14 @@ SWIFT_CLASS("_TtC8RokidSDK18RKBridgeModuleView")
 
 SWIFT_PROTOCOL("_TtP8RokidSDK26RKBridgeModuleViewDelegate_")
 @protocol RKBridgeModuleViewDelegate
-- (void)toast:(NSString * _Nonnull)message;
-- (void)showLoading:(NSString * _Nonnull)message;
+- (void)showToastWithMessage:(NSString * _Nonnull)message;
+- (void)showLoadingWithMessage:(NSString * _Nonnull)message;
 - (void)hideLoading;
-- (void)setNavigationBarTitle:(NSString * _Nonnull)title;
-- (void)setNavigationViewStyle:(NSString * _Nonnull)style;
-- (void)setNavigationRightButton:(NSDictionary<NSString *, id> * _Nonnull)button;
-- (void)setRightViewDotStatus:(BOOL)status;
+- (void)setNavigationBarTitleWithTitle:(NSString * _Nonnull)title;
+- (void)setNavigationBarStyleWithStyle:(NSString * _Nonnull)style;
+- (void)setNavigationBarRightWithButton:(NSDictionary<NSString *, id> * _Nonnull)button;
+- (void)setNavigationBarRightDotStateWithState:(BOOL)state;
+- (void)errorViewWithState:(BOOL)state retryUrl:(NSString * _Nonnull)retryUrl;
 @end
 
 
@@ -504,6 +514,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @end
 
 
+SWIFT_CLASS("_TtC8RokidSDK14RKSKillManager")
+@interface RKSKillManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSKillManager * _Nonnull shared;)
++ (RKSKillManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_CLASS("_TtC8RokidSDK13RKSummaryCard")
 @interface RKSummaryCard : RKCard
 @end
@@ -540,9 +558,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKDeviceMana
 + (RKDeviceManager * _Nullable)device SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKHomeManager * _Nullable home;)
 + (RKHomeManager * _Nullable)home SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSKillManager * _Nullable skill;)
++ (RKSKillManager * _Nullable)skill SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 - (void)initSDKWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret accessKey:(NSString * _Nonnull)accessKey completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable))completion SWIFT_METHOD_FAMILY(none);
-@property (nonatomic, copy) NSString * _Nullable customSchema;
 @property (nonatomic) BOOL debug;
 @end
 

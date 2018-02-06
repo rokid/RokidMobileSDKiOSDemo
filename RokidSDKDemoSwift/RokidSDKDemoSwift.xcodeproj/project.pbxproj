@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9E117C20316ECD7F48BD8C45 /* Pods_RokidSDKDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82FFAE87CBA84C87BF1B33F /* Pods_RokidSDKDemoSwift.framework */; };
-		D4E090B81FD1979D004BBB73 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4660A7B1FCF0E42004B62BC /* RokidSDK.framework */; };
-		D4E090B91FD1979D004BBB73 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4660A7B1FCF0E42004B62BC /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4F951241FCE5D0B0091179D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F951231FCE5D0B0091179D /* AppDelegate.swift */; };
 		D4F951261FCE5D0B0091179D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F951251FCE5D0B0091179D /* ViewController.swift */; };
 		D4F951291FCE5D0B0091179D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F951271FCE5D0B0091179D /* Main.storyboard */; };
 		D4F9512B1FCE5D0B0091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9512A1FCE5D0B0091179D /* Assets.xcassets */; };
 		D4F9512E1FCE5D0B0091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9512C1FCE5D0B0091179D /* LaunchScreen.storyboard */; };
+		DD56984920295ABF000D8B81 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD56984820295ABF000D8B81 /* RokidSDK.framework */; };
+		DD56984A20295ABF000D8B81 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD56984820295ABF000D8B81 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D4E090B91FD1979D004BBB73 /* RokidSDK.framework in Embed Frameworks */,
+				DD56984A20295ABF000D8B81 /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,7 +34,6 @@
 /* Begin PBXFileReference section */
 		A84F9EC66900EC7F7C4E3A84 /* Pods-RokidSDKDemoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoSwift.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoSwift/Pods-RokidSDKDemoSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		B82FFAE87CBA84C87BF1B33F /* Pods_RokidSDKDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RokidSDKDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4660A7B1FCF0E42004B62BC /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../Library/Developer/Xcode/DerivedData/rokid-fdtpzqabsnpigzehnkfolicscxkb/Build/Products/Debug-iphoneos/RokidSDK.framework"; sourceTree = "<group>"; };
 		D4F951201FCE5D0B0091179D /* RokidSDKDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RokidSDKDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F951231FCE5D0B0091179D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4F951251FCE5D0B0091179D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		D4F9512A1FCE5D0B0091179D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4F9512D1FCE5D0B0091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9512F1FCE5D0B0091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD56984820295ABF000D8B81 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../RokidSDK/Debug-Universal/RokidSDK.framework"; sourceTree = "<group>"; };
 		E795AEC787AEF517C3C02F57 /* Pods-RokidSDKDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoSwift.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoSwift/Pods-RokidSDKDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E117C20316ECD7F48BD8C45 /* Pods_RokidSDKDemoSwift.framework in Frameworks */,
-				D4E090B81FD1979D004BBB73 /* RokidSDK.framework in Frameworks */,
+				DD56984920295ABF000D8B81 /* RokidSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 		D4F951171FCE5D0B0091179D = {
 			isa = PBXGroup;
 			children = (
-				D4660A7B1FCF0E42004B62BC /* RokidSDK.framework */,
+				DD56984820295ABF000D8B81 /* RokidSDK.framework */,
 				D4F951221FCE5D0B0091179D /* RokidSDKDemoSwift */,
 				D4F951211FCE5D0B0091179D /* Products */,
 				D4F9515A1FCE5DFA0091179D /* Frameworks */,
