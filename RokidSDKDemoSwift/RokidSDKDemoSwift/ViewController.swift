@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        RokidMobileSDK.shared.initSDK(appKey: "open-ximalay", appSecret: "4F1BA2AB383F460EB8B3208C76F9D340") { (result, error) in
+        RokidMobileSDK.shared.initSDK(appKey: "rokid-demo", appSecret: "rokid-demo-secret") { (result, error) in
             if let err_message = error?.message {
                 self.LabelSDKInitStatus.text = "\(result)" + " / " + err_message
             } else {
