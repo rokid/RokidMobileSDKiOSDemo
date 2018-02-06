@@ -46,7 +46,6 @@
 
         //RokidMobileSDK.shared.customSchema = @"xmly";
     }];
-
 }
 
 - (void)login

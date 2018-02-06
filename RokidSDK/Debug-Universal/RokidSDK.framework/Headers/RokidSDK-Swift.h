@@ -205,13 +205,13 @@ SWIFT_MODULE_NAMESPACE_PUSH("RokidSDK")
 
 
 
+
+
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
-
-
 
 
 SWIFT_CLASS("_TtC8RokidSDK5RBBLE")
@@ -291,6 +291,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKAccountMan
 
 
 
+
+
+SWIFT_CLASS("_TtC8RokidSDK7RKAlarm")
+@interface RKAlarm : NSObject
+@property (nonatomic, copy) NSString * _Null_unspecified date;
+@property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable ext;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
 
 
 SWIFT_CLASS("_TtC8RokidSDK11RKBLEDevice")
@@ -513,6 +521,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC8RokidSDK8RKRemind")
+@interface RKRemind : NSObject
+@property (nonatomic, copy) NSString * _Null_unspecified date;
+@property (nonatomic, copy) NSString * _Null_unspecified content;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
 @class RKSkillAlarmHelper;
 @class RKSkillRemindHelper;
 
@@ -531,6 +547,10 @@ SWIFT_CLASS("_TtC8RokidSDK18RKSkillAlarmHelper")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSkillAlarmHelper * _Nonnull shared;)
 + (RKSkillAlarmHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKAlarm *> * _Nullable))completion;
+- (BOOL)createWithDeviceId:(NSString * _Nonnull)deviceId alarm:(RKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId alarm:(RKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)updateWithDeviceId:(NSString * _Nonnull)deviceId alarm:(RKAlarm * _Nonnull)alarm to:(RKAlarm * _Nonnull)to SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -539,6 +559,8 @@ SWIFT_CLASS("_TtC8RokidSDK19RKSkillRemindHelper")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSkillRemindHelper * _Nonnull shared;)
 + (RKSkillRemindHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKRemind *> * _Nullable))completion;
+- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId remind:(RKRemind * _Nonnull)remind SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
