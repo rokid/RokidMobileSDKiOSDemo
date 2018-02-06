@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/RokidSDK-Swift.h</key>
 		<data>
-		VBCUGH63AHhaixoS7rVTwS/sVr4=
+		35t4h2T6tB1R8Ab170+do9ALDSw=
 		</data>
 		<key>Headers/RokidSDK.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		AOVcgsBVGGPr8L/SFFGLMBpjkTU=
+		hl/T2PeTN1ydF8kp93OzEJ4jnyo=
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		qgLHIY0VaGE8qEzXo+mrNDIaxFQ=
+		AUIB1QQy6wWzZfydFgqH+ryhhqo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VBCUGH63AHhaixoS7rVTwS/sVr4=
+			35t4h2T6tB1R8Ab170+do9ALDSw=
 			</data>
 			<key>hash2</key>
 			<data>
-			UzHb94nP7eaNxfuME2kXzFkmdwQ+YAvIOuRRIDcsYag=
+			L4rP3Zgqb/DIf3veGI/nLPYus4a53e+O/aimiRAUAyw=
 			</data>
 		</dict>
 		<key>Headers/RokidSDK.h</key>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AOVcgsBVGGPr8L/SFFGLMBpjkTU=
+			hl/T2PeTN1ydF8kp93OzEJ4jnyo=
 			</data>
 			<key>hash2</key>
 			<data>
-			CpBeSPekTrw5nDG7lisQrYui93cIxi5eszvF86uXd3o=
+			ExTqfJJvYXsjrycLzYsA3vMlzWju8rSvxqWYuArQBYo=
 			</data>
 		</dict>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qgLHIY0VaGE8qEzXo+mrNDIaxFQ=
+			AUIB1QQy6wWzZfydFgqH+ryhhqo=
 			</data>
 			<key>hash2</key>
 			<data>
-			mQS+kyA0rSLToUpLFwdrRcXFNUEwobj02rKZhgcLYiM=
+			TEBmmlKW9NNH+al6XOqlwnWCLieCFzh7LsrflZKxKeI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

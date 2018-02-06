@@ -513,11 +513,31 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class RKSkillAlarmHelper;
+@class RKSkillRemindHelper;
 
 SWIFT_CLASS("_TtC8RokidSDK14RKSKillManager")
 @interface RKSKillManager : NSObject
+@property (nonatomic, readonly, strong) RKSkillAlarmHelper * _Nonnull alarm;
+@property (nonatomic, readonly, strong) RKSkillRemindHelper * _Nonnull remind;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSKillManager * _Nonnull shared;)
 + (RKSKillManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK18RKSkillAlarmHelper")
+@interface RKSkillAlarmHelper : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSkillAlarmHelper * _Nonnull shared;)
++ (RKSkillAlarmHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK19RKSkillRemindHelper")
+@interface RKSkillRemindHelper : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSkillRemindHelper * _Nonnull shared;)
++ (RKSkillRemindHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
