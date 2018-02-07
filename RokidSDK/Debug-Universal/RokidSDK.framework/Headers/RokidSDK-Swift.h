@@ -295,7 +295,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKAccountMan
 
 SWIFT_CLASS("_TtC8RokidSDK7RKAlarm")
 @interface RKAlarm : NSObject
-@property (nonatomic, copy) NSString * _Null_unspecified date;
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable ext;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
@@ -401,6 +407,7 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 /// 缓存的getRokiInfos接口返回的结果，和RXAccountManager.Account中的缓存类似，获取和修改都会更新缓存；
 /// 不同的是，刷新设备列表时会返回basic_info namespace中的信息，所以这个缓存里几乎总是有值
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSDictionary<NSString *, id> *> * _Nonnull cachedInfos;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -524,8 +531,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 SWIFT_CLASS("_TtC8RokidSDK8RKRemind")
 @interface RKRemind : NSObject
-@property (nonatomic, copy) NSString * _Null_unspecified date;
-@property (nonatomic, copy) NSString * _Null_unspecified content;
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic, copy) NSString * _Nonnull content;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
