@@ -519,6 +519,7 @@ SWIFT_CLASS("_TtC8RokidSDK13RKHomeManager")
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
 - (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device;
+- (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device;
 @end
 
 
