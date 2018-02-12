@@ -52,7 +52,7 @@
 {
     // 使用若琪账号登录，暂时不确定如何开放登录的接口
     [RokidMobileSDK.account tempLoginWithName:@"13805786604"
-                                     password:@"123456"
+                                     password:@"111111"
                                      complete:^(NSString * uid, NSString * token, RKError * error) {
         if (!error) {
             NSLog(@"[Login] OK" );
@@ -116,6 +116,17 @@
             NSLog(@"设备不在线");
         } else {
             [RokidMobileSDK.home sendAsrWithAsr:@"你好若琪" to:device];
+        }
+    }
+}
+
+- (IBAction)sendTts:(id)sender {
+    RKDevice *device = [RokidMobileSDK.device getCurrentDevice];
+    if (device != nil) {
+        if (!device.alive) {
+            NSLog(@"设备不在线");
+        } else {
+            [RokidMobileSDK.home sendTtsWithTts:@"你好若琪" to:device];
         }
     }
 }
