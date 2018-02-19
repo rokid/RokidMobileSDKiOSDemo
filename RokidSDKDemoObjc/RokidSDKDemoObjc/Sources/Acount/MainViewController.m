@@ -56,13 +56,17 @@
                                      complete:^(NSString * uid, NSString * token, RKError * error) {
         if (!error) {
             NSLog(@"[Login] OK" );
+             [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
             
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert success" message:@"可以其他操作了" preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             }]];
             [self presentViewController:alert animated:true completion:nil];
             
+            
         } else {
+             [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
+            
             NSError *newError = [NSError errorWithDomain:@"RKError"
                                                     code:error.code
                                                 userInfo:@{
