@@ -122,6 +122,7 @@
                     [RokidMobileSDK.skill.alarm getListWithDeviceId:self.device.id  completion:^(RKError * error   , NSArray<RKAlarm *> * alarmArr) {
                         __block NSString * ret = @"";
                         if (error){
+                            NSLog(@"%ld，%@",(long)error.code, error.message);//Get alarms timeout
                         }else {
                             if ([alarmArr count] == 0){
                                 [UIAlertController showAlertFrom:self Title: @"tip"  Message:@"alarm not created" handle:^(UIAlertAction *action) {
@@ -144,8 +145,16 @@
                 break;
                 case 1:{
                     
+                    NSLog(@"RKAlarm 需要 先get ");
+                    return;
+                    
                     RKAlarm * alarm = [RKAlarm init];
-                    [RokidMobileSDK.skill.alarm createWithDeviceId:self.device.id alarm: alarm];
+                    BOOL bRet = [RokidMobileSDK.skill.alarm createWithDeviceId:self.device.id alarm: alarm];
+                    if (bRet){
+                        //create success
+                    }else {
+                        //create failed
+                    }
                 }
                 break;
                 case 2:{
@@ -155,7 +164,7 @@
                 }
                 break;
                 case 3:{
-                     //创建一个闹钟，选择一个闹钟，再删除
+                     //创建一个闹钟，选择一个闹钟，再更新
                     RKAlarm * alarm;
                     RKAlarm * alarmNew;
                     [RokidMobileSDK.skill.alarm updateWithDeviceId:self.device.id alarm:alarm to:alarmNew];

@@ -146,7 +146,7 @@
             return ret;
         }
         case 9:{//4.10 设置当前设备(本地缓存)
-            [UIAlertController showAlertFrom:self Title:@"提示"  Message:@"解绑设备" handle:^(UIAlertAction *action) {
+            [UIAlertController showAlertFrom:self Title:@"提示"  Message:@"设置当前设备" handle:^(UIAlertAction *action) {
                 [RokidMobileSDK.device setCurrentDeviceWithDevice:self.device];
                 
             } cancel:^(UIAlertAction *action) {
