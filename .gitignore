@@ -100,5 +100,5 @@ project.xcworkspace
 local.properties
 *.iml
 
-config.plist
+# config.plist
 Info-dont-use.plist

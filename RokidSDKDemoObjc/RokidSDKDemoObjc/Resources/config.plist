@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>appKey</key>
-	<string>some key</string>
+	<string>rokid-demo</string>
 	<key>appSecret</key>
-	<string>some secret</string>
+	<string>rokid-demo-secret</string>
 	<key>accessKey</key>
 	<string>some key</string>
 </dict>

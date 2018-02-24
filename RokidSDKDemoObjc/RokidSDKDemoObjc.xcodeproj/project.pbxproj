@@ -54,7 +54,6 @@
 		DD2A522420402DA30083CD4D /* UIAlertController+Rokid.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */; };
 		DD2A522A204107650083CD4D /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A5229204107640083CD4D /* RokidSDK.framework */; };
 		DD2A522B204107650083CD4D /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A5229204107640083CD4D /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD2A522D204114630083CD4D /* config-example.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD2A522C204114630083CD4D /* config-example.plist */; };
 		E144CBF70360D6FF96B18F38 /* Pods_DontUse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,7 +131,6 @@
 		D4F9514F1FCE5D360091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RokidSDKDemoObjc/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D4F951501FCE5D360091179D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DD2A5229204107640083CD4D /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/rokid-arqrqzratvmipkcekqedvrdarbpc/Build/Products/Debug-iphoneos/RokidSDK.framework"; sourceTree = "<group>"; };
-		DD2A522C204114630083CD4D /* config-example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "config-example.plist"; sourceTree = "<group>"; };
 		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,10 +279,9 @@
 				D4F951501FCE5D360091179D /* main.m */,
 				D4EF1D7F1FEBD84100195BE7 /* RokidSDKDemoObjc.entitlements */,
 				D4F9514A1FCE5D360091179D /* Assets.xcassets */,
-				D4F951471FCE5D360091179D /* Main.storyboard */,
 				D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */,
+				D4F951471FCE5D360091179D /* Main.storyboard */,
 				D4D38F001FF354790006BC0E /* Info-dont-use.plist */,
-				DD2A522C204114630083CD4D /* config-example.plist */,
 				D43AFFE31FFF706C00324778 /* config.plist */,
 			);
 			path = Resources;
@@ -441,7 +438,6 @@
 				D4B574C7200FA68B00C20D0E /* test.html in Resources */,
 				D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */,
 				D4F951491FCE5D360091179D /* Main.storyboard in Resources */,
-				DD2A522D204114630083CD4D /* config-example.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,7 +808,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rokid.RokidSDKDemoObjc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -836,7 +832,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rokid.RokidSDKDemoObjc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
