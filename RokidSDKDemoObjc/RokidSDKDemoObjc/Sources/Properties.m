@@ -48,15 +48,4 @@ static Properties *sharedProperties;
     return self.plist[@"accessKey"];
 }
 
-//@property (readonly, nonatomic) NSString *username;
-- (NSString *)username {
-    return self.plist[@"username"];
-}
-
-//@property (readonly, nonatomic) NSString *password;
-- (NSString *)password {
-    return self.plist[@"password"];
-}
-
-
 @end

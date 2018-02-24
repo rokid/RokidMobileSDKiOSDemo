@@ -283,8 +283,15 @@
                                     <constraint firstAttribute="height" constant="32" id="9yb-iS-RqJ"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="喜马拉雅 uid" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJh-vz-ANI">
-                                <rect key="frame" x="100" y="116" width="175" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhl-0d-Zca">
+                                <rect key="frame" x="43" y="121" width="77" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJh-vz-ANI">
+                                <rect key="frame" x="120" y="116" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="azc-az-ZtI"/>
                                 </constraints>
@@ -292,8 +299,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="喜马拉雅 token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glE-dQ-cFm">
-                                <rect key="frame" x="100" y="178" width="175" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glE-dQ-cFm">
+                                <rect key="frame" x="120" y="178" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3wU-Tj-7ub"/>
                                 </constraints>
@@ -336,13 +343,20 @@
                                 </constraints>
                                 <state key="normal" title="登出账号"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWI-qF-seK">
+                                <rect key="frame" x="43" y="183" width="77" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="XfE-2G-DUM" secondAttribute="trailing" constant="-6" id="12U-Oy-LRL"/>
                             <constraint firstItem="SOL-H1-BSO" firstAttribute="leading" secondItem="VCk-LF-FQS" secondAttribute="leading" constant="12" id="1JK-fE-Sgr"/>
                             <constraint firstItem="glE-dQ-cFm" firstAttribute="top" secondItem="ZJh-vz-ANI" secondAttribute="bottom" constant="32" id="2Jt-Vf-4yl"/>
-                            <constraint firstAttribute="trailing" secondItem="ZJh-vz-ANI" secondAttribute="trailing" constant="100" id="2yU-B9-oiB"/>
+                            <constraint firstAttribute="trailing" secondItem="ZJh-vz-ANI" secondAttribute="trailing" constant="50" id="2yU-B9-oiB"/>
                             <constraint firstItem="ZJh-vz-ANI" firstAttribute="top" secondItem="Wde-Zp-dSP" secondAttribute="bottom" constant="52" id="AOG-eG-9KD"/>
                             <constraint firstItem="b3l-sT-QVa" firstAttribute="trailing" secondItem="VCk-LF-FQS" secondAttribute="trailingMargin" id="BnO-ef-96v"/>
                             <constraint firstItem="XfE-2G-DUM" firstAttribute="leading" secondItem="VCk-LF-FQS" secondAttribute="leading" constant="6" id="EpP-in-O2C"/>
@@ -353,13 +367,13 @@
                             <constraint firstItem="Q4w-01-Uwz" firstAttribute="centerY" secondItem="VCk-LF-FQS" secondAttribute="centerY" constant="-37.5" id="O2z-aR-ylA"/>
                             <constraint firstItem="b3l-sT-QVa" firstAttribute="centerY" secondItem="VCk-LF-FQS" secondAttribute="centerY" constant="255.5" id="RE8-Ok-PxS"/>
                             <constraint firstItem="s4e-0i-HBL" firstAttribute="leading" secondItem="VCk-LF-FQS" secondAttribute="leading" constant="22" id="a58-gx-zbe"/>
-                            <constraint firstAttribute="trailing" secondItem="glE-dQ-cFm" secondAttribute="trailing" constant="100" id="bQ5-bw-BXB"/>
-                            <constraint firstItem="glE-dQ-cFm" firstAttribute="leading" secondItem="VCk-LF-FQS" secondAttribute="leading" constant="100" id="dxy-rc-QuX"/>
+                            <constraint firstAttribute="trailing" secondItem="glE-dQ-cFm" secondAttribute="trailing" constant="50" id="bQ5-bw-BXB"/>
+                            <constraint firstItem="glE-dQ-cFm" firstAttribute="leading" secondItem="VCk-LF-FQS" secondAttribute="leading" constant="120" id="dxy-rc-QuX"/>
                             <constraint firstItem="76a-lO-o5Q" firstAttribute="top" secondItem="b3l-sT-QVa" secondAttribute="bottom" constant="14" id="jZN-Rj-RTf"/>
                             <constraint firstItem="XfE-2G-DUM" firstAttribute="top" secondItem="s4e-0i-HBL" secondAttribute="bottom" constant="8" id="pSg-rb-DmW"/>
                             <constraint firstItem="s4e-0i-HBL" firstAttribute="top" secondItem="SOL-H1-BSO" secondAttribute="bottom" constant="107" id="s7N-Hf-9fu"/>
                             <constraint firstAttribute="trailing" secondItem="s4e-0i-HBL" secondAttribute="trailing" constant="10" id="uKi-fM-TmB"/>
-                            <constraint firstItem="ZJh-vz-ANI" firstAttribute="leading" secondItem="VCk-LF-FQS" secondAttribute="leading" constant="100" id="wTh-c7-LcZ"/>
+                            <constraint firstItem="ZJh-vz-ANI" firstAttribute="leading" secondItem="VCk-LF-FQS" secondAttribute="leading" constant="120" id="wTh-c7-LcZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="Sp2-VB-QFd"/>

@@ -205,13 +205,13 @@ SWIFT_MODULE_NAMESPACE_PUSH("RokidSDK")
 
 
 
-
-
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC8RokidSDK5RBBLE")
@@ -292,13 +292,35 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKAccountMan
 
 
 
+enum RKAlarmRepeatMode : NSInteger;
 
 SWIFT_CLASS("_TtC8RokidSDK7RKAlarm")
 @interface RKAlarm : NSObject
-@property (nonatomic, copy) NSString * _Null_unspecified date;
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic) enum RKAlarmRepeatMode repeatType;
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable ext;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, RKAlarmRepeatMode) {
+  RKAlarmRepeatModeOnce = -1,
+  RKAlarmRepeatModeEveryMondy = 0,
+  RKAlarmRepeatModeEveryTuesday = 1,
+  RKAlarmRepeatModeEveryWednesday = 2,
+  RKAlarmRepeatModeEveryThursday = 3,
+  RKAlarmRepeatModeEveryFriday = 4,
+  RKAlarmRepeatModeEverySaturday = 5,
+  RKAlarmRepeatModeEverySunday = 6,
+  RKAlarmRepeatModeWeekday = 7,
+  RKAlarmRepeatModeEveryday = 8,
+  RKAlarmRepeatModeWeekend = 9,
+};
 
 
 SWIFT_CLASS("_TtC8RokidSDK11RKBLEDevice")
@@ -401,6 +423,7 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 /// 缓存的getRokiInfos接口返回的结果，和RXAccountManager.Account中的缓存类似，获取和修改都会更新缓存；
 /// 不同的是，刷新设备列表时会返回basic_info namespace中的信息，所以这个缓存里几乎总是有值
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSDictionary<NSString *, id> *> * _Nonnull cachedInfos;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -496,6 +519,7 @@ SWIFT_CLASS("_TtC8RokidSDK13RKHomeManager")
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
 - (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device;
+- (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device;
 @end
 
 
@@ -524,9 +548,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 SWIFT_CLASS("_TtC8RokidSDK8RKRemind")
 @interface RKRemind : NSObject
-@property (nonatomic, copy) NSString * _Null_unspecified date;
-@property (nonatomic, copy) NSString * _Null_unspecified content;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic, copy) NSString * _Nonnull content;
+@property (nonatomic) enum RKAlarmRepeatMode repeatType;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class RKSkillAlarmHelper;
@@ -588,6 +619,20 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 
 
+SWIFT_CLASS("_TtC8RokidSDK10RokidAlarm")
+@interface RokidAlarm : NSObject
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable ext;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC8RokidSDK14RokidMobileSDK")
 @interface RokidMobileSDK : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RokidMobileSDK * _Nonnull shared;)
@@ -605,6 +650,20 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSKillManag
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 - (void)initSDKWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret accessKey:(NSString * _Nonnull)accessKey completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable))completion SWIFT_METHOD_FAMILY(none);
 @property (nonatomic) BOOL debug;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK11RokidRemind")
+@interface RokidRemind : NSObject
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic, copy) NSString * _Nonnull content;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

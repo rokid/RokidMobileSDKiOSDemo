@@ -134,7 +134,15 @@
                             }
                             [alarmArr enumerateObjectsUsingBlock:^(RKAlarm * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                                 RKAlarm * alarm = (RKAlarm *)obj;
-                                NSString * info = [NSString stringWithFormat: @"date:%@ , ext : %@", alarm.date, alarm.ext];
+                                NSString * info = [NSString stringWithFormat:
+                                                   @"year:%ld; month:%ld; day:%ld; hour:%ld; minute:%ld; date:%@; ext:%@",
+                                                   alarm.year,
+                                                   alarm.month,
+                                                   alarm.day,
+                                                   alarm.hour,
+                                                   alarm.minute,
+                                                   alarm.date,
+                                                   alarm.ext];
                                 ret = [NSString stringWithFormat: @"%@ \n %@",ret ,info];
                             }];
                         }
@@ -194,7 +202,16 @@
                             }
                             [remindArr enumerateObjectsUsingBlock:^(RKRemind * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                                 RKRemind * remind = (RKRemind *)obj;
-                                NSString * info = [NSString stringWithFormat: @"date:%@ , content : %@", remind.date, remind.content];
+                                NSString * info = [NSString stringWithFormat:
+                                                   @"year:%ld; month:%ld; day:%ld; hour:%ld; minute:%ld; date:%@; content:%@",
+                                                   remind.year,
+                                                   remind.month,
+                                                   remind.day,
+                                                   remind.hour,
+                                                   remind.minute,
+                                                   remind.date,
+                                                   remind.content];
+                                
                                 ret = [NSString stringWithFormat: @"%@ \n %@",ret ,info];
                             }];
                         }

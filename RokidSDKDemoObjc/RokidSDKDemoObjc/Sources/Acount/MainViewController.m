@@ -51,8 +51,8 @@
 - (void)login
 {
     // 使用若琪账号登录，暂时不确定如何开放登录的接口
-    [RokidMobileSDK.account tempLoginWithName:@"13805786604"
-                                     password:@"123456"
+    [RokidMobileSDK.account tempLoginWithName:self.telInput.text
+                                     password:self.passwordInput.text
                                      complete:^(NSString * uid, NSString * token, RKError * error) {
         if (!error) {
             NSLog(@"[Login] OK" );
