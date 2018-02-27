@@ -28,7 +28,11 @@
     /*
      * 等 SDK init 完成后才能进行 UI 操作, 简化 Demo 的逻辑
      */
-    self.view.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
+    [self.view addGestureRecognizer:tapGesture];
+    
 
     // SDK init
     [RokidMobileSDK.shared initSDKWithAppKey:Properties.shared.appKey
@@ -48,8 +52,15 @@
     }];
 }
 
+- (void)tapView:(UITapGestureRecognizer *)gesture {
+    [self.telInput resignFirstResponder];
+    [self.passwordInput resignFirstResponder];
+}
+
 - (void)login
 {
+    [self tapView:nil];
+    
     // 使用若琪账号登录，暂时不确定如何开放登录的接口
     [RokidMobileSDK.account tempLoginWithName:self.telInput.text
                                      password:self.passwordInput.text
