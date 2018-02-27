@@ -205,13 +205,13 @@ SWIFT_MODULE_NAMESPACE_PUSH("RokidSDK")
 
 
 
+
+
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
-
-
 
 
 SWIFT_CLASS("_TtC8RokidSDK5RBBLE")
@@ -262,12 +262,17 @@ SWIFT_CLASS("_TtC8RokidSDK11RBUDPSocket")
 @end
 
 
+/// RBVolume用来发送用户对手机音量+-按键的Notification事件
 SWIFT_CLASS("_TtC8RokidSDK8RBVolume")
 @interface RBVolume : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RBVolume * _Nonnull shared;)
 + (RBVolume * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic) float volume;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (void)setup;
+/// 开始监听用户按音量键点击
+- (void)startListening;
+- (void)stopListening;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -355,6 +360,20 @@ SWIFT_CLASS("_TtC8RokidSDK21RKBLEDeviceBinderData")
 @end
 
 
+SWIFT_CLASS("_TtC8RokidSDK17RKWebBridgeModule")
+@interface RKWebBridgeModule : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@protocol RKBridgeModuleAppDelegate;
+
+SWIFT_CLASS("_TtC8RokidSDK17RKBridgeModuleApp")
+@interface RKBridgeModuleApp : RKWebBridgeModule
+@property (nonatomic, strong) id <RKBridgeModuleAppDelegate> _Nullable delegate;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_PROTOCOL("_TtP8RokidSDK25RKBridgeModuleAppDelegate_")
 @protocol RKBridgeModuleAppDelegate
 - (void)close;
@@ -364,9 +383,9 @@ SWIFT_PROTOCOL("_TtP8RokidSDK25RKBridgeModuleAppDelegate_")
 @end
 
 
-SWIFT_CLASS("_TtC8RokidSDK17RKWebBridgeModule")
-@interface RKWebBridgeModule : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC8RokidSDK19RKBridgeModulePhone")
+@interface RKBridgeModulePhone : RKWebBridgeModule
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 @protocol RKBridgeModuleViewDelegate;
@@ -614,6 +633,10 @@ SWIFT_CLASS("_TtC8RokidSDK11RKWebBridge")
 @interface RKWebBridge (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ModuleNameNativeUI;)
 + (NSString * _Nonnull)ModuleNameNativeUI SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ModuleNameApp;)
++ (NSString * _Nonnull)ModuleNameApp SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ModuleNamePhone;)
++ (NSString * _Nonnull)ModuleNamePhone SWIFT_WARN_UNUSED_RESULT;
 + (RKWebBridge * _Nonnull)injectWebBridgeTo:(WKWebView * _Nonnull)webView SWIFT_WARN_UNUSED_RESULT;
 @end
 
