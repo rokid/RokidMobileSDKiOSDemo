@@ -43,6 +43,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)setCurrentDevice:(id)sender {
+    //NSLog(@"sender = %@", [[sender superview] superview] );
+    long row = [[sender superview] superview].tag;
+    [RokidMobileSDK.device setCurrentDeviceWithDevice: self.deviceList[row]];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.deviceList == nil) {
         return 0;
@@ -61,6 +67,7 @@
     if (cell != nil && device != nil) {
         cell.textLabel.text = device.nick;
     }
+    cell.tag = indexPath.row;
     return cell;
 }
 
