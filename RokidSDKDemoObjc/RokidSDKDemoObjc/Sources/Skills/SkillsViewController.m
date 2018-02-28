@@ -39,7 +39,7 @@
     [super viewWillAppear:animated];
     self.device = [RokidMobileSDK.device getCurrentDevice];
     if (!self.device){
-        [UIAlertController showAlertFrom:self Title: @"tip"  Message:@"当前没有设备，请设置" handle:^(UIAlertAction *action) {
+        [UIAlertController showAlertFrom:self Title: @"tip"  Message:@"当前没有设备，请前往'设备'中 设置" handle:^(UIAlertAction *action) {
             
         } cancel:^(UIAlertAction *action) {
             

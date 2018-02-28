@@ -574,6 +574,38 @@
             </objects>
             <point key="canvasLocation" x="-34" y="2633"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="LDJ-uk-dku">
+            <objects>
+                <viewController id="hg7-y9-pXh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NPR-3T-Gbm"/>
+                        <viewControllerLayoutGuide type="bottom" id="eeO-H4-1k9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qWV-hK-fnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgM-1T-qcF">
+                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                                <connections>
+                                    <segue destination="8k2-FH-AqB" kind="embed" id="OXG-gR-vja"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eeO-H4-1k9" firstAttribute="top" secondItem="wgM-1T-qcF" secondAttribute="bottom" id="4Lc-Uh-QRy"/>
+                            <constraint firstAttribute="trailing" secondItem="wgM-1T-qcF" secondAttribute="trailing" id="EC3-0L-Rgh"/>
+                            <constraint firstItem="wgM-1T-qcF" firstAttribute="top" secondItem="NPR-3T-Gbm" secondAttribute="bottom" constant="20" id="EcH-9S-cou"/>
+                            <constraint firstItem="wgM-1T-qcF" firstAttribute="leading" secondItem="qWV-hK-fnJ" secondAttribute="leading" id="eJs-7Q-cyx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4Q-fe-uuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736.79999999999995" y="2618.1409295352328"/>
+        </scene>
         <!--Home-->
         <scene sceneID="idX-xA-gN4">
             <objects>
@@ -664,7 +696,7 @@
         <scene sceneID="3s3-Gp-an5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W4o-RU-rzO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="mpC-6u-wBu"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_normal" selectedImage="home_select" id="mpC-6u-wBu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QXE-Dh-q6T">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -679,6 +711,24 @@
             </objects>
             <point key="canvasLocation" x="-1161.5999999999999" y="3447.9760119940033"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="88O-AM-YkI">
+            <objects>
+                <viewController id="8k2-FH-AqB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H0E-19-0fI"/>
+                        <viewControllerLayoutGuide type="bottom" id="0j6-n9-mR3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0iT-9g-UTG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HpX-Nr-3sL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="2600"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Account_normal" width="31" height="21"/>
@@ -687,6 +737,8 @@
         <image name="Bluetooth_select" width="12" height="23"/>
         <image name="device_normal" width="20" height="24"/>
         <image name="device_select" width="20" height="24"/>
+        <image name="home_normal" width="22" height="22"/>
+        <image name="home_select" width="22" height="22"/>
         <image name="skill_normal" width="23" height="20"/>
         <image name="skill_select" width="23" height="20"/>
     </resources>
