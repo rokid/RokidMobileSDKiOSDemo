@@ -106,6 +106,7 @@
     
     UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
     cell.textLabel.text = title;
+    cell.textLabel.textColor = [UIColor blueColor];
     return  cell;
 }
 

@@ -43,13 +43,15 @@
         
         // SDK init 完成
         if (!error) {
-            NSLog(@"✅SDK init success");
+            NSLog(@"SDK init success");
             self.view.userInteractionEnabled = YES;
             [self addNotificationObserver];
         };
 
         //RokidMobileSDK.shared.customSchema = @"xmly";
     }];
+    
+    NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
 }
 
 - (void)tapView:(UITapGestureRecognizer *)gesture {

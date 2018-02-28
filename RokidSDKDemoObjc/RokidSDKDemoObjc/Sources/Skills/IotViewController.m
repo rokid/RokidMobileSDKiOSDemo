@@ -29,7 +29,8 @@
     
     [self.view addSubview:self.webView];
 
-    NSURL *url = [NSURL URLWithString:pre_url];
+    NSString * strUrl = RokidMobileSDK.shared.debug ? dev_url : pre_url;
+    NSURL *url = [NSURL URLWithString:strUrl];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
 
