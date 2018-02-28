@@ -528,7 +528,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gbn-DP-jsg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="418"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zVF-za-8fd">
@@ -546,7 +546,7 @@
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2qM-Gf-clO">
-                                <rect key="frame" x="16" y="428" width="343" height="190"/>
+                                <rect key="frame" x="16" y="501" width="343" height="117"/>
                                 <color key="backgroundColor" red="0.68081112668854682" green="0.68100803587616687" blue="0.84913374352331605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -556,12 +556,12 @@
                         <constraints>
                             <constraint firstItem="Gbn-DP-jsg" firstAttribute="leading" secondItem="E9Z-QL-Qe3" secondAttribute="leading" id="1Mj-la-oz7"/>
                             <constraint firstAttribute="trailing" secondItem="Gbn-DP-jsg" secondAttribute="trailing" id="6lf-5Z-1GA"/>
-                            <constraint firstItem="2qM-Gf-clO" firstAttribute="top" secondItem="Gbn-DP-jsg" secondAttribute="bottom" constant="10" id="XLC-Qh-idp"/>
+                            <constraint firstItem="2qM-Gf-clO" firstAttribute="top" secondItem="Gbn-DP-jsg" secondAttribute="bottom" constant="8" id="XLC-Qh-idp"/>
                             <constraint firstItem="TqK-Ch-57u" firstAttribute="top" secondItem="2qM-Gf-clO" secondAttribute="bottom" id="a3W-S1-27s"/>
                             <constraint firstItem="2qM-Gf-clO" firstAttribute="leading" secondItem="E9Z-QL-Qe3" secondAttribute="leadingMargin" id="dhI-Ik-hXa"/>
                             <constraint firstItem="Gbn-DP-jsg" firstAttribute="top" secondItem="E9Z-QL-Qe3" secondAttribute="top" id="hWj-Hc-GE9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2qM-Gf-clO" secondAttribute="trailing" id="kjv-FT-Jqq"/>
-                            <constraint firstItem="TqK-Ch-57u" firstAttribute="top" secondItem="Gbn-DP-jsg" secondAttribute="bottom" constant="200" id="nOn-AK-y22"/>
+                            <constraint firstItem="TqK-Ch-57u" firstAttribute="top" secondItem="Gbn-DP-jsg" secondAttribute="bottom" constant="125" id="nOn-AK-y22"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="技能" id="c8Y-08-OcJ"/>
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KU7-Z1-6aM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="2633"/>
+            <point key="canvasLocation" x="-34.399999999999999" y="2632.5337331334335"/>
         </scene>
         <!--Iot View Controller-->
         <scene sceneID="jSR-e3-kMX">

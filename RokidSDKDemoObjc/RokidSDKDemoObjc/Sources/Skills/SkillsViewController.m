@@ -9,6 +9,7 @@
 #import "SkillsViewController.h"
 #import "UIAlertController+Rokid.h"
 #import "IotViewController.h"
+#import "IotRoomViewController.h"
 
 @import RokidSDK;
 
@@ -83,42 +84,33 @@
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    NSString  * title = @"";
+    
     switch (indexPath.section) {
         case 0:{
-            
-            UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
-            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"1闹钟"]) objectAtIndex:indexPath.row];
-            return  cell;
-            
+            title = [((NSArray *)[self.itemsAll valueForKey:@"1闹钟"]) objectAtIndex:indexPath.row];
             break;
         }
-            
         case 1:{
-            
-            UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
-            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"2提醒"]) objectAtIndex:indexPath.row];
-            return  cell;
-            
+           title = [((NSArray *)[self.itemsAll valueForKey:@"2提醒"]) objectAtIndex:indexPath.row];
             break;
         }
         case 2:{
-            
-            UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
-            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) objectAtIndex:indexPath.row];
-            return  cell;
-            
+            title = [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) objectAtIndex:indexPath.row];
             break;
         }
         default:
             break;
     }
     
-    return [[UITableViewCell alloc] init];
+    UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
+    cell.textLabel.text = title;
+    return  cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //[self addCell:indexPath];
     switch (indexPath.section) {
         case 0:{
             switch (indexPath.row) {
@@ -240,7 +232,6 @@
             UIStoryboard * main =  [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             IotViewController * target = [main instantiateViewControllerWithIdentifier: NSStringFromClass([IotViewController class])];
             [self.navigationController pushViewController:target animated:true];
-            
             
             break;
           }

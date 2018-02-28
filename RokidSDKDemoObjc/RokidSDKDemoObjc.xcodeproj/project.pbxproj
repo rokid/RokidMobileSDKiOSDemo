@@ -13,6 +13,7 @@
 		705A25A12039C5C4008C8C10 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705A25A02039C5C4008C8C10 /* HomeViewController.m */; };
 		70800C4D202D90FA008E9962 /* DeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70800C4C202D90FA008E9962 /* DeviceInfoViewController.m */; };
 		70A689B120465902000E9451 /* IotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B020465902000E9451 /* IotViewController.m */; };
+		70A689B4204699B1000E9451 /* IotRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B3204699B1000E9451 /* IotRoomViewController.m */; };
 		70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F6DC5D203ACA0600D63F3B /* RKTabViewController.m */; };
 		8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		D43AFFE41FFF706C00324778 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE31FFF706C00324778 /* config.plist */; };
@@ -96,6 +97,8 @@
 		70800C4C202D90FA008E9962 /* DeviceInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoViewController.m; sourceTree = "<group>"; };
 		70A689AF20465902000E9451 /* IotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IotViewController.h; sourceTree = "<group>"; };
 		70A689B020465902000E9451 /* IotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IotViewController.m; sourceTree = "<group>"; };
+		70A689B2204699B1000E9451 /* IotRoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IotRoomViewController.h; sourceTree = "<group>"; };
+		70A689B3204699B1000E9451 /* IotRoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IotRoomViewController.m; sourceTree = "<group>"; };
 		70F6DC5C203ACA0600D63F3B /* RKTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RKTabViewController.h; sourceTree = "<group>"; };
 		70F6DC5D203ACA0600D63F3B /* RKTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKTabViewController.m; sourceTree = "<group>"; };
 		8F0290D688F18C4012EEDEAC /* Pods-DontUse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				703F2872202AD33D00FD1670 /* SkillsViewController.m */,
 				70A689AF20465902000E9451 /* IotViewController.h */,
 				70A689B020465902000E9451 /* IotViewController.m */,
+				70A689B2204699B1000E9451 /* IotRoomViewController.h */,
+				70A689B3204699B1000E9451 /* IotRoomViewController.m */,
 			);
 			path = Skills;
 			sourceTree = "<group>";
@@ -611,6 +616,7 @@
 				D4F951511FCE5D360091179D /* main.m in Sources */,
 				703F2870202AD33100FD1670 /* DevicesViewController.m in Sources */,
 				703F2873202AD33D00FD1670 /* SkillsViewController.m in Sources */,
+				70A689B4204699B1000E9451 /* IotRoomViewController.m in Sources */,
 				7027A307202EB4F1005F2DF5 /* UIAlertController+Rokid.m in Sources */,
 				70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */,
 				70A689B120465902000E9451 /* IotViewController.m in Sources */,
