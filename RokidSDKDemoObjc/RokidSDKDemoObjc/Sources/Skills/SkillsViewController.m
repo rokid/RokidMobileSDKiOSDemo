@@ -8,6 +8,7 @@
 
 #import "SkillsViewController.h"
 #import "UIAlertController+Rokid.h"
+#import "IotViewController.h"
 
 @import RokidSDK;
 
@@ -25,8 +26,9 @@
     
     NSArray * alarmItems = @[@"获取闹钟列表", @"新建闹钟", @"删除闹钟", @"更新闹钟"];
     NSArray * remindItems = @[@"获取提醒列表", @"删除提醒"];
+    NSArray * iotItems = @[@"智能家居web"];
     
-    self.itemsAll = @{@"闹钟" : alarmItems, @"提醒": remindItems};
+    self.itemsAll = @{@"1闹钟" : alarmItems, @"2提醒": remindItems,@"3智能家居": iotItems};
     
     self.category = self.itemsAll.allKeys;
     
@@ -60,10 +62,13 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return   [((NSArray *)[self.itemsAll valueForKey:@"闹钟"]) count];
+            return   [((NSArray *)[self.itemsAll valueForKey:@"1闹钟"]) count];
             break;
         case 1:
-            return   [((NSArray *)[self.itemsAll valueForKey:@"提醒"]) count];
+            return   [((NSArray *)[self.itemsAll valueForKey:@"2提醒"]) count];
+            break;
+        case 2:
+            return   [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) count];
             break;
         default:
             return 1;
@@ -72,17 +77,8 @@
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    switch (section) {
-        case 0:
-            return   (NSString *)[self.itemsAll.allKeys objectAtIndex:section];
-            break;
-        case 1:
-            return   (NSString *)[self.itemsAll.allKeys objectAtIndex:section];
-            break;
-        default:
-            return @"";
-            break;
-    }
+    return   (NSString *)[self.itemsAll.allKeys objectAtIndex:section];
+    
 }
 
 
@@ -91,7 +87,7 @@
         case 0:{
             
             UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
-            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"闹钟"]) objectAtIndex:indexPath.row];
+            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"1闹钟"]) objectAtIndex:indexPath.row];
             return  cell;
             
             break;
@@ -100,7 +96,15 @@
         case 1:{
             
             UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
-            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"提醒"]) objectAtIndex:indexPath.row];
+            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"2提醒"]) objectAtIndex:indexPath.row];
+            return  cell;
+            
+            break;
+        }
+        case 2:{
+            
+            UITableViewCell * cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SkillTableViewCell"];
+            cell.textLabel.text = [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) objectAtIndex:indexPath.row];
             return  cell;
             
             break;
@@ -231,7 +235,15 @@
             }
         }
         break;
+        case 2:{
+            NSLog(@"---> ");
+            UIStoryboard * main =  [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            IotViewController * target = [main instantiateViewControllerWithIdentifier: NSStringFromClass([IotViewController class])];
+            [self.navigationController pushViewController:target animated:true];
             
+            
+            break;
+          }
         default:
             break;
     }

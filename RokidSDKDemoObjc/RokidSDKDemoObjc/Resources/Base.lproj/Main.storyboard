@@ -574,37 +574,23 @@
             </objects>
             <point key="canvasLocation" x="-34" y="2633"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="LDJ-uk-dku">
+        <!--Iot View Controller-->
+        <scene sceneID="jSR-e3-kMX">
             <objects>
-                <viewController id="hg7-y9-pXh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IotViewController" id="dks-x1-iCT" customClass="IotViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NPR-3T-Gbm"/>
-                        <viewControllerLayoutGuide type="bottom" id="eeO-H4-1k9"/>
+                        <viewControllerLayoutGuide type="top" id="DJf-NV-6vr"/>
+                        <viewControllerLayoutGuide type="bottom" id="54I-0q-1QN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qWV-hK-fnJ">
+                    <view key="view" contentMode="scaleToFill" id="9Jt-YJ-pMr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgM-1T-qcF">
-                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
-                                <connections>
-                                    <segue destination="8k2-FH-AqB" kind="embed" id="OXG-gR-vja"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="eeO-H4-1k9" firstAttribute="top" secondItem="wgM-1T-qcF" secondAttribute="bottom" id="4Lc-Uh-QRy"/>
-                            <constraint firstAttribute="trailing" secondItem="wgM-1T-qcF" secondAttribute="trailing" id="EC3-0L-Rgh"/>
-                            <constraint firstItem="wgM-1T-qcF" firstAttribute="top" secondItem="NPR-3T-Gbm" secondAttribute="bottom" constant="20" id="EcH-9S-cou"/>
-                            <constraint firstItem="wgM-1T-qcF" firstAttribute="leading" secondItem="qWV-hK-fnJ" secondAttribute="leading" id="eJs-7Q-cyx"/>
-                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4Q-fe-uuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xrj-vZ-8pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736.79999999999995" y="2618.1409295352328"/>
+            <point key="canvasLocation" x="1004" y="2618"/>
         </scene>
         <!--Home-->
         <scene sceneID="idX-xA-gN4">
@@ -710,24 +696,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLf-ei-OoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1161.5999999999999" y="3447.9760119940033"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="88O-AM-YkI">
-            <objects>
-                <viewController id="8k2-FH-AqB" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="H0E-19-0fI"/>
-                        <viewControllerLayoutGuide type="bottom" id="0j6-n9-mR3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0iT-9g-UTG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HpX-Nr-3sL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1724" y="2600"/>
         </scene>
     </scenes>
     <resources>
