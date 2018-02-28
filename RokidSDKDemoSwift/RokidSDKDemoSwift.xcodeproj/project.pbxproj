@@ -9,22 +9,23 @@
 /* Begin PBXBuildFile section */
 		9E117C20316ECD7F48BD8C45 /* Pods_RokidSDKDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82FFAE87CBA84C87BF1B33F /* Pods_RokidSDKDemoSwift.framework */; };
 		D4F951241FCE5D0B0091179D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F951231FCE5D0B0091179D /* AppDelegate.swift */; };
-		D4F951261FCE5D0B0091179D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F951251FCE5D0B0091179D /* ViewController.swift */; };
+		D4F951261FCE5D0B0091179D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F951251FCE5D0B0091179D /* MainViewController.swift */; };
 		D4F951291FCE5D0B0091179D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F951271FCE5D0B0091179D /* Main.storyboard */; };
 		D4F9512B1FCE5D0B0091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9512A1FCE5D0B0091179D /* Assets.xcassets */; };
-		D4F9512E1FCE5D0B0091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9512C1FCE5D0B0091179D /* LaunchScreen.storyboard */; };
-		DD56984920295ABF000D8B81 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD56984820295ABF000D8B81 /* RokidSDK.framework */; };
-		DD56984A20295ABF000D8B81 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD56984820295ABF000D8B81 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD2A523F20413FCF0083CD4D /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A523920413F680083CD4D /* RokidSDK.framework */; };
+		DD2A524020413FCF0083CD4D /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A523920413F680083CD4D /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD2A5244204144460083CD4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2A5246204144460083CD4D /* LaunchScreen.storyboard */; };
+		DD2A524920414A630083CD4D /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD2A524720414A620083CD4D /* config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D4E090BA1FD1979D004BBB73 /* Embed Frameworks */ = {
+		DD2A524120413FCF0083CD4D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DD56984A20295ABF000D8B81 /* RokidSDK.framework in Embed Frameworks */,
+				DD2A524020413FCF0083CD4D /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,12 +37,13 @@
 		B82FFAE87CBA84C87BF1B33F /* Pods_RokidSDKDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RokidSDKDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F951201FCE5D0B0091179D /* RokidSDKDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RokidSDKDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F951231FCE5D0B0091179D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4F951251FCE5D0B0091179D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4F951251FCE5D0B0091179D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D4F951281FCE5D0B0091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4F9512A1FCE5D0B0091179D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D4F9512D1FCE5D0B0091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9512F1FCE5D0B0091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD56984820295ABF000D8B81 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../RokidSDK/Debug-Universal/RokidSDK.framework"; sourceTree = "<group>"; };
+		DD2A523920413F680083CD4D /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
+		DD2A5245204144460083CD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD2A524720414A620083CD4D /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		E795AEC787AEF517C3C02F57 /* Pods-RokidSDKDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoSwift.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoSwift/Pods-RokidSDKDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E117C20316ECD7F48BD8C45 /* Pods_RokidSDKDemoSwift.framework in Frameworks */,
-				DD56984920295ABF000D8B81 /* RokidSDK.framework in Frameworks */,
+				DD2A523F20413FCF0083CD4D /* RokidSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +72,7 @@
 		D4F951171FCE5D0B0091179D = {
 			isa = PBXGroup;
 			children = (
-				DD56984820295ABF000D8B81 /* RokidSDK.framework */,
+				DD2A523620413F680083CD4D /* RokidSDK */,
 				D4F951221FCE5D0B0091179D /* RokidSDKDemoSwift */,
 				D4F951211FCE5D0B0091179D /* Products */,
 				D4F9515A1FCE5DFA0091179D /* Frameworks */,
@@ -89,12 +91,8 @@
 		D4F951221FCE5D0B0091179D /* RokidSDKDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
-				D4F951231FCE5D0B0091179D /* AppDelegate.swift */,
-				D4F951251FCE5D0B0091179D /* ViewController.swift */,
-				D4F951271FCE5D0B0091179D /* Main.storyboard */,
-				D4F9512A1FCE5D0B0091179D /* Assets.xcassets */,
-				D4F9512C1FCE5D0B0091179D /* LaunchScreen.storyboard */,
-				D4F9512F1FCE5D0B0091179D /* Info.plist */,
+				DD2A523320413D510083CD4D /* Resources */,
+				DD2A523520413D930083CD4D /* Sources */,
 			);
 			path = RokidSDKDemoSwift;
 			sourceTree = "<group>";
@@ -105,6 +103,44 @@
 				B82FFAE87CBA84C87BF1B33F /* Pods_RokidSDKDemoSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD2A523320413D510083CD4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD2A524720414A620083CD4D /* config.plist */,
+				D4F9512A1FCE5D0B0091179D /* Assets.xcassets */,
+				D4F9512F1FCE5D0B0091179D /* Info.plist */,
+				DD2A5246204144460083CD4D /* LaunchScreen.storyboard */,
+				D4F951271FCE5D0B0091179D /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD2A523520413D930083CD4D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D4F951231FCE5D0B0091179D /* AppDelegate.swift */,
+				D4F951251FCE5D0B0091179D /* MainViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DD2A523620413F680083CD4D /* RokidSDK */ = {
+			isa = PBXGroup;
+			children = (
+				DD2A523820413F680083CD4D /* Debug-Universal */,
+			);
+			name = RokidSDK;
+			path = ../RokidSDK;
+			sourceTree = "<group>";
+		};
+		DD2A523820413F680083CD4D /* Debug-Universal */ = {
+			isa = PBXGroup;
+			children = (
+				DD2A523920413F680083CD4D /* RokidSDK.framework */,
+			);
+			path = "Debug-Universal";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +156,7 @@
 				D4F9511E1FCE5D0B0091179D /* Resources */,
 				5A815E9E7BE6D6F2C4958D88 /* [CP] Embed Pods Frameworks */,
 				1BAE455A1C7C5CD18A9DF748 /* [CP] Copy Pods Resources */,
-				D4E090BA1FD1979D004BBB73 /* Embed Frameworks */,
+				DD2A524120413FCF0083CD4D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,7 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4F9512E1FCE5D0B0091179D /* LaunchScreen.storyboard in Resources */,
+				DD2A524920414A630083CD4D /* config.plist in Resources */,
+				DD2A5244204144460083CD4D /* LaunchScreen.storyboard in Resources */,
 				D4F9512B1FCE5D0B0091179D /* Assets.xcassets in Resources */,
 				D4F951291FCE5D0B0091179D /* Main.storyboard in Resources */,
 			);
@@ -249,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4F951261FCE5D0B0091179D /* ViewController.swift in Sources */,
+				D4F951261FCE5D0B0091179D /* MainViewController.swift in Sources */,
 				D4F951241FCE5D0B0091179D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,10 +302,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D4F9512C1FCE5D0B0091179D /* LaunchScreen.storyboard */ = {
+		DD2A5246204144460083CD4D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4F9512D1FCE5D0B0091179D /* Base */,
+				DD2A5245204144460083CD4D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -389,12 +426,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9J49NJ7N5;
+				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../RokidSDK/Debug-Universal",
 					"$(inherited)",
-					"/Users/yock/Library/Developer/Xcode/DerivedData/rokid-fdtpzqabsnpigzehnkfolicscxkb/Build/Products/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = RokidSDKDemoSwift/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoSwift/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rokid.RokidSDKDemoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,12 +446,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9J49NJ7N5;
+				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../RokidSDK/Debug-Universal",
 					"$(inherited)",
-					"/Users/yock/Library/Developer/Xcode/DerivedData/rokid-fdtpzqabsnpigzehnkfolicscxkb/Build/Products/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = RokidSDKDemoSwift/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoSwift/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rokid.RokidSDKDemoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
