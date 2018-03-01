@@ -369,7 +369,7 @@ SWIFT_CLASS("_TtC8RokidSDK17RKWebBridgeModule")
 
 SWIFT_CLASS("_TtC8RokidSDK17RKBridgeModuleApp")
 @interface RKBridgeModuleApp : RKWebBridgeModule
-@property (nonatomic, strong) id <RKBridgeModuleAppDelegate> _Nullable delegate;
+@property (nonatomic, weak) id <RKBridgeModuleAppDelegate> _Nullable delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -392,7 +392,7 @@ SWIFT_CLASS("_TtC8RokidSDK19RKBridgeModulePhone")
 
 SWIFT_CLASS("_TtC8RokidSDK18RKBridgeModuleView")
 @interface RKBridgeModuleView : RKWebBridgeModule
-@property (nonatomic, strong) id <RKBridgeModuleViewDelegate> _Nullable delegate;
+@property (nonatomic, weak) id <RKBridgeModuleViewDelegate> _Nullable delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -631,13 +631,9 @@ SWIFT_CLASS("_TtC8RokidSDK11RKWebBridge")
 @class WKWebView;
 
 @interface RKWebBridge (SWIFT_EXTENSION(RokidSDK))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ModuleNameNativeUI;)
-+ (NSString * _Nonnull)ModuleNameNativeUI SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ModuleNameApp;)
-+ (NSString * _Nonnull)ModuleNameApp SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ModuleNamePhone;)
-+ (NSString * _Nonnull)ModuleNamePhone SWIFT_WARN_UNUSED_RESULT;
 + (RKWebBridge * _Nonnull)injectWebBridgeTo:(WKWebView * _Nonnull)webView SWIFT_WARN_UNUSED_RESULT;
+- (void)setAppDelegateWithDelegate:(id <RKBridgeModuleAppDelegate> _Nonnull)delegate;
+- (void)setViewDelegateWithDelegate:(id <RKBridgeModuleViewDelegate> _Nonnull)delegate;
 @end
 
 

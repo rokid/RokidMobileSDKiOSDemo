@@ -35,8 +35,7 @@
     [self.webView loadRequest:request];
 
     self.rkWebBridge = [RKWebBridge injectWebBridgeTo:self.webView];
-    RKBridgeModuleApp * bridgeApp = (RKBridgeModuleApp *)[self.rkWebBridge getModuleBy:[RKWebBridge ModuleNameApp]];
-    bridgeApp.delegate = self;
+    [self.rkWebBridge setAppDelegateWithDelegate:self];
     
 }
 

@@ -32,8 +32,7 @@
     self.webbridge = [RKWebBridge injectWebBridgeTo:self.webView];
     
     // 设置 RKBridgeModuleViewDelegate，用于实现 Native UI 的功能
-    RKBridgeModuleView *module = (RKBridgeModuleView *) [self.webbridge getModuleBy:RKWebBridge.ModuleNameNativeUI];
-    module.delegate = self;
+    [self.webbridge setViewDelegateWithDelegate:self];
     
     [self.view addSubview:self.webView];
     self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);

@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
 //        RokidMobileSDK.shared.initSDK(appKey: "rokid-demo", appSecret: "rokid-demo-secret") { (result, error) in
