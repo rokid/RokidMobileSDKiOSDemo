@@ -8,9 +8,11 @@
 
 #import "IotRoomViewController.h"
 @import WebKit;
+@import RokidSDK;
 
-@interface IotRoomViewController ()
+@interface IotRoomViewController () <RKBridgeModuleAppDelegate>
 @property(nonatomic, strong) WKWebView * webView;
+@property(nonatomic, strong) RKWebBridge * rkWebBridge ;
 
 @end
 
@@ -28,6 +30,9 @@
     [self.webView loadRequest:request];
     
     self.navigationItem.title = self.title;
+    
+    self.rkWebBridge = [RKWebBridge injectWebBridgeTo:self.webView];
+    [self.rkWebBridge setAppDelegateWithDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,14 +40,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)close{
+    
 }
-*/
+
+- (void)openWithTitle:(NSString * _Nonnull)title urlStr:(NSString * _Nonnull)urlStr{
+    
+}
+
+- (void)openNewWebViewWithTitle:(NSString * _Nonnull)title urlStr:(NSString * _Nonnull)urlStr{
+    IotRoomViewController * target = [[IotRoomViewController alloc] init];
+    [target setTitle:title];
+    [target setUrlStr:urlStr];
+    [self.navigationController pushViewController:target animated:true];
+}
+
+- (void)openExternalWithUrlStr:(NSString * _Nonnull)urlStr{
+    
+}
+
 
 @end
