@@ -55,6 +55,7 @@
 		DD2A522A204107650083CD4D /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A5229204107640083CD4D /* RokidSDK.framework */; };
 		DD2A522B204107650083CD4D /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A5229204107640083CD4D /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E144CBF70360D6FF96B18F38 /* Pods_DontUse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */; };
+		F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,6 +134,8 @@
 		DD2A5229204107640083CD4D /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/rokid-arqrqzratvmipkcekqedvrdarbpc/Build/Products/Debug-iphoneos/RokidSDK.framework"; sourceTree = "<group>"; };
 		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
+		F80BEAAE20494FCE008D0FBE /* IOTWKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOTWKWebView.h; sourceTree = "<group>"; };
+		F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOTWKWebView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 			children = (
 				703F2871202AD33D00FD1670 /* SkillsViewController.h */,
 				703F2872202AD33D00FD1670 /* SkillsViewController.m */,
+				F80BEAAE20494FCE008D0FBE /* IOTWKWebView.h */,
+				F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */,
 				70A689AF20465902000E9451 /* IotViewController.h */,
 				70A689B020465902000E9451 /* IotViewController.m */,
 				70A689B2204699B1000E9451 /* IotRoomViewController.h */,
@@ -617,6 +622,7 @@
 				70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */,
 				70A689B120465902000E9451 /* IotViewController.m in Sources */,
 				D4F951431FCE5D360091179D /* AppDelegate.m in Sources */,
+				F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */,
 				705A25A12039C5C4008C8C10 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
