@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		/L6nxoriil7+35oSqjx3EgbDmtg=
+		C1x6188PCZnsFS5h31RVEZ6DU2Q=
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		nt2B5TSMLBm27CY3na7TAO+kTuo=
+		c7GABDdRe5jk8p8rSqJrJZLGqFk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/L6nxoriil7+35oSqjx3EgbDmtg=
+			C1x6188PCZnsFS5h31RVEZ6DU2Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			unHGas5wZkTVqjDAYCMLHrkJV3yNb4WocDyDqtuvzG0=
+			u6uzqocpk1Fbd/2csnfSJW3DTQA8qTwoN+OwJsmNvuk=
 			</data>
 		</dict>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nt2B5TSMLBm27CY3na7TAO+kTuo=
+			c7GABDdRe5jk8p8rSqJrJZLGqFk=
 			</data>
 			<key>hash2</key>
 			<data>
-			fPZoJVXRe0uT8RuwkD5o0ttaU+c4W3p4izp1RyE+2rw=
+			g5B6tYN5+L+RJn5iuLxuqGzbLQ+SwQ1QgdLR4gtiPo0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
