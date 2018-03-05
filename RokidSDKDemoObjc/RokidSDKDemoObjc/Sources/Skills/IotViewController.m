@@ -8,12 +8,13 @@
 
 #import "IotViewController.h"
 #import "IotRoomViewController.h"
+#import "IOTWKWebView.h"
 
 @import WebKit;
 
 @interface IotViewController ()
 @property(nonatomic, strong) RKWebBridge * rkWebBridge ;
-@property(nonatomic, strong) WKWebView * webView;
+@property(nonatomic, strong) IOTWKWebView * webView;
 @end
 
 #define  dev_url    @"https://s.rokidcdn.com/homebase/himalaya/dev/index.html#/homes/index"
@@ -25,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.webView =  [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.webView =  [[IOTWKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     [self.view addSubview:self.webView];
 
