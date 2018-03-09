@@ -10,6 +10,7 @@
 #import "UIAlertController+Rokid.h"
 #import "IotViewController.h"
 #import "IotRoomViewController.h"
+#import "WebviewViewController.h"
 
 @import RokidSDK;
 
@@ -27,7 +28,7 @@
     
     NSArray * alarmItems = @[@"获取闹钟列表", @"新建闹钟", @"删除闹钟", @"更新闹钟"];
     NSArray * remindItems = @[@"获取提醒列表", @"删除提醒"];
-    NSArray * iotItems = @[@"智能家居web"];
+    NSArray * iotItems = @[@"智能家居web", @"Test.html", @"有滚动区域的web页"];
     
     self.itemsAll = @{@"1闹钟" : alarmItems, @"2提醒": remindItems,@"3智能家居": iotItems};
     
@@ -35,11 +36,6 @@
     
   
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SkillTableViewCell"];
-
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     self.device = [RokidMobileSDK.device getCurrentDevice];
     if (!self.device){
         [UIAlertController showAlertFrom:self Title: @"tip"  Message:@"当前没有设备，请前往'设备'中 设置" handle:^(UIAlertAction *action) {
@@ -50,6 +46,19 @@
         return;
     }
 }
+
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    self.device = [RokidMobileSDK.device getCurrentDevice];
+//    if (!self.device){
+//        [UIAlertController showAlertFrom:self Title: @"tip"  Message:@"当前没有设备，请前往'设备'中 设置" handle:^(UIAlertAction *action) {
+//
+//        } cancel:^(UIAlertAction *action) {
+//
+//        }];
+//        return;
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -230,9 +239,31 @@
         break;
         case 2:{
             NSLog(@"---> ");
-            UIStoryboard * main =  [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            IotViewController * target = [main instantiateViewControllerWithIdentifier: NSStringFromClass([IotViewController class])];
-            [self.navigationController pushViewController:target animated:true];
+            switch (indexPath.row) {
+                case 0:{
+                    UIStoryboard * main =  [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    IotViewController * target = [main instantiateViewControllerWithIdentifier: NSStringFromClass([IotViewController class])];
+                    [self.navigationController pushViewController:target animated:true];
+                    break;
+                }
+                case 1:{
+                    NSURL *URL = [NSBundle.mainBundle URLForResource:@"test" withExtension:@"html"];
+                    WebviewViewController *vc = [[WebviewViewController alloc] init];
+                    vc.webURL = URL;
+                    [self.navigationController pushViewController:vc animated:true];
+                    break;
+                }
+                case 2:{
+                    NSURL *URL = [NSURL URLWithString:@"https://m.ximalaya.com"];
+                    WebviewViewController *vc = [[WebviewViewController alloc] init];
+                    vc.webURL = URL;
+                    [self.navigationController pushViewController:vc animated:true];
+                    break;
+                }
+                    
+                default:
+                    break;
+            }
             
             break;
           }

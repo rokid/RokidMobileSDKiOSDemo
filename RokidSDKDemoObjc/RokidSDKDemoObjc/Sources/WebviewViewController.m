@@ -27,18 +27,19 @@
     // Do any additional setup after loading the view.
     
     self.webView = [[WKWebView alloc] init];
+    self.webView.allowsBackForwardNavigationGestures = YES;
     
     // 注入RKWebBridge
-    self.webbridge = [RKWebBridge injectWebBridgeTo:self.webView];
+//    self.webbridge = [RKWebBridge injectWebBridgeTo:self.webView];
     
     // 设置 RKBridgeModuleViewDelegate，用于实现 Native UI 的功能
-    [self.webbridge setViewDelegateWithDelegate:self];
+//    [self.webbridge setViewDelegateWithDelegate:self];
     
     [self.view addSubview:self.webView];
     self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    
-    NSURL *url =[NSBundle.mainBundle URLForResource:@"test" withExtension:@"html"];
-    [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:url]];
+    if (self.webURL) {
+        [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:self.webURL]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +56,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)showToastWithMessage:(NSString * _Nonnull)message {
+    
+}
 
 - (void)toast:(NSString * _Nonnull)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

@@ -41,6 +41,7 @@ target 'RokidSDKDemoObjc' do
 
   pod 'MJRefresh'
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'FDFullscreenPopGesture', '1.1'
 end
 
 

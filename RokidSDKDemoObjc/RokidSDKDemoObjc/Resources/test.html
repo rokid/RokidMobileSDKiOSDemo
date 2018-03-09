@@ -27,7 +27,7 @@
   </style>
 </head>
 
-<body>
+<body id="event">
 
   <label>Pasteboard Set and Get</label>
   <input id="pasteboardSet" type="text" placeholder="set" value="">
@@ -65,7 +65,22 @@
 </body>
 
 <script type="text/javascript">
+    
+    window.addEventListener("touchstart", window.addEventListenerTest, false);
+    window.addEventListener("touchmove", window.addEventListenerTest, false);
+    window.addEventListener("touchend", window.addEventListenerTest, false);
+    window.addEventListener("touchcancel", window.addEventListenerTest, false);
+    
+    window.addEventListener("gesturestart", gestureStart, false);
+    window.addEventListener("gesturechange", gestureChange, false);
+    window.addEventListener("gestureend", gestureEnd, false);
+    
+    function addEventListenerTest () {
+        console.log("addEventListenerTest");
+    }
+
   (function() {
+   
     window.pasteboardSet = () => {
       console.log("pasteboardSet")
       const text = document.getElementById("pasteboardSet").value;
@@ -86,6 +101,7 @@
       console.log("toast");
       taro.NativeUI.Toast.show("this is toast");
     };
+   
     window.showHUD = () => {
       console.log("show HUD");
       taro.NativeUI.LoadingDialog.show("1.5s to hide");

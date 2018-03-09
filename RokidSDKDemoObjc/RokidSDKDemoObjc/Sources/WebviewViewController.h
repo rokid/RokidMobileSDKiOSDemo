@@ -10,4 +10,6 @@
 
 @interface WebviewViewController : UIViewController
 
+@property (strong, nonatomic) NSURL *webURL;
+
 @end
