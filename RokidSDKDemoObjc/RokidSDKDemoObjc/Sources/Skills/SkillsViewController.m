@@ -116,7 +116,7 @@
         case 0:{
             switch (indexPath.row) {
                 case 0:{
-                    [RokidMobileSDK.skill.alarm getListWithDeviceId:self.device.id  completion:^(RKError * error   , NSArray<RKAlarm *> * alarmArr) {
+                    [RokidMobileSDK.skill.alarm getListWithDeviceId:self.device.id  completion:^(RKError * error   , NSArray<SDKAlarm *> * alarmArr) {
                         __block NSString * ret = @"";
                         if (error){
                             NSLog(@"%ld，%@",(long)error.code, error.message);//Get alarms timeout
@@ -129,8 +129,8 @@
                                 }];
                                 return;
                             }
-                            [alarmArr enumerateObjectsUsingBlock:^(RKAlarm * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                                RKAlarm * alarm = (RKAlarm *)obj;
+                            [alarmArr enumerateObjectsUsingBlock:^(SDKAlarm * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                SDKAlarm * alarm = (SDKAlarm *)obj;
                                 NSString * info = [NSString stringWithFormat:
                                                    @"year:%ld; month:%ld; day:%ld; hour:%ld; minute:%ld; date:%@; ext:%@",
                                                    alarm.year,
@@ -153,7 +153,8 @@
                     NSLog(@"RKAlarm 需要 先get ");
                     return;
                     
-                    RKAlarm * alarm = [RKAlarm init];
+                    SDKAlarm * alarm = [SDKAlarm init];
+                    alarm.year = 2018;
                     BOOL bRet = [RokidMobileSDK.skill.alarm createWithDeviceId:self.device.id alarm: alarm];
                     if (bRet){
                         //create success
@@ -164,14 +165,14 @@
                 break;
                 case 2:{
                     //创建一个闹钟，选择一个闹钟，再删除
-                    RKAlarm * alarm;
+                    SDKAlarm * alarm;
                     [RokidMobileSDK.skill.alarm deleteWithDeviceId:self.device.id alarm:alarm];
                 }
                 break;
                 case 3:{
                      //创建一个闹钟，选择一个闹钟，再更新
-                    RKAlarm * alarm;
-                    RKAlarm * alarmNew;
+                    SDKAlarm * alarm;
+                    SDKAlarm * alarmNew;
                     [RokidMobileSDK.skill.alarm updateWithDeviceId:self.device.id alarm:alarm to:alarmNew];
                 }
                 break;
@@ -185,7 +186,7 @@
             
             switch (indexPath.row) {
                 case 0:{
-                    [RokidMobileSDK.skill.remind getListWithDeviceId:self.device.id completion:^(RKError * error, NSArray<RKRemind *> * remindArr){
+                    [RokidMobileSDK.skill.remind getListWithDeviceId:self.device.id completion:^(RKError * error, NSArray<SDKRemind *> * remindArr){
                         __block NSString * ret = @"";
                         if (error){
                         }else {
@@ -197,8 +198,8 @@
                                 }];
                                 return;
                             }
-                            [remindArr enumerateObjectsUsingBlock:^(RKRemind * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                                RKRemind * remind = (RKRemind *)obj;
+                            [remindArr enumerateObjectsUsingBlock:^(SDKRemind * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                SDKRemind * remind = (SDKRemind *)obj;
                                 NSString * info = [NSString stringWithFormat:
                                                    @"year:%ld; month:%ld; day:%ld; hour:%ld; minute:%ld; date:%@; content:%@",
                                                    remind.year,
@@ -219,7 +220,7 @@
                 }
                 case  1:{
                     //创建一个提醒，选择一个提醒，再删除
-                    RKRemind * reminder;
+                    SDKRemind * reminder;
                     [RokidMobileSDK.skill.remind deleteWithDeviceId:self.device.id remind:reminder];
                     break;
                 }

@@ -10,7 +10,7 @@
 		7027A307202EB4F1005F2DF5 /* UIAlertController+Rokid.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */; };
 		703F2870202AD33100FD1670 /* DevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703F286F202AD33100FD1670 /* DevicesViewController.m */; };
 		703F2873202AD33D00FD1670 /* SkillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703F2872202AD33D00FD1670 /* SkillsViewController.m */; };
-		705A25A12039C5C4008C8C10 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705A25A02039C5C4008C8C10 /* HomeViewController.m */; };
+		705A25A12039C5C4008C8C10 /* VuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705A25A02039C5C4008C8C10 /* VuiViewController.m */; };
 		70800C4D202D90FA008E9962 /* DeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70800C4C202D90FA008E9962 /* DeviceInfoViewController.m */; };
 		70A689B120465902000E9451 /* IotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B020465902000E9451 /* IotViewController.m */; };
 		70A689B4204699B1000E9451 /* IotRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B3204699B1000E9451 /* IotRoomViewController.m */; };
@@ -43,17 +43,17 @@
 		D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4F951511FCE5D360091179D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
+		DD0332D02052C25500F3771B /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0332CF2052C25500F3771B /* RokidSDK.framework */; };
+		DD0332D12052C25500F3771B /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD0332CF2052C25500F3771B /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD2A521C20402D680083CD4D /* BinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE121FD96D23005C158A /* BinderViewController.m */; };
 		DD2A521D20402D680083CD4D /* DevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703F286F202AD33100FD1670 /* DevicesViewController.m */; };
 		DD2A521E20402D680083CD4D /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE0F1FD96D0C005C158A /* DeviceListViewController.m */; };
 		DD2A521F20402D680083CD4D /* DeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70800C4C202D90FA008E9962 /* DeviceInfoViewController.m */; };
-		DD2A522020402D680083CD4D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705A25A02039C5C4008C8C10 /* HomeViewController.m */; };
+		DD2A522020402D680083CD4D /* VuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705A25A02039C5C4008C8C10 /* VuiViewController.m */; };
 		DD2A522120402D680083CD4D /* CardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5748D200F2B7A00C20D0E /* CardListViewController.m */; };
 		DD2A522220402D680083CD4D /* SkillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703F2872202AD33D00FD1670 /* SkillsViewController.m */; };
 		DD2A522320402D680083CD4D /* RKTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F6DC5D203ACA0600D63F3B /* RKTabViewController.m */; };
 		DD2A522420402DA30083CD4D /* UIAlertController+Rokid.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */; };
-		DD2A522A204107650083CD4D /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A5229204107640083CD4D /* RokidSDK.framework */; };
-		DD2A522B204107650083CD4D /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A5229204107640083CD4D /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E144CBF70360D6FF96B18F38 /* Pods_DontUse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */; };
 		F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */; };
 /* End PBXBuildFile section */
@@ -70,13 +70,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD2A522820402E000083CD4D /* Embed Frameworks */ = {
+		DD0332D22052C25500F3771B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DD2A522B204107650083CD4D /* RokidSDK.framework in Embed Frameworks */,
+				DD0332D12052C25500F3771B /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,8 +91,8 @@
 		703F286F202AD33100FD1670 /* DevicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DevicesViewController.m; sourceTree = "<group>"; };
 		703F2871202AD33D00FD1670 /* SkillsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillsViewController.h; sourceTree = "<group>"; };
 		703F2872202AD33D00FD1670 /* SkillsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillsViewController.m; sourceTree = "<group>"; };
-		705A259F2039C5C4008C8C10 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		705A25A02039C5C4008C8C10 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		705A259F2039C5C4008C8C10 /* VuiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VuiViewController.h; sourceTree = "<group>"; };
+		705A25A02039C5C4008C8C10 /* VuiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VuiViewController.m; sourceTree = "<group>"; };
 		70800C4B202D90FA008E9962 /* DeviceInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInfoViewController.h; sourceTree = "<group>"; };
 		70800C4C202D90FA008E9962 /* DeviceInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoViewController.m; sourceTree = "<group>"; };
 		70A689AF20465902000E9451 /* IotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IotViewController.h; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		D4F9514D1FCE5D360091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9514F1FCE5D360091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RokidSDKDemoObjc/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D4F951501FCE5D360091179D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DD2A5229204107640083CD4D /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/rokid-arqrqzratvmipkcekqedvrdarbpc/Build/Products/Debug-iphoneos/RokidSDK.framework"; sourceTree = "<group>"; };
+		DD0332CF2052C25500F3771B /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RokidSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/rokid-facyuxpjmoozieenaitniyxkgxzw/Build/Products/Debug-iphoneos/RokidSDK.framework"; sourceTree = "<group>"; };
 		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
 		F80BEAAE20494FCE008D0FBE /* IOTWKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOTWKWebView.h; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B574C2200FA24600C20D0E /* WebKit.framework in Frameworks */,
-				DD2A522A204107650083CD4D /* RokidSDK.framework in Frameworks */,
+				DD0332D02052C25500F3771B /* RokidSDK.framework in Frameworks */,
 				E144CBF70360D6FF96B18F38 /* Pods_DontUse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,13 +171,13 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		703F2868202AD2B200FD1670 /* BlueTooth */ = {
+		703F2868202AD2B200FD1670 /* Binder */ = {
 			isa = PBXGroup;
 			children = (
 				D43DCE111FD96D23005C158A /* BinderViewController.h */,
 				D43DCE121FD96D23005C158A /* BinderViewController.m */,
 			);
-			path = BlueTooth;
+			path = Binder;
 			sourceTree = "<group>";
 		};
 		703F2869202AD2CD00FD1670 /* Devices */ = {
@@ -208,15 +208,15 @@
 			path = Skills;
 			sourceTree = "<group>";
 		};
-		705A259E2039C594008C8C10 /* Home */ = {
+		705A259E2039C594008C8C10 /* Vui */ = {
 			isa = PBXGroup;
 			children = (
-				705A259F2039C5C4008C8C10 /* HomeViewController.h */,
-				705A25A02039C5C4008C8C10 /* HomeViewController.m */,
+				705A259F2039C5C4008C8C10 /* VuiViewController.h */,
+				705A25A02039C5C4008C8C10 /* VuiViewController.m */,
 				D4B5748C200F2B7A00C20D0E /* CardListViewController.h */,
 				D4B5748D200F2B7A00C20D0E /* CardListViewController.m */,
 			);
-			path = Home;
+			path = Vui;
 			sourceTree = "<group>";
 		};
 		70F45D6C202AE589001E5822 /* Acount */ = {
@@ -262,9 +262,9 @@
 				D4F951411FCE5D360091179D /* AppDelegate.h */,
 				D4F951421FCE5D360091179D /* AppDelegate.m */,
 				70F45D6C202AE589001E5822 /* Acount */,
-				703F2868202AD2B200FD1670 /* BlueTooth */,
+				703F2868202AD2B200FD1670 /* Binder */,
 				703F2869202AD2CD00FD1670 /* Devices */,
-				705A259E2039C594008C8C10 /* Home */,
+				705A259E2039C594008C8C10 /* Vui */,
 				703F286A202AD2D400FD1670 /* Skills */,
 				D43AFFE61FFF741900324778 /* Properties.h */,
 				D43AFFE71FFF741900324778 /* Properties.m */,
@@ -295,7 +295,7 @@
 		D4F951351FCE5D360091179D = {
 			isa = PBXGroup;
 			children = (
-				DD2A5229204107640083CD4D /* RokidSDK.framework */,
+				DD0332CF2052C25500F3771B /* RokidSDK.framework */,
 				D406B04F1FEAB854003AADEE /* RokidSDK */,
 				D4F951401FCE5D360091179D /* RokidSDKDemoObjc */,
 				D4F9513F1FCE5D360091179D /* Products */,
@@ -346,7 +346,7 @@
 				D4D38EF41FF354790006BC0E /* Resources */,
 				F0EF419D0F8FCE1BBE767879 /* [CP] Embed Pods Frameworks */,
 				28435E9D244E80DBB24C8CEC /* [CP] Copy Pods Resources */,
-				DD2A522820402E000083CD4D /* Embed Frameworks */,
+				DD0332D22052C25500F3771B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -591,7 +591,7 @@
 				DD2A521D20402D680083CD4D /* DevicesViewController.m in Sources */,
 				DD2A521E20402D680083CD4D /* DeviceListViewController.m in Sources */,
 				DD2A521F20402D680083CD4D /* DeviceInfoViewController.m in Sources */,
-				DD2A522020402D680083CD4D /* HomeViewController.m in Sources */,
+				DD2A522020402D680083CD4D /* VuiViewController.m in Sources */,
 				DD2A522120402D680083CD4D /* CardListViewController.m in Sources */,
 				DD2A522220402D680083CD4D /* SkillsViewController.m in Sources */,
 				DD2A522320402D680083CD4D /* RKTabViewController.m in Sources */,
@@ -623,7 +623,7 @@
 				70A689B120465902000E9451 /* IotViewController.m in Sources */,
 				D4F951431FCE5D360091179D /* AppDelegate.m in Sources */,
 				F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */,
-				705A25A12039C5C4008C8C10 /* HomeViewController.m in Sources */,
+				705A25A12039C5C4008C8C10 /* VuiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,7 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/rokid-arqrqzratvmipkcekqedvrdarbpc/Build/Products/Debug-iphoneos",
+					"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/rokid-facyuxpjmoozieenaitniyxkgxzw/Build/Products/Debug-iphoneos/",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info-dont-use.plist";
@@ -683,7 +683,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/rokid-arqrqzratvmipkcekqedvrdarbpc/Build/Products/Debug-iphoneos",
+					"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/rokid-facyuxpjmoozieenaitniyxkgxzw/Build/Products/Debug-iphoneos/",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info-dont-use.plist";

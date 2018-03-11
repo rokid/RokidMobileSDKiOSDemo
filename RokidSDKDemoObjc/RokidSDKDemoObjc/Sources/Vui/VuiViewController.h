@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  VuiViewController.h
 //  RokidSDKDemoObjc
 //
 //  Created by coco zhou on 2018/2/18.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface VuiViewController : UIViewController
 
 @end

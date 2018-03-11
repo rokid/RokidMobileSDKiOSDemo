@@ -37,7 +37,7 @@
 
 - (void)fetchCardList {
     NSInteger dbId = [self dbId];
-    [RokidMobileSDK.home getCardListWithMaxDbId:dbId pageSize:20 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+    [RokidMobileSDK.vui getCardListWithMaxDbId:dbId pageSize:20 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
         if (dbId == 0) {
             
         }

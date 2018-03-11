@@ -92,7 +92,7 @@
             [RokidMobileSDK.binder connectBLEDevice:device complete:^(BOOL result, NSError * error) {
                 
                 // 需登录后才可以使用，因为配网和绑定是捆绑操作
-                [RokidMobileSDK.binder sendBLEBindWifiWithDevice:device ssid:@"xxxxx" password:@"xxxxxx" bssid:@"xxxxxx" completion:^(RKError * error) {
+                [RokidMobileSDK.binder sendBLEBindWifiWithDevice:device ssid:@"xxx" password:@"xxx" bssid:@"xxx" completion:^(RKError * error) {
                     if (error) {
                         NSLog(@"RokidMobileSDK.binder sendBLEBinderData error = %@", error);
                     } else {

@@ -94,7 +94,7 @@
     /*
      获取设备的版本升级信息
      */
-    [RokidMobileSDK.device getVersionWithDeviceId:device.id completion:^(NSError * error, RKDeviceVersionInfo * versioninfo) {
+    [RokidMobileSDK.device getVersionWithDeviceId:device.id completion:^(NSError * error, SDKDeviceVersionInfo * versioninfo) {
         NSLog(@"current version = %@, new version = %@", versioninfo.currentVersion, versioninfo.version);
     }];
 

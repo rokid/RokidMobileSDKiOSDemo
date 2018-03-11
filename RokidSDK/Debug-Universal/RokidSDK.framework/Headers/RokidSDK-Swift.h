@@ -297,36 +297,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKAccountMan
 
 
 
-enum RKAlarmRepeatMode : NSInteger;
-
-SWIFT_CLASS("_TtC8RokidSDK7RKAlarm")
-@interface RKAlarm : NSObject
-@property (nonatomic) NSInteger id;
-@property (nonatomic) NSInteger year;
-@property (nonatomic) NSInteger month;
-@property (nonatomic) NSInteger day;
-@property (nonatomic) NSInteger hour;
-@property (nonatomic) NSInteger minute;
-@property (nonatomic, copy) NSString * _Nonnull date;
-@property (nonatomic) enum RKAlarmRepeatMode repeatType;
-@property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable ext;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-typedef SWIFT_ENUM(NSInteger, RKAlarmRepeatMode) {
-  RKAlarmRepeatModeOnce = -1,
-  RKAlarmRepeatModeEveryMondy = 0,
-  RKAlarmRepeatModeEveryTuesday = 1,
-  RKAlarmRepeatModeEveryWednesday = 2,
-  RKAlarmRepeatModeEveryThursday = 3,
-  RKAlarmRepeatModeEveryFriday = 4,
-  RKAlarmRepeatModeEverySaturday = 5,
-  RKAlarmRepeatModeEverySunday = 6,
-  RKAlarmRepeatModeWeekday = 7,
-  RKAlarmRepeatModeEveryday = 8,
-  RKAlarmRepeatModeWeekend = 9,
-};
-
 
 SWIFT_CLASS("_TtC8RokidSDK11RKBLEDevice")
 @interface RKBLEDevice : NSObject
@@ -345,11 +315,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKBLEDeviceB
 - (void)startBLEScanWithType:(NSString * _Nonnull)type onDeviceChange:(void (^ _Nonnull)(NSArray<RKBLEDevice *> * _Nonnull))onDeviceChange;
 - (void)stopBLEScan;
 - (void)connectBLEDevice:(RKBLEDevice * _Nonnull)device complete:(void (^ _Nonnull)(BOOL, NSError * _Nullable))complete;
-@end
-
-
-@interface RKBLEDeviceBinder (SWIFT_EXTENSION(RokidSDK))
-- (void)sendBLEBindWifiWithDevice:(RKBLEDevice * _Nonnull)device ssid:(NSString * _Nonnull)ssid password:(NSString * _Nonnull)password bssid:(NSString * _Nonnull)bssid completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 @end
 
 
@@ -382,10 +347,20 @@ SWIFT_PROTOCOL("_TtP8RokidSDK25RKBridgeModuleAppDelegate_")
 - (void)openExternalWithUrlStr:(NSString * _Nonnull)urlStr;
 @end
 
+@protocol RKBridgeModulePhoneDelegate;
 
 SWIFT_CLASS("_TtC8RokidSDK19RKBridgeModulePhone")
 @interface RKBridgeModulePhone : RKWebBridgeModule
+@property (nonatomic, weak) id <RKBridgeModulePhoneDelegate> _Nullable delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8RokidSDK27RKBridgeModulePhoneDelegate_")
+@protocol RKBridgeModulePhoneDelegate
+- (void)touchDown;
+- (void)touchMove;
+- (void)touchUp;
 @end
 
 @protocol RKBridgeModuleViewDelegate;
@@ -468,40 +443,6 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 
 
 
-@class RKDeviceVersionInfo;
-
-SWIFT_CLASS("_TtC8RokidSDK15RKDeviceManager")
-@interface RKDeviceManager : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKDeviceManager * _Nonnull shared;)
-+ (RKDeviceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-- (void)queryDeviceListWithCompletion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKDevice *> * _Nullable))completion;
-- (NSDictionary<NSString *, id> * _Nullable)getBasicInfoWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
-- (void)updateNickWithDeviceId:(NSString * _Nonnull)deviceId newNick:(NSString * _Nonnull)newNick completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
-- (BOOL)getVersionWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(NSError * _Nullable, RKDeviceVersionInfo * _Nullable))completion SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)startSystemUpdateWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)resetDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
-- (void)unbindDeviceWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
-- (void)setCurrentDeviceWithDevice:(RKDevice * _Nonnull)device;
-- (RKDevice * _Nullable)getCurrentDevice SWIFT_WARN_UNUSED_RESULT;
-- (RKDevice * _Nullable)getDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC8RokidSDK19RKDeviceVersionInfo")
-@interface RKDeviceVersionInfo : NSObject
-@property (nonatomic, copy) NSString * _Nonnull changelog;
-@property (nonatomic) NSInteger checkCode;
-@property (nonatomic) double downloadProgress;
-@property (nonatomic) NSInteger downloadedSize;
-@property (nonatomic) NSInteger totalSize;
-@property (nonatomic) BOOL updateAvailable;
-@property (nonatomic, copy) NSString * _Nonnull url;
-@property (nonatomic, copy) NSString * _Nonnull currentVersion;
-@property (nonatomic, copy) NSString * _Nonnull version;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-@end
-
 enum RKErrorCode : NSInteger;
 
 SWIFT_CLASS("_TtC8RokidSDK7RKError")
@@ -532,16 +473,6 @@ SWIFT_CLASS("_TtC8RokidSDK11RKGuideCard")
 @end
 
 
-SWIFT_CLASS("_TtC8RokidSDK13RKHomeManager")
-@interface RKHomeManager : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-- (void)getCardListWithMaxDbId:(NSInteger)maxDbId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
-- (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
-- (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device;
-- (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device;
-@end
-
-
 SWIFT_CLASS("_TtC8RokidSDK11RKImageCard")
 @interface RKImageCard : RKCard
 @end
@@ -565,55 +496,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @end
 
 
-SWIFT_CLASS("_TtC8RokidSDK8RKRemind")
-@interface RKRemind : NSObject
-@property (nonatomic) NSInteger id;
-@property (nonatomic) NSInteger year;
-@property (nonatomic) NSInteger month;
-@property (nonatomic) NSInteger day;
-@property (nonatomic) NSInteger hour;
-@property (nonatomic) NSInteger minute;
-@property (nonatomic, copy) NSString * _Nonnull date;
-@property (nonatomic, copy) NSString * _Nonnull content;
-@property (nonatomic) enum RKAlarmRepeatMode repeatType;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class RKSkillAlarmHelper;
-@class RKSkillRemindHelper;
-
-SWIFT_CLASS("_TtC8RokidSDK14RKSKillManager")
-@interface RKSKillManager : NSObject
-@property (nonatomic, readonly, strong) RKSkillAlarmHelper * _Nonnull alarm;
-@property (nonatomic, readonly, strong) RKSkillRemindHelper * _Nonnull remind;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSKillManager * _Nonnull shared;)
-+ (RKSKillManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC8RokidSDK18RKSkillAlarmHelper")
-@interface RKSkillAlarmHelper : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSkillAlarmHelper * _Nonnull shared;)
-+ (RKSkillAlarmHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-- (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKAlarm *> * _Nullable))completion;
-- (BOOL)createWithDeviceId:(NSString * _Nonnull)deviceId alarm:(RKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId alarm:(RKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)updateWithDeviceId:(NSString * _Nonnull)deviceId alarm:(RKAlarm * _Nonnull)alarm to:(RKAlarm * _Nonnull)to SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC8RokidSDK19RKSkillRemindHelper")
-@interface RKSkillRemindHelper : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSkillRemindHelper * _Nonnull shared;)
-+ (RKSkillRemindHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-- (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKRemind *> * _Nullable))completion;
-- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId remind:(RKRemind * _Nonnull)remind SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 SWIFT_CLASS("_TtC8RokidSDK13RKSummaryCard")
 @interface RKSummaryCard : RKCard
 @end
@@ -632,6 +514,7 @@ SWIFT_CLASS("_TtC8RokidSDK11RKWebBridge")
 
 @interface RKWebBridge (SWIFT_EXTENSION(RokidSDK))
 + (RKWebBridge * _Nonnull)injectWebBridgeTo:(WKWebView * _Nonnull)webView SWIFT_WARN_UNUSED_RESULT;
+- (void)setPhoneDelegateWithDelegate:(id <RKBridgeModulePhoneDelegate> _Nonnull)delegate;
 - (void)setAppDelegateWithDelegate:(id <RKBridgeModuleAppDelegate> _Nonnull)delegate;
 - (void)setViewDelegateWithDelegate:(id <RKBridgeModuleViewDelegate> _Nonnull)delegate;
 @end
@@ -651,6 +534,10 @@ SWIFT_CLASS("_TtC8RokidSDK10RokidAlarm")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class SDKBinderManager;
+@class SDKDeviceManager;
+@class SDKVuiManager;
+@class SDKSKillManager;
 
 SWIFT_CLASS("_TtC8RokidSDK14RokidMobileSDK")
 @interface RokidMobileSDK : NSObject
@@ -658,14 +545,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RokidMobileS
 + (RokidMobileSDK * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKAccountManager * _Nullable account;)
 + (RKAccountManager * _Nullable)account SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKBLEDeviceBinder * _Nullable binder;)
-+ (RKBLEDeviceBinder * _Nullable)binder SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKDeviceManager * _Nullable device;)
-+ (RKDeviceManager * _Nullable)device SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKHomeManager * _Nullable home;)
-+ (RKHomeManager * _Nullable)home SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSKillManager * _Nullable skill;)
-+ (RKSKillManager * _Nullable)skill SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKBinderManager * _Nullable binder;)
++ (SDKBinderManager * _Nullable)binder SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceManager * _Nullable device;)
++ (SDKDeviceManager * _Nullable)device SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKVuiManager * _Nullable vui;)
++ (SDKVuiManager * _Nullable)vui SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSKillManager * _Nullable skill;)
++ (SDKSKillManager * _Nullable)skill SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 - (void)initSDKWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret accessKey:(NSString * _Nonnull)accessKey completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable))completion SWIFT_METHOD_FAMILY(none);
 @property (nonatomic) BOOL debug;
@@ -683,6 +570,143 @@ SWIFT_CLASS("_TtC8RokidSDK11RokidRemind")
 @property (nonatomic, copy) NSString * _Nonnull date;
 @property (nonatomic, copy) NSString * _Nonnull content;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+enum SDKAlarmRepeatMode : NSInteger;
+
+SWIFT_CLASS("_TtC8RokidSDK8SDKAlarm")
+@interface SDKAlarm : NSObject
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic) enum SDKAlarmRepeatMode repeatType;
+@property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable ext;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, SDKAlarmRepeatMode) {
+  SDKAlarmRepeatModeOnce = -1,
+  SDKAlarmRepeatModeEveryMondy = 0,
+  SDKAlarmRepeatModeEveryTuesday = 1,
+  SDKAlarmRepeatModeEveryWednesday = 2,
+  SDKAlarmRepeatModeEveryThursday = 3,
+  SDKAlarmRepeatModeEveryFriday = 4,
+  SDKAlarmRepeatModeEverySaturday = 5,
+  SDKAlarmRepeatModeEverySunday = 6,
+  SDKAlarmRepeatModeWeekday = 7,
+  SDKAlarmRepeatModeEveryday = 8,
+  SDKAlarmRepeatModeWeekend = 9,
+};
+
+
+SWIFT_CLASS("_TtC8RokidSDK16SDKBinderManager")
+@interface SDKBinderManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKBinderManager * _Nonnull shared;)
++ (SDKBinderManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (CBCentralManagerState)getBLEStatus SWIFT_WARN_UNUSED_RESULT;
+- (void)onBLEStatusChangeWithStatusChange:(void (^ _Nonnull)(CBCentralManagerState))statusChange;
+- (void)startBLEScanWithType:(NSString * _Nonnull)type onDeviceChange:(void (^ _Nonnull)(NSArray<RKBLEDevice *> * _Nonnull))onDeviceChange;
+- (void)stopBLEScan;
+- (void)connectBLEDevice:(RKBLEDevice * _Nonnull)device complete:(void (^ _Nonnull)(BOOL, NSError * _Nullable))complete;
+- (void)sendBLEBindWifiWithDevice:(RKBLEDevice * _Nonnull)device ssid:(NSString * _Nonnull)ssid password:(NSString * _Nonnull)password bssid:(NSString * _Nonnull)bssid completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class SDKDeviceVersionInfo;
+
+SWIFT_CLASS("_TtC8RokidSDK16SDKDeviceManager")
+@interface SDKDeviceManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceManager * _Nonnull shared;)
++ (SDKDeviceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (void)queryDeviceListWithCompletion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKDevice *> * _Nullable))completion;
+- (NSDictionary<NSString *, id> * _Nullable)getBasicInfoWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+- (void)updateNickWithDeviceId:(NSString * _Nonnull)deviceId newNick:(NSString * _Nonnull)newNick completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
+- (BOOL)getVersionWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(NSError * _Nullable, SDKDeviceVersionInfo * _Nullable))completion SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)startSystemUpdateWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)resetDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+- (void)unbindDeviceWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
+- (void)setCurrentDeviceWithDevice:(RKDevice * _Nonnull)device;
+- (RKDevice * _Nullable)getCurrentDevice SWIFT_WARN_UNUSED_RESULT;
+- (RKDevice * _Nullable)getDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK20SDKDeviceVersionInfo")
+@interface SDKDeviceVersionInfo : NSObject
+@property (nonatomic, copy) NSString * _Nonnull changelog;
+@property (nonatomic) NSInteger checkCode;
+@property (nonatomic) double downloadProgress;
+@property (nonatomic) NSInteger downloadedSize;
+@property (nonatomic) NSInteger totalSize;
+@property (nonatomic) BOOL updateAvailable;
+@property (nonatomic, copy) NSString * _Nonnull url;
+@property (nonatomic, copy) NSString * _Nonnull currentVersion;
+@property (nonatomic, copy) NSString * _Nonnull version;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK9SDKRemind")
+@interface SDKRemind : NSObject
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
+@property (nonatomic) NSInteger hour;
+@property (nonatomic) NSInteger minute;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic, copy) NSString * _Nonnull content;
+@property (nonatomic) enum SDKAlarmRepeatMode repeatType;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class SDKSkillAlarmHelper;
+@class SDKSkillRemindHelper;
+
+SWIFT_CLASS("_TtC8RokidSDK15SDKSKillManager")
+@interface SDKSKillManager : NSObject
+@property (nonatomic, readonly, strong) SDKSkillAlarmHelper * _Nonnull alarm;
+@property (nonatomic, readonly, strong) SDKSkillRemindHelper * _Nonnull remind;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSKillManager * _Nonnull shared;)
++ (SDKSKillManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK19SDKSkillAlarmHelper")
+@interface SDKSkillAlarmHelper : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSkillAlarmHelper * _Nonnull shared;)
++ (SDKSkillAlarmHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKAlarm *> * _Nullable))completion;
+- (BOOL)createWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)updateWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm to:(SDKAlarm * _Nonnull)to SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK20SDKSkillRemindHelper")
+@interface SDKSkillRemindHelper : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSkillRemindHelper * _Nonnull shared;)
++ (SDKSkillRemindHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKRemind *> * _Nullable))completion;
+- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId remind:(SDKRemind * _Nonnull)remind SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK13SDKVuiManager")
+@interface SDKVuiManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (void)getCardListWithMaxDbId:(NSInteger)maxDbId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
+- (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
+- (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device;
+- (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device;
 @end
 
 

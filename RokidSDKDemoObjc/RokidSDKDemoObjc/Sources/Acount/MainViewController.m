@@ -52,6 +52,8 @@
     }];
     
     NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
+    
+    //RokidMobileSDK.shared.debug = true;
 }
 
 - (void)tapView:(UITapGestureRecognizer *)gesture {
@@ -105,7 +107,7 @@
      pageSize 不能超过 100，这个会报错
      */
     if (/* DISABLES CODE */ (false)) {
-        [RokidMobileSDK.home getCardListWithMaxDbId:0 pageSize:101 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+        [RokidMobileSDK.vui getCardListWithMaxDbId:0 pageSize:101 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
             for (RKCard *card in cardArray) {
                 NSLog(@"msg = %@", card.msgText);
             }
@@ -116,7 +118,7 @@
      指定 pageSize = 25
      */
     if (/* DISABLES CODE */ (false)) {
-        [RokidMobileSDK.home getCardListWithMaxDbId:0 pageSize:25 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+        [RokidMobileSDK.vui getCardListWithMaxDbId:0 pageSize:25 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
             for (RKCard *card in cardArray) {
                 NSLog(@"msg = %@", card.msgText);
             }
@@ -127,7 +129,7 @@
      默认 pageSize = 20
      */
     if (true) {
-        [RokidMobileSDK.home getCardListWithMaxDbId:0 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+        [RokidMobileSDK.vui getCardListWithMaxDbId:0 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
             for (RKCard *card in cardArray) {
                 NSLog(@"msg = %@", card.msgText);
             }
@@ -143,7 +145,7 @@
         if (!device.alive) {
             NSLog(@"设备不在线");
         } else {
-            [RokidMobileSDK.home sendAsrWithAsr:@"你好若琪" to:device];
+            [RokidMobileSDK.vui sendAsrWithAsr:@"你好若琪" to:device];
         }
     }
 }

@@ -102,7 +102,7 @@
         }
         case 5:{ //(@"4.6 获取系统版本信息"),
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            BOOL bRet = [RokidMobileSDK.device getVersionWithDeviceId:self.device.id completion:^(NSError * error, RKDeviceVersionInfo * versionInfo) {
+            BOOL bRet = [RokidMobileSDK.device getVersionWithDeviceId:self.device.id completion:^(NSError * error, SDKDeviceVersionInfo * versionInfo) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 NSLog(bRet? @"success" : @"failed");
                 NSString * str = [versionInfo description];
@@ -157,8 +157,9 @@
             return ret;
         }
         case 10:{//@"4.11 获取当前设备(本地缓存)",
-            RKDevice * device = [RokidMobileSDK.device getDeviceWithDeviceId:self.device.id];
+            RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
             ret = [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume ];
+            
             return ret;
         }
         default:

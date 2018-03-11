@@ -1,20 +1,20 @@
 //
-//  HomeViewController.m
+//  VuiViewController.m
 //  RokidSDKDemoObjc
 //
 //  Created by coco zhou on 2018/2/18.
 //  Copyright © 2018年 Rokid. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "VuiViewController.h"
 #import "UIAlertController+Rokid.h"
 @import RokidSDK;
 
-@interface HomeViewController ()
+@interface VuiViewController ()
 @property (strong, nonatomic)  RKDevice * device;
 @end
 
-@implementation HomeViewController
+@implementation VuiViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,10 +41,10 @@
 
 
 - (IBAction)clickASR:(id)sender {
-    [RokidMobileSDK.home  sendAsrWithAsr: @"播放白龙马" to: self.device];
+    [RokidMobileSDK.vui  sendAsrWithAsr: @"播放白龙马" to: self.device];
 }
 - (IBAction)clickTTS:(id)sender {
-    //[RokidMobileSDK.home  sendTtsWithTts:@"我是若琪，有什么需要帮忙的?" to: self.device];
+    //[RokidMobileSDK.vui  sendTtsWithTts:@"我是若琪，有什么需要帮忙的?" to: self.device];
 }
 
 /*
