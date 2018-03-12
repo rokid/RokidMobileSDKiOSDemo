@@ -12,7 +12,7 @@
 
 @import WebKit;
 
-@interface IotViewController ()
+@interface IotViewController () <RKBridgeModulePhoneDelegate>
 @property(nonatomic, strong) RKWebBridge * rkWebBridge ;
 @property(nonatomic, strong) IOTWKWebView * webView;
 @end
@@ -37,6 +37,7 @@
 
     self.rkWebBridge = [RKWebBridge injectWebBridgeTo:self.webView];
     [self.rkWebBridge setAppDelegateWithDelegate:self];
+    [self.rkWebBridge setPhoneDelegateWithDelegate:self];
     
 }
 
@@ -74,6 +75,21 @@
 - (void)openExternalWithUrlStr:(NSString * _Nonnull)urlStr{
     
 }
+
+#pragma mark - RKBridgeModulePhoneDelegate
+- (void)touchUp {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)touchMove {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)touchDown {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+
 
 
 @end
