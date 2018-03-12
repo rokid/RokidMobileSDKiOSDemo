@@ -11,7 +11,7 @@
 @import WebKit;
 @import RokidSDK;
 
-@interface IotRoomViewController () <RKBridgeModuleAppDelegate>
+@interface IotRoomViewController () <RKBridgeModuleAppDelegate, RKBridgeModulePhoneDelegate>
 @property(nonatomic, strong) IOTWKWebView * webView;
 @property(nonatomic, strong) RKWebBridge * rkWebBridge ;
 
@@ -34,6 +34,7 @@
     
     self.rkWebBridge = [RKWebBridge injectWebBridgeTo:self.webView];
     [self.rkWebBridge setAppDelegateWithDelegate:self];
+    [self.rkWebBridge setPhoneDelegateWithDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +59,19 @@
 
 - (void)openExternalWithUrlStr:(NSString * _Nonnull)urlStr{
     
+}
+
+#pragma mark - RKBridgeModulePhoneDelegate
+- (void)touchUp {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)touchMove {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)touchDown {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 
