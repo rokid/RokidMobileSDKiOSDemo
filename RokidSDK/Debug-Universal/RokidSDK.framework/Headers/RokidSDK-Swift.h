@@ -345,6 +345,7 @@ SWIFT_PROTOCOL("_TtP8RokidSDK25RKBridgeModuleAppDelegate_")
 - (void)openWithTitle:(NSString * _Nonnull)title urlStr:(NSString * _Nonnull)urlStr;
 - (void)openNewWebViewWithTitle:(NSString * _Nonnull)title urlStr:(NSString * _Nonnull)urlStr;
 - (void)openExternalWithUrlStr:(NSString * _Nonnull)urlStr;
+- (void)goBackWithModule:(NSString * _Nonnull)module_ page:(NSString * _Nonnull)page;
 @end
 
 @protocol RKBridgeModulePhoneDelegate;
@@ -402,21 +403,76 @@ SWIFT_CLASS("_TtC8RokidSDK10RKChatCard")
 @interface RKChatCard : RKCard
 @end
 
+@class RKDeviceNightMode;
+@class RKDeviceUpdateInfo;
+@class RKDeviceAccent;
+@class RKDeviceVTWord;
+@class RKDeviceLocation;
+@class RKDeviceBattery;
 
 /// 设备类型。其主要状态由此manager维护，修改时会发出通知，通知的userInfo中会包含device id和修改的信息
 SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @interface RKDevice : NSObject
+/// 设备id，通常跟sn号一致，设备唯一标识符
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
-@property (nonatomic, copy) NSString * _Nullable ota;
-@property (nonatomic, copy) NSString * _Nullable deviceTypeId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull nick;
+/// 设备sn号
+@property (nonatomic, copy) NSString * _Nonnull sn;
+/// 设备操作系统：如“linux”
+@property (nonatomic, copy) NSString * _Nonnull system_platform;
+/// 设备版本号，包含版本号|日期|构建号
+@property (nonatomic, copy) NSString * _Nonnull ota;
+/// 设备类型ID，UUID字符串，由平台Server维护；多媒体的服务端使用
+@property (nonatomic, copy) NSString * _Nonnull deviceTypeId;
+/// 设备使用的RC通讯版本号
 @property (nonatomic, copy) NSString * _Nonnull rcVersion;
-@property (nonatomic) BOOL alive;
+/// 设备MAC地址
+@property (nonatomic, copy) NSString * _Nonnull mac;
+/// 无线电发射设备ID，蓝牙&wifi相关模块可能需要使用
+@property (nonatomic, copy) NSString * _Nonnull cmiit;
+/// 局域网IP
+@property (nonatomic, copy) NSString * _Nonnull lan_ip;
+/// 公网IP
+@property (nonatomic, copy) NSString * _Nonnull ip;
+/// 区域,如：US，目前app未使用
+@property (nonatomic, copy) NSString * _Nonnull region;
+/// 标识符，暂时app未使用，参考值：“roki”
+@property (nonatomic, copy) NSString * _Nonnull identity;
+/// 设备拥有者ID
+@property (nonatomic, copy) NSString * _Nonnull master;
+/// 语言,如：“zh”
+@property (nonatomic, copy) NSString * _Nonnull lng;
+/// 参考值：“cn”
+@property (nonatomic, copy) NSString * _Nonnull cy;
+/// basicInfo：仅兼容旧版本的SDK使用
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable basicInfo;
+/// 夜间模式
+@property (nonatomic, strong) RKDeviceNightMode * _Nullable nightmode;
+/// 连续对话
+@property (nonatomic) BOOL isContinuousDialogEnabled;
+/// 唤醒音效
+@property (nonatomic) BOOL isWakeupSoundEffectsEnabled;
+/// 待机灯光
+@property (nonatomic) BOOL isStandbyLightEnabled;
+/// 设备昵称，可修改
+@property (nonatomic, readonly, copy) NSString * _Nonnull nick;
+/// 在线状态,现在只是为了兼容SDK版本才保留的
+@property (nonatomic, readonly) BOOL alive;
+/// 升级状态
+@property (nonatomic, readonly, strong) RKDeviceUpdateInfo * _Nullable updateInfo;
+/// 自定义语音分组
+@property (nonatomic, copy) NSArray<RKDeviceAccent *> * _Nonnull customAccentGroup;
+/// 包含默认语音的全部语音分组列表
+@property (nonatomic, readonly, copy) NSArray<NSArray<RKDeviceAccent *> *> * _Nonnull accentGroupList;
+/// 当前自定义语音
+@property (nonatomic, strong) RKDeviceAccent * _Nullable currentAccent;
+/// 自定义激活词
+@property (nonatomic, strong) RKDeviceVTWord * _Nullable vtWord;
+/// 地理位置
+@property (nonatomic, strong) RKDeviceLocation * _Nullable location;
 @property (nonatomic) double alarmVolume;
 @property (nonatomic) double maxAlarmVolume;
-/// 缓存的getRokiInfos接口返回的结果，和RXAccountManager.Account中的缓存类似，获取和修改都会更新缓存；
-/// 不同的是，刷新设备列表时会返回basic_info namespace中的信息，所以这个缓存里几乎总是有值
-@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSDictionary<NSString *, id> *> * _Nonnull cachedInfos;
+/// 电量：0-100,默认满格100
+@property (nonatomic, strong) RKDeviceBattery * _Nullable battery;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
@@ -428,10 +484,7 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 
 
 
-
-
 @interface RKDevice (SWIFT_EXTENSION(RokidSDK))
-@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable basicInfo;
 @property (nonatomic, readonly, copy) NSString * _Nullable systemVersion;
 /// 类似swift的 <code>#available()</code> ，检查设备系统版本是否大于等于指定的版本
 /// \param ver 指定的系统版本
@@ -440,8 +493,95 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @end
 
 
+/// 设备语音（语调）对象
+SWIFT_CLASS("_TtC8RokidSDK14RKDeviceAccent")
+@interface RKDeviceAccent : NSObject
+- (nullable instancetype)initWithString:(NSString * _Nullable)string OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
 
 
+SWIFT_CLASS("_TtC8RokidSDK15RKDeviceBattery")
+@interface RKDeviceBattery : NSObject
+@property (nonatomic) BOOL hasBattery;
+@property (nonatomic) double percent;
+@property (nonatomic) BOOL isAcConnected;
+@property (nonatomic) double temperature;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK14RKDeviceDomain")
+@interface RKDeviceDomain : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK18RKDeviceDomainInfo")
+@interface RKDeviceDomainInfo : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK16RKDeviceLocation")
+@interface RKDeviceLocation : NSObject
+@property (nonatomic, copy) NSString * _Nonnull country;
+@property (nonatomic, copy) NSString * _Nonnull province;
+@property (nonatomic, copy) NSString * _Nonnull city;
+@property (nonatomic, copy) NSString * _Nonnull district;
+@property (nonatomic, copy) NSString * _Nonnull street;
+@property (nonatomic, copy) NSString * _Nonnull latitude;
+@property (nonatomic, copy) NSString * _Nonnull longitude;
+@property (nonatomic, copy) NSString * _Nonnull route;
+@property (nonatomic, copy) NSString * _Nonnull postalCode;
+@property (nonatomic, copy) NSString * _Nonnull ip;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK17RKDeviceNightMode")
+@interface RKDeviceNightMode : NSObject
+- (nullable instancetype)initWithString:(NSString * _Nullable)string;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKDeviceNightMode * _Nonnull defaultNightMode;)
++ (RKDeviceNightMode * _Nonnull)defaultNightMode SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK13RKDeviceSkill")
+@interface RKDeviceSkill : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK18RKDeviceUpdateInfo")
+@interface RKDeviceUpdateInfo : NSObject
+/// 系统升级新特性； 注意：只有手动检测版本信息后才可用
+@property (nonatomic, copy) NSString * _Nullable changeLog;
+/// 检测到的新系统； 注意：只有手动检测版本信息后才可用
+@property (nonatomic, copy) NSString * _Nullable availableVersion;
+/// 当前版本
+@property (nonatomic, copy) NSString * _Nonnull currentVersion;
+/// 有新系统可用时，下载新系统的进度,取值范围:[0-100]
+@property (nonatomic) NSInteger downloadProgress;
+/// 设备是否准备就绪，可以升级了
+@property (nonatomic) BOOL readyToUpdate;
+/// 设备不能升级的原因，如电量不足、未充电等
+@property (nonatomic, copy) NSString * _Nullable updateBlockReason;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK14RKDeviceVTWord")
+@interface RKDeviceVTWord : NSObject
+@property (nonatomic, copy) NSString * _Null_unspecified txt;
+@property (nonatomic, copy) NSString * _Null_unspecified py;
+- (nonnull instancetype)initWithTxt:(NSString * _Nonnull)txt py:(NSString * _Nonnull)py OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithString:(NSString * _Nullable)string OBJC_DESIGNATED_INITIALIZER;
+- (NSDictionary<NSString *, NSString *> * _Nonnull)toDictionary SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
 
 enum RKErrorCode : NSInteger;
 
@@ -624,7 +764,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 + (SDKDeviceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 - (void)queryDeviceListWithCompletion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKDevice *> * _Nullable))completion;
-- (NSDictionary<NSString *, id> * _Nullable)getBasicInfoWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nullable)getBasicInfoWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("use device.property instead!");
+- (void)getLocationWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, RKDeviceLocation * _Nullable))completion SWIFT_DEPRECATED_MSG("use device.location instead!");
+- (void)updateLocationWithDeviceId:(NSString * _Nonnull)deviceId location:(RKDeviceLocation * _Nonnull)location completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)updateNickWithDeviceId:(NSString * _Nonnull)deviceId newNick:(NSString * _Nonnull)newNick completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (BOOL)getVersionWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(NSError * _Nullable, SDKDeviceVersionInfo * _Nullable))completion SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)startSystemUpdateWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
