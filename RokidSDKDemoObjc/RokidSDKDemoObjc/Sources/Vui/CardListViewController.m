@@ -37,10 +37,17 @@
 
 - (void)fetchCardList {
     NSInteger dbId = [self dbId];
+    NSLog(@"max dbid = %ld", dbId);
+    
     [RokidMobileSDK.vui getCardListWithMaxDbId:dbId pageSize:20 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
         if (dbId == 0) {
             
         }
+        NSLog(@"✅cardArray = %ld", cardArray.count);
+        [cardArray enumerateObjectsUsingBlock:^(RKCard * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"dbid = %ld\n", obj.dbId);
+        }];
+        
         if (cardArray != nil && cardArray.count > 0) {
             NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, [cardArray count])];
             [self.cardList insertObjects:cardArray atIndexes:indexes];
@@ -57,7 +64,7 @@
     if (self.cardList.count == 0) {
         return 0;
     }
-    RKCard *card = [self.cardList objectAtIndex:0];
+    RKCard *card = [self.cardList lastObject];
     if (card == nil) {
         return 0;
     }
@@ -71,8 +78,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"card"];
     RKCard *card = [self.cardList objectAtIndex:indexPath.row];
-//    cell.textLabel.text = card.msgText;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[card.msgText dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    cell.textLabel.text = [NSString stringWithFormat:@"<%ld>(%ld)",(long)indexPath.row, card.dbId];
+//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[card.msgText dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 //    cell.textLabel.text = dict[""]
     
     return cell;
