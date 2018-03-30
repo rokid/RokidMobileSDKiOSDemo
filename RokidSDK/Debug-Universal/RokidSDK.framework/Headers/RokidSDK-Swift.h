@@ -569,7 +569,7 @@ SWIFT_CLASS("_TtC8RokidSDK18RKDeviceUpdateInfo")
 /// 检测到的新系统； 注意：只有手动检测版本信息后才可用
 @property (nonatomic, copy) NSString * _Nullable availableVersion;
 /// 当前版本
-@property (nonatomic, copy) NSString * _Nonnull currentVersion;
+@property (nonatomic, copy) NSString * _Nullable currentVersion;
 /// 有新系统可用时，下载新系统的进度,取值范围:[0-100]
 @property (nonatomic) NSInteger downloadProgress;
 /// 设备是否准备就绪，可以升级了
