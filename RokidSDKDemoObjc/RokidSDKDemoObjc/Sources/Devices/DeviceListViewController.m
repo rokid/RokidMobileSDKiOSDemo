@@ -26,6 +26,8 @@
     self.deviceListView.dataSource = self;
     self.deviceListView.delegate = self;
     
+    [RokidMobileSDK.device setInitDeviceNickPrefixWithName:@"XXX"];
+    
     /*
      获取设备列表
      */

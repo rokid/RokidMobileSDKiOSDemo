@@ -10,6 +10,8 @@
 #import "UIAlertController+Rokid.h"
 #import "IotViewController.h"
 #import "IotRoomViewController.h"
+#import "SMContainerViewController.h"
+
 
 @import RokidSDK;
 

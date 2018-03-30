@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7025D874206CE82E0077AEC1 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */; };
+		7025D888206D289A0077AEC1 /* SMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7025D887206D289A0077AEC1 /* SMContainerViewController.m */; };
 		7027A307202EB4F1005F2DF5 /* UIAlertController+Rokid.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */; };
 		703F2870202AD33100FD1670 /* DevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703F286F202AD33100FD1670 /* DevicesViewController.m */; };
 		703F2873202AD33D00FD1670 /* SkillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703F2872202AD33D00FD1670 /* SkillsViewController.m */; };
@@ -14,6 +16,7 @@
 		70800C4D202D90FA008E9962 /* DeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70800C4C202D90FA008E9962 /* DeviceInfoViewController.m */; };
 		70A689B120465902000E9451 /* IotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B020465902000E9451 /* IotViewController.m */; };
 		70A689B4204699B1000E9451 /* IotRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B3204699B1000E9451 /* IotRoomViewController.m */; };
+		70B0D627206D2E14000F7EF0 /* SkillsViewControllerNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B0D626206D2E14000F7EF0 /* SkillsViewControllerNew.m */; };
 		70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F6DC5D203ACA0600D63F3B /* RKTabViewController.m */; };
 		8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		D43AFFE41FFF706C00324778 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE31FFF706C00324778 /* config.plist */; };
@@ -85,6 +88,10 @@
 
 /* Begin PBXFileReference section */
 		618DEB1C8EAE54D454752A25 /* Pods-RokidSDKDemoObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.release.xcconfig"; sourceTree = "<group>"; };
+		7025D872206CE82E0077AEC1 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		7025D886206D289A0077AEC1 /* SMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMContainerViewController.h; sourceTree = "<group>"; };
+		7025D887206D289A0077AEC1 /* SMContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMContainerViewController.m; sourceTree = "<group>"; };
 		7027A305202EB4F1005F2DF5 /* UIAlertController+Rokid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Rokid.h"; sourceTree = "<group>"; };
 		7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Rokid.m"; sourceTree = "<group>"; };
 		703F286E202AD33100FD1670 /* DevicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevicesViewController.h; sourceTree = "<group>"; };
@@ -99,6 +106,8 @@
 		70A689B020465902000E9451 /* IotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IotViewController.m; sourceTree = "<group>"; };
 		70A689B2204699B1000E9451 /* IotRoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IotRoomViewController.h; sourceTree = "<group>"; };
 		70A689B3204699B1000E9451 /* IotRoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IotRoomViewController.m; sourceTree = "<group>"; };
+		70B0D625206D2E14000F7EF0 /* SkillsViewControllerNew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillsViewControllerNew.h; sourceTree = "<group>"; };
+		70B0D626206D2E14000F7EF0 /* SkillsViewControllerNew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillsViewControllerNew.m; sourceTree = "<group>"; };
 		70F6DC5C203ACA0600D63F3B /* RKTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RKTabViewController.h; sourceTree = "<group>"; };
 		70F6DC5D203ACA0600D63F3B /* RKTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKTabViewController.m; sourceTree = "<group>"; };
 		8F0290D688F18C4012EEDEAC /* Pods-DontUse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +171,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7025D870206CE82E0077AEC1 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7025D871206CE82E0077AEC1 /* HMSegmentedControl */,
+				7025D886206D289A0077AEC1 /* SMContainerViewController.h */,
+				7025D887206D289A0077AEC1 /* SMContainerViewController.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		7025D871206CE82E0077AEC1 /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				7025D872206CE82E0077AEC1 /* HMSegmentedControl.h */,
+				7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
 		7027A304202EB4BD005F2DF5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +226,8 @@
 			children = (
 				703F2871202AD33D00FD1670 /* SkillsViewController.h */,
 				703F2872202AD33D00FD1670 /* SkillsViewController.m */,
+				70B0D625206D2E14000F7EF0 /* SkillsViewControllerNew.h */,
+				70B0D626206D2E14000F7EF0 /* SkillsViewControllerNew.m */,
 				F80BEAAE20494FCE008D0FBE /* IOTWKWebView.h */,
 				F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */,
 				70A689AF20465902000E9451 /* IotViewController.h */,
@@ -316,6 +346,7 @@
 		D4F951401FCE5D360091179D /* RokidSDKDemoObjc */ = {
 			isa = PBXGroup;
 			children = (
+				7025D870206CE82E0077AEC1 /* UIKit */,
 				7027A304202EB4BD005F2DF5 /* Category */,
 				D43AFFE11FFF6DBF00324778 /* Resources */,
 				D43AFFE01FFF6DAB00324778 /* Sources */,
@@ -607,12 +638,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7025D888206D289A0077AEC1 /* SMContainerViewController.m in Sources */,
 				D4B5748E200F2B7A00C20D0E /* CardListViewController.m in Sources */,
 				D43DCE101FD96D0C005C158A /* DeviceListViewController.m in Sources */,
 				D4B574B6200FA06600C20D0E /* WebviewViewController.m in Sources */,
 				70800C4D202D90FA008E9962 /* DeviceInfoViewController.m in Sources */,
 				D4F951461FCE5D360091179D /* MainViewController.m in Sources */,
 				D43AFFE81FFF741900324778 /* Properties.m in Sources */,
+				70B0D627206D2E14000F7EF0 /* SkillsViewControllerNew.m in Sources */,
 				D43DCE131FD96D23005C158A /* BinderViewController.m in Sources */,
 				D4F951511FCE5D360091179D /* main.m in Sources */,
 				703F2870202AD33100FD1670 /* DevicesViewController.m in Sources */,
@@ -622,6 +655,7 @@
 				70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */,
 				70A689B120465902000E9451 /* IotViewController.m in Sources */,
 				D4F951431FCE5D360091179D /* AppDelegate.m in Sources */,
+				7025D874206CE82E0077AEC1 /* HMSegmentedControl.m in Sources */,
 				F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */,
 				705A25A12039C5C4008C8C10 /* VuiViewController.m in Sources */,
 			);

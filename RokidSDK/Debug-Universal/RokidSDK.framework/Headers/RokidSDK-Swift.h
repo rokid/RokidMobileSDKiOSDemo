@@ -493,6 +493,13 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @end
 
 
+@interface RKDevice (SWIFT_EXTENSION(RokidSDK))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable initDeviceNickPrefix;)
++ (NSString * _Nullable)initDeviceNickPrefix SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (void)setInitDeviceNickPrefix:(NSString * _Nullable)newValue;
+@end
+
+
 /// 设备语音（语调）对象
 SWIFT_CLASS("_TtC8RokidSDK14RKDeviceAccent")
 @interface RKDeviceAccent : NSObject
@@ -775,6 +782,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 - (void)setCurrentDeviceWithDevice:(RKDevice * _Nonnull)device;
 - (RKDevice * _Nullable)getCurrentDevice SWIFT_WARN_UNUSED_RESULT;
 - (RKDevice * _Nullable)getDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+- (void)setInitDeviceNickPrefixWithName:(NSString * _Nonnull)name;
 @end
 
 
