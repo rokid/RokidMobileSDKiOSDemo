@@ -15,7 +15,7 @@ target 'RokidSDKDemoSwift' do
   pod 'SQLite.swift', '~> 0.11.4'
 
   # Model
-  pod 'HandyJSON', '~> 1.8.0'
+  #pod 'HandyJSON', '~> 1.8.0'
 
   pod 'ProtocolBuffers-Swift', '3.0.23'
   pod 'SnapKit', '3.2.0'
@@ -32,7 +32,7 @@ target 'RokidSDKDemoObjc' do
   pod 'SQLite.swift', '~> 0.11.4'
 
   # Model
-  pod 'HandyJSON', '~> 1.8.0'
+  #pod 'HandyJSON', '~> 1.8.0'
 
   pod 'ProtocolBuffers-Swift', '3.0.23'
   pod 'SnapKit', '3.2.0'
@@ -51,7 +51,7 @@ target 'DontUse' do
   pod 'SQLite.swift', '~> 0.11.4'
 
   # Model
-  pod 'HandyJSON', '~> 1.8.0'
+  #pod 'HandyJSON', '~> 1.8.0'
 
   pod 'ProtocolBuffers-Swift', '3.0.23'
   pod 'SnapKit', '3.2.0'
