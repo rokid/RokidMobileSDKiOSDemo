@@ -38,7 +38,8 @@ target 'RokidSDKDemoObjc' do
   pod 'SnapKit', '3.2.0'
   pod 'CocoaAsyncSocket', '7.6.0'
   pod 'Starscream', '2.0.3'
-
+  pod 'ReachabilitySwift', '4.1.0'
+  
   pod 'MJRefresh'
   pod 'MBProgressHUD', '~> 1.1.0'
 end

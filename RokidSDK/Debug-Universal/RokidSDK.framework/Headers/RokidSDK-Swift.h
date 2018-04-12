@@ -202,13 +202,13 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
-
-
 
 
 SWIFT_CLASS("_TtC8RokidSDK5RBBLE")
@@ -271,6 +271,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RBVolume * _
 /// 开始监听用户按音量键点击
 - (void)startListening;
 - (void)stopListening;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK22RKASRCorrectionManager")
+@interface RKASRCorrectionManager : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -667,6 +673,14 @@ SWIFT_CLASS("_TtC8RokidSDK13RKSummaryCard")
 
 SWIFT_CLASS("_TtC8RokidSDK16RKTTExchangeRule")
 @interface RKTTExchangeRule : NSObject
+@property (nonatomic, copy) NSString * _Nullable ruleId;
+@property (nonatomic) NSInteger id;
+@property (nonatomic, copy) NSString * _Nullable accountId;
+@property (nonatomic, copy) NSString * _Nullable originText;
+@property (nonatomic, copy) NSString * _Nullable targetText;
+@property (nonatomic) NSInteger createTime;
+@property (nonatomic) NSInteger updateTime;
+- (nonnull instancetype)initWithRuleId:(NSString * _Nullable)ruleId accountId:(NSString * _Nullable)accountId originTxt:(NSString * _Nullable)originTxt targetTxt:(NSString * _Nullable)targetTxt OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -889,6 +903,11 @@ SWIFT_CLASS("_TtC8RokidSDK13SDKVuiManager")
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
 - (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device;
 - (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device;
+- (void)asrCorrectFindWithAccountId:(NSString * _Nonnull)accountId originText:(NSString * _Nonnull)originText complete:(void (^ _Nonnull)(RKError * _Nullable, RKTTExchangeRule * _Nullable))complete;
+- (void)asrCorrectUpdateWithRuleId:(NSInteger)ruleId accountId:(NSString * _Nonnull)accountId originText:(NSString * _Nonnull)originText targetText:(NSString * _Nonnull)targetText complete:(void (^ _Nonnull)(RKError * _Nullable, NSDictionary<NSString *, NSString *> * _Nullable))complete;
+- (void)asrCorrectCreateWithAccountId:(NSString * _Nonnull)accountId originText:(NSString * _Nonnull)originText targetText:(NSString * _Nonnull)targetText complete:(void (^ _Nonnull)(RKError * _Nullable, RKTTExchangeRule * _Nullable))complete;
+- (void)asrCorrectHistoryWithAccountId:(NSString * _Nonnull)accountId page:(NSString * _Nonnull)page size:(NSString * _Nonnull)size complete:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKTTExchangeRule *> * _Nullable))complete;
+- (void)asrCorrectDeleteWithRuleId:(NSInteger)ruleId complete:(void (^ _Nonnull)(RKError * _Nullable, NSDictionary<NSString *, NSString *> * _Nullable))complete;
 @end
 
 

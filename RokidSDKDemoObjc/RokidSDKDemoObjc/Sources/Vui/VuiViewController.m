@@ -47,6 +47,37 @@
     //[RokidMobileSDK.vui  sendTtsWithTts:@"我是若琪，有什么需要帮忙的?" to: self.device];
 }
 
+- (void)asrCorrectTest{
+    
+    NSString * accountId = @""; //account.masterId
+    int ruleId = 2001; //当创建完后，才有ruleid;
+    
+    [RokidMobileSDK.vui asrCorrectFindWithAccountId:accountId originText:@"识别错误的那巨话" complete:^(RKError * error, RKTTExchangeRule* rule) {
+        NSLog(@"%@",rule);
+    }];
+    
+    [RokidMobileSDK.vui asrCorrectCreateWithAccountId:accountId originText:@"识别错误的那巨话" targetText:@"识别错误的那句话" complete:^(RKError * error, RKTTExchangeRule * rule) {
+        NSLog(@"%@", error);
+    }];
+    
+    [RokidMobileSDK.vui asrCorrectUpdateWithRuleId:ruleId accountId:accountId originText:@"识别错误的那巨话" targetText:@"识别错误的那句话" complete:^(RKError * error, NSDictionary<NSString *,NSString *> * dic) {
+        NSLog(@"%@",dic);
+    }];
+    
+    [RokidMobileSDK.vui asrCorrectDeleteWithRuleId:ruleId complete:^(RKError * error, NSDictionary* dic) {
+        NSLog(@"%@", error);
+    }];
+    
+    [RokidMobileSDK.vui asrCorrectHistoryWithAccountId:accountId page:@"0" size:@"25" complete:^(RKError * error, NSArray<RKTTExchangeRule *> *  rules) {
+        NSLog(@"%@", error);
+    }];
+    
+}
+
+
+
+
+
 /*
 #pragma mark - Navigation
 
