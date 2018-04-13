@@ -560,8 +560,8 @@ SWIFT_CLASS("_TtC8RokidSDK16RKDeviceLocation")
 @property (nonatomic, copy) NSString * _Nonnull route;
 @property (nonatomic, copy) NSString * _Nonnull postalCode;
 @property (nonatomic, copy) NSString * _Nonnull ip;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (nonnull instancetype)init;
+- (nonnull instancetype)initWithCountry:(NSString * _Nonnull)country OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
