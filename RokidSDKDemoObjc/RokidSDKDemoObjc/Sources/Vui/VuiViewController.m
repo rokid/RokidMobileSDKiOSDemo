@@ -49,28 +49,30 @@
 
 - (void)asrCorrectTest{
     
-    NSString * accountId = @""; //account.masterId
-    int ruleId = 2001; //当创建完后，才有ruleid;
+
+    [RokidMobileSDK.vui asrCorrectFindWithOriginText:@"识别错误的那巨话" complete:^(RKError * error, RKTTExchangeRule * rule) {
+        NSLog(@"%@",rule);
+    }];
+
     
-    [RokidMobileSDK.vui asrCorrectFindWithAccountId:accountId originText:@"识别错误的那巨话" complete:^(RKError * error, RKTTExchangeRule* rule) {
+    [RokidMobileSDK.vui asrCorrectCreateWithOriginText:@"识别错误的那巨话" targetText:@"识别错误的那句话"  complete:^(RKError * error, RKTTExchangeRule * rule) {
         NSLog(@"%@",rule);
     }];
     
-    [RokidMobileSDK.vui asrCorrectCreateWithAccountId:accountId originText:@"识别错误的那巨话" targetText:@"识别错误的那句话" complete:^(RKError * error, RKTTExchangeRule * rule) {
-        NSLog(@"%@", error);
+    int ruleId = 2001; //当调用asrCorrectCreateWithOriginText后，才有rule，从rule中拿到id;
+    [RokidMobileSDK.vui asrCorrectUpdateWithRuleId:ruleId originText:@"识别错误的那巨话" targetText:@"识别错误的那句话" complete:^(RKError * error, NSDictionary<NSString *,NSString *> * dic) {
+         NSLog(@"%@",dic);
     }];
     
-    [RokidMobileSDK.vui asrCorrectUpdateWithRuleId:ruleId accountId:accountId originText:@"识别错误的那巨话" targetText:@"识别错误的那句话" complete:^(RKError * error, NSDictionary<NSString *,NSString *> * dic) {
-        NSLog(@"%@",dic);
-    }];
     
     [RokidMobileSDK.vui asrCorrectDeleteWithRuleId:ruleId complete:^(RKError * error, NSDictionary* dic) {
         NSLog(@"%@", error);
     }];
     
-    [RokidMobileSDK.vui asrCorrectHistoryWithAccountId:accountId page:@"0" size:@"25" complete:^(RKError * error, NSArray<RKTTExchangeRule *> *  rules) {
-        NSLog(@"%@", error);
+    [RokidMobileSDK.vui asrCorrectHistoryWithPage:@"0" size:@"25" complete:^(RKError * error, NSArray<RKTTExchangeRule *> * rules) {
+        NSLog(@"%@", rules);
     }];
+    
     
 }
 
