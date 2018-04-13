@@ -48,7 +48,7 @@
 }
 
 - (void)asrCorrectTest{
-    
+    //以下所有操作，都要在登录后进行
 
     [RokidMobileSDK.vui asrCorrectFindWithOriginText:@"识别错误的那巨话" complete:^(RKError * error, RKTTExchangeRule * rule) {
         NSLog(@"%@",rule);
