@@ -803,12 +803,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKBinderMan
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class SDKDevicePingHelper;
 @class SDKDeviceVersionInfo;
 
 SWIFT_CLASS("_TtC8RokidSDK16SDKDeviceManager")
 @interface SDKDeviceManager : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceManager * _Nonnull shared;)
 + (SDKDeviceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) SDKDevicePingHelper * _Nonnull pingHelper;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)queryDeviceListWithCompletion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKDevice *> * _Nullable))completion;
@@ -824,6 +826,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 - (RKDevice * _Nullable)getCurrentDevice SWIFT_WARN_UNUSED_RESULT;
 - (RKDevice * _Nullable)getDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
 - (void)setInitDeviceNickPrefixWithName:(NSString * _Nonnull)name;
+- (void)pingDeviceWithDevice:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK19SDKDevicePingHelper")
+@interface SDKDevicePingHelper : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDevicePingHelper * _Nonnull shared;)
++ (SDKDevicePingHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)onDeviceBecomeOnline:(NSNotification * _Nonnull)noti;
 - (void)pingDeviceWithDevice:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
 @end
 
