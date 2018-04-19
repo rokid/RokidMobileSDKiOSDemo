@@ -824,6 +824,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 - (RKDevice * _Nullable)getCurrentDevice SWIFT_WARN_UNUSED_RESULT;
 - (RKDevice * _Nullable)getDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
 - (void)setInitDeviceNickPrefixWithName:(NSString * _Nonnull)name;
+- (void)pingDeviceWithDevice:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
 @end
 
 

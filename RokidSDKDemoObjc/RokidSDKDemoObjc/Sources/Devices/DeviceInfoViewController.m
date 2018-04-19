@@ -43,6 +43,7 @@
                         @"4.9 解绑设备",
                         @"4.10 设置当前设备(本地缓存)",
                         @"4.11 获取当前设备(本地缓存)",
+                        @"4.12 ping当前设备",
                         KEY_SHOW_LOG,
                        nil];
     
@@ -159,6 +160,18 @@
         case 10:{//@"4.11 获取当前设备(本地缓存)",
             RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
             ret = [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume ];
+            
+            return ret;
+        }
+        case 11:{//@"4.12 ping当前设备",
+            RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
+            [RokidMobileSDK.device pingDeviceWithDevice:device completion:^(RKError * error, RKDevice * device) {
+                NSLog(@"%@, %@",error.message, device);
+                NSLog(@"info %s ", device.alive ? "alive" : "not alive");
+            }];
+            
+      
+            ret = [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f alive:%s",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume, device.alive ? "yes" : "no" ];
             
             return ret;
         }
