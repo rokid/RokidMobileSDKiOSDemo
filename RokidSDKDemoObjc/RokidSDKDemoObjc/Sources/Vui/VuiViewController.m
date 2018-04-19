@@ -43,39 +43,43 @@
 - (IBAction)clickASR:(id)sender {
     [RokidMobileSDK.vui  sendAsrWithAsr: @"播放白龙马" to: self.device];
 }
+
 - (IBAction)clickTTS:(id)sender {
     //[RokidMobileSDK.vui  sendTtsWithTts:@"我是若琪，有什么需要帮忙的?" to: self.device];
 }
 
-- (void)asrCorrectTest{
-    //以下所有操作，都要在登录后进行
-
+- (IBAction)asrcfind:(id)sender {
     [RokidMobileSDK.vui asrCorrectFindWithOriginText:@"识别错误的那巨话" complete:^(RKError * error, RKTTExchangeRule * rule) {
         NSLog(@"%@",rule);
     }];
+}
 
-    
+- (IBAction)asrcCreate:(id)sender {
     [RokidMobileSDK.vui asrCorrectCreateWithOriginText:@"识别错误的那巨话" targetText:@"识别错误的那句话"  complete:^(RKError * error, RKTTExchangeRule * rule) {
         NSLog(@"%@",rule);
     }];
-    
+}
+
+- (IBAction)asrcUpdate:(id)sender {
     int ruleId = 2001; //当调用asrCorrectCreateWithOriginText后，才有rule，从rule中拿到id;
     [RokidMobileSDK.vui asrCorrectUpdateWithRuleId:ruleId originText:@"识别错误的那巨话" targetText:@"识别错误的那句话" complete:^(RKError * error, NSDictionary<NSString *,NSString *> * dic) {
-         NSLog(@"%@",dic);
+        NSLog(@"%@",dic);
     }];
-    
-    
-    [RokidMobileSDK.vui asrCorrectDeleteWithRuleId:ruleId complete:^(RKError * error, NSDictionary* dic) {
-        NSLog(@"%@", error);
-    }];
+}
+
+- (IBAction)asrcHistory:(id)sender {
     
     [RokidMobileSDK.vui asrCorrectHistoryWithPage:@"0" size:@"25" complete:^(RKError * error, NSArray<RKTTExchangeRule *> * rules) {
         NSLog(@"%@", rules);
     }];
-    
-    
 }
 
+- (IBAction)asrcDelete:(id)sender {
+    int ruleId = 2001; //当调用asrCorrectCreateWithOriginText后，才有rule，从rule中拿到id;
+    [RokidMobileSDK.vui asrCorrectDeleteWithRuleId:ruleId complete:^(RKError * error, NSDictionary* dic) {
+        NSLog(@"%@", error);
+    }];
+}
 
 
 
