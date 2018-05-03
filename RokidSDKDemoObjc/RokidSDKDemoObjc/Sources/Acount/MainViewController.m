@@ -54,8 +54,6 @@
     NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
     
     //RokidMobileSDK.shared.debug = true;
-    self.telInput.text = @"15998589691";
-    self.passwordInput.text = @"123456";
 }
 
 - (void)tapView:(UITapGestureRecognizer *)gesture {
@@ -66,7 +64,7 @@
 - (void)login
 {
     [self tapView:nil];
-    
+#if true
     // 使用若琪账号登录，暂时不确定如何开放登录的接口
     [RokidMobileSDK.account tempLoginWithName:self.telInput.text
                                      password:self.passwordInput.text
@@ -97,6 +95,41 @@
             [self presentViewController:alert animated:true completion:nil];
         }
     }];
+#else
+    NSString * userId = @"";
+    NSString * token = @"";
+    
+    [RokidMobileSDK.account tokenLoginWithUserId:userId token:token completion:^(RKError * error) {
+        
+        NSLog(@"%@", error);
+        if (!error) {
+            NSLog(@"[Login] OK" );
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
+            
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert success" message:@"可以其他操作了" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }]];
+            [self presentViewController:alert animated:true completion:nil];
+            
+            
+        }else {
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
+            
+            NSError *newError = [NSError errorWithDomain:@"RKError"
+                                                    code:error.code
+                                                userInfo:@{
+                                                           @"Message": error.message? :@""
+                                                           }];
+            NSLog(@"[Login] Error %@", newError);
+            
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert" message:@"error" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }]];
+            [self presentViewController:alert animated:true completion:nil];
+        }
+    }];
+
+#endif
 }
 
 - (void)logout

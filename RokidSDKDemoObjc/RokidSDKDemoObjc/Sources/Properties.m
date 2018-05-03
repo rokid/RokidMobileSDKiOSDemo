@@ -35,16 +35,19 @@ static Properties *sharedProperties;
 
 //@property (readonly, nonatomic) NSString *appKey;
 - (NSString *)appKey {
+    NSLog(@"appkey= %@", self.plist[@"appKey"]);
     return self.plist[@"appKey"];
 }
 
 //@property (readonly, nonatomic) NSString *appSecret;
 - (NSString *)appSecret {
+    NSLog(@"appSecret= %@", self.plist[@"appSecret"]);
     return self.plist[@"appSecret"];
 }
 
 //@property (readonly, nonatomic) NSString *accessKey;
 - (NSString *)accessKey {
+    NSLog(@"accessKey= %@", self.plist[@"accessKey"]);
     return self.plist[@"accessKey"];
 }
 
