@@ -167,7 +167,22 @@
             RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
             [RokidMobileSDK.device pingDeviceWithDevice:device completion:^(RKError * error, RKDevice * device) {
                 NSLog(@"%@, %@",error.message, device);
-                NSLog(@"info %s ", device.alive ? "alive" : "not alive");
+                NSLog(@"info: %ld", (long)device.onlineState);
+                switch (device.onlineState) {
+                    case 0:
+                        NSLog(@"offline");
+                        break;
+                    case 1:
+                        NSLog(@"connecting");
+                        break;
+                    case 2:
+                        NSLog(@"online");
+                        break;
+
+                    default:
+                        break;
+                }
+                
             }];
             
       

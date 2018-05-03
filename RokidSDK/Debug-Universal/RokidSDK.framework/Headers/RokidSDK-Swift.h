@@ -417,6 +417,7 @@ SWIFT_CLASS("_TtC8RokidSDK10RKChatCard")
 @end
 
 @class RKDeviceNightMode;
+enum RKDeviceOnlineStatus : NSInteger;
 @class RKDeviceUpdateInfo;
 @class RKDeviceAccent;
 @class RKDeviceVTWord;
@@ -468,6 +469,8 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @property (nonatomic) BOOL isStandbyLightEnabled;
 /// 设备昵称，可修改
 @property (nonatomic, readonly, copy) NSString * _Nonnull nick;
+/// 在线状态
+@property (nonatomic, readonly) enum RKDeviceOnlineStatus onlineState;
 /// 在线状态,现在只是为了兼容SDK版本才保留的
 @property (nonatomic, readonly) BOOL alive;
 /// 升级状态
@@ -574,6 +577,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKDeviceNigh
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, RKDeviceOnlineStatus) {
+  RKDeviceOnlineStatusOffline = 0,
+  RKDeviceOnlineStatusConnecting = 1,
+  RKDeviceOnlineStatusOnline = 2,
+};
 
 
 SWIFT_CLASS("_TtC8RokidSDK13RKDeviceSkill")
