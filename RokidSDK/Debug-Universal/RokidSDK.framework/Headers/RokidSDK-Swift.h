@@ -485,6 +485,8 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @property (nonatomic, strong) RKDeviceVTWord * _Nullable vtWord;
 /// 地理位置
 @property (nonatomic, strong) RKDeviceLocation * _Nullable location;
+/// 区分回调任务的时间戳
+@property (nonatomic, copy) NSString * _Nonnull callbackTimestamp;
 @property (nonatomic) double alarmVolume;
 @property (nonatomic) double maxAlarmVolume;
 /// 电量：0-100,默认满格100
@@ -493,6 +495,8 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
+
+
 
 
 
