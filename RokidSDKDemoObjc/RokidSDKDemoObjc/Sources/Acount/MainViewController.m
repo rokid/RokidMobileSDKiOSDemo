@@ -54,6 +54,8 @@
     NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
     
     //RokidMobileSDK.shared.debug = true;
+    self.telInput.text = @"15998589691";
+    self.passwordInput.text = @"123456";
 }
 
 - (void)tapView:(UITapGestureRecognizer *)gesture {
