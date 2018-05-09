@@ -641,59 +641,86 @@
                                     <action selector="clickTTS:" destination="1Zp-fl-bbd" eventType="touchUpInside" id="UrF-Pa-7wK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTB-zE-r7Y">
-                                <rect key="frame" x="46" y="254" width="100" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTB-zE-r7Y">
+                                <rect key="frame" x="46" y="254" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.61283210639226815" green="1" blue="0.80348986214217488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="find"/>
                                 <connections>
                                     <action selector="asrcfind:" destination="1Zp-fl-bbd" eventType="touchUpInside" id="COm-mU-Ib3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbm-Vm-pLi">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbm-Vm-pLi">
                                 <rect key="frame" x="46" y="296" width="100" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.61283210639999997" green="1" blue="0.80348986209999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="create"/>
                                 <connections>
                                     <action selector="asrcCreate:" destination="1Zp-fl-bbd" eventType="touchUpInside" id="ESL-Hv-qi5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2e-rH-5Ed">
-                                <rect key="frame" x="46" y="338" width="100" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2e-rH-5Ed">
+                                <rect key="frame" x="46" y="342" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.61283210639999997" green="1" blue="0.80348986209999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="update"/>
                                 <connections>
                                     <action selector="asrcUpdate:" destination="1Zp-fl-bbd" eventType="touchUpInside" id="jye-bd-ZeG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-8r-4cc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-8r-4cc">
                                 <rect key="frame" x="46" y="380" width="100" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.61283210639999997" green="1" blue="0.80348986209999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="bBN-4U-7Gh"/>
+                                </constraints>
                                 <state key="normal" title="history"/>
                                 <connections>
                                     <action selector="asrcHistory:" destination="1Zp-fl-bbd" eventType="touchUpInside" id="Yrc-8y-55u"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ss-JV-LD1">
-                                <rect key="frame" x="46" y="422" width="100" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ss-JV-LD1">
+                                <rect key="frame" x="46" y="422" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.61283210639999997" green="1" blue="0.80348986209999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="delete"/>
                                 <connections>
                                     <action selector="asrcDelete:" destination="1Zp-fl-bbd" eventType="touchUpInside" id="HDc-FM-u11"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2l-QY-hpM">
+                                <rect key="frame" x="46" y="218" width="124" height="30"/>
+                                <color key="backgroundColor" red="0.4880891664" green="0.67783108950000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gvI-Jg-7Nf"/>
+                                </constraints>
+                                <state key="normal" title="发送TOPIC msg"/>
+                                <connections>
+                                    <action selector="clickSendTopicMessage:" destination="1Zp-fl-bbd" eventType="touchUpInside" id="Yy0-8W-AOd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="I2l-QY-hpM" firstAttribute="top" secondItem="dDL-tn-2ow" secondAttribute="bottom" constant="8" id="2EX-Wn-dfu"/>
                             <constraint firstItem="ZDX-MQ-OcV" firstAttribute="top" secondItem="BJt-Z7-RVF" secondAttribute="bottom" constant="30" id="55b-va-Gq1"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="leading" secondItem="D2e-rH-5Ed" secondAttribute="leading" id="AhT-fE-NsD"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="leading" secondItem="nbm-Vm-pLi" secondAttribute="leading" id="ChP-yx-RUx"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="leading" secondItem="nMP-8r-4cc" secondAttribute="leading" id="Dfh-Ht-Zcu"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="trailing" secondItem="6Ss-JV-LD1" secondAttribute="trailing" id="Dyg-5y-aMr"/>
+                            <constraint firstItem="I2l-QY-hpM" firstAttribute="leading" secondItem="VpA-AW-ccT" secondAttribute="leadingMargin" constant="30" id="GYu-WO-FSG"/>
+                            <constraint firstItem="nbm-Vm-pLi" firstAttribute="top" secondItem="eTB-zE-r7Y" secondAttribute="bottom" constant="12" id="HCy-Am-X3Z"/>
+                            <constraint firstItem="6Ss-JV-LD1" firstAttribute="top" secondItem="nMP-8r-4cc" secondAttribute="bottom" constant="8" symbolic="YES" id="HDX-Tk-xry"/>
+                            <constraint firstItem="nMP-8r-4cc" firstAttribute="top" secondItem="D2e-rH-5Ed" secondAttribute="bottom" constant="8" symbolic="YES" id="K8J-ut-9Xg"/>
+                            <constraint firstAttribute="bottom" secondItem="nMP-8r-4cc" secondAttribute="bottom" constant="253" id="NUk-rC-zQr"/>
                             <constraint firstItem="dDL-tn-2ow" firstAttribute="leading" secondItem="VpA-AW-ccT" secondAttribute="leadingMargin" constant="30" id="V00-dj-H8B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I2l-QY-hpM" secondAttribute="trailing" constant="189" id="Yy8-gs-zmp"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="trailing" secondItem="D2e-rH-5Ed" secondAttribute="trailing" id="bAl-Mk-Q5T"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="top" secondItem="I2l-QY-hpM" secondAttribute="bottom" constant="6" id="cIf-lf-5dP"/>
                             <constraint firstItem="uaf-bh-VG3" firstAttribute="leading" secondItem="VpA-AW-ccT" secondAttribute="leadingMargin" constant="30" id="gHP-Hk-G90"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="trailing" secondItem="nMP-8r-4cc" secondAttribute="trailing" id="h6o-4H-x29"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="leading" secondItem="6Ss-JV-LD1" secondAttribute="leading" id="jeH-mn-faB"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="leading" secondItem="I2l-QY-hpM" secondAttribute="leading" id="lCL-bB-duQ"/>
                             <constraint firstItem="uaf-bh-VG3" firstAttribute="top" secondItem="ZDX-MQ-OcV" secondAttribute="bottom" constant="13" id="nAp-aT-jL9"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="trailing" secondItem="nbm-Vm-pLi" secondAttribute="trailing" id="oFL-3D-kzw"/>
                             <constraint firstItem="dDL-tn-2ow" firstAttribute="top" secondItem="uaf-bh-VG3" secondAttribute="bottom" constant="13" id="sbG-eU-v3G"/>
+                            <constraint firstItem="eTB-zE-r7Y" firstAttribute="trailing" secondItem="dDL-tn-2ow" secondAttribute="trailing" id="tz7-eN-c6J"/>
                             <constraint firstItem="ZDX-MQ-OcV" firstAttribute="leading" secondItem="VpA-AW-ccT" secondAttribute="leadingMargin" constant="30" id="uGp-xM-Scy"/>
                         </constraints>
                     </view>

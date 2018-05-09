@@ -48,6 +48,11 @@
     //[RokidMobileSDK.vui  sendTtsWithTts:@"我是若琪，有什么需要帮忙的?" to: self.device];
 }
 
+- (IBAction)clickSendTopicMessage:(id)sender {
+    [RokidMobileSDK.vui sendMessageWithTopic:@"title" text:@"text" to:self.device];
+}
+
+
 - (IBAction)asrcfind:(id)sender {
     [RokidMobileSDK.vui asrCorrectFindWithOriginText:@"识别错误的那巨话" complete:^(RKError * error, RKTTExchangeRule * rule) {
         NSLog(@"%@",rule);
