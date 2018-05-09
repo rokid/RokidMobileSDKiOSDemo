@@ -918,6 +918,7 @@ SWIFT_CLASS("_TtC8RokidSDK13SDKVuiManager")
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
 - (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device;
 - (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device;
+- (void)sendMessageWithTopic:(NSString * _Nonnull)topic text:(NSString * _Nonnull)text to:(RKDevice * _Nonnull)device;
 - (void)asrCorrectFindWithOriginText:(NSString * _Nonnull)originText complete:(void (^ _Nonnull)(RKError * _Nullable, RKTTExchangeRule * _Nullable))complete;
 - (void)asrCorrectUpdateWithRuleId:(NSInteger)ruleId originText:(NSString * _Nonnull)originText targetText:(NSString * _Nonnull)targetText complete:(void (^ _Nonnull)(RKError * _Nullable, NSDictionary<NSString *, NSString *> * _Nullable))complete;
 - (void)asrCorrectCreateWithOriginText:(NSString * _Nonnull)originText targetText:(NSString * _Nonnull)targetText complete:(void (^ _Nonnull)(RKError * _Nullable, RKTTExchangeRule * _Nullable))complete;
