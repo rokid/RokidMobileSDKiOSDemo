@@ -17,8 +17,7 @@
 @property(nonatomic, strong) IOTWKWebView * webView;
 @end
 
-#define  dev_url    @"https://s.rokidcdn.com/homebase/himalaya/dev/index.html#/homes/index"
-#define  pre_url    @"https://s.rokidcdn.com/homebase/himalaya/pre/index.html#/homes/index"
+#define  IOT_URL    @"https://s.rokidcdn.com/homebase/tob/index.html#/homes/index?theme=default"
 
 @implementation IotViewController
 
@@ -30,7 +29,7 @@
     
     [self.view addSubview:self.webView];
 
-    NSString * strUrl = RokidMobileSDK.shared.debug ? dev_url : pre_url;
+    NSString * strUrl = IOT_URL;
     NSURL *url = [NSURL URLWithString:strUrl];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
