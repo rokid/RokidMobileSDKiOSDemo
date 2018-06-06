@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/RokidSDK-Swift.h</key>
 		<data>
-		g0/nIPwMenmYHC7E0ErGaNQMruo=
+		SsphFoRHzre5p6Sy3QgPmXAgosk=
 		</data>
 		<key>Headers/RokidSDK.h</key>
 		<data>
@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		YtVV09jkzuWHpL914t0sU/uDaF0=
+		d4hPoedrUq5fyXLyukm59X1i1eQ=
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		20xXbmMUJbCdW4jPjFOKPunFWpo=
+		/7CQ82ZXaKAtU05pjyBnbJfGQxk=
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		aLJYoOJyw/NfvuvjPiZXk3Sc31A=
+		jSdbygEVubGakUKO4HXbWuRlJFE=
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		KR4ZmHD0dAXZ0UCn19J7/5oY7a8=
+		Kt/fSvXapXSVvtv5X9S6NA52Fko=
 		</data>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		sT+NzOmJAMVZLolb11ZkLaNK+Cw=
+		/6AcXzFCKla9bMeUlkzbLcBYKa0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g0/nIPwMenmYHC7E0ErGaNQMruo=
+			SsphFoRHzre5p6Sy3QgPmXAgosk=
 			</data>
 			<key>hash2</key>
 			<data>
-			tY4ULnoqgjxWu3rnrNchcmuSYofP3pA4/fgWdGJ/YO4=
+			XPq8F4Sfh9tZXFnL4CSpmzE5qqO8/MX5mZ0V/wrGjhI=
 			</data>
 		</dict>
 		<key>Headers/RokidSDK.h</key>
@@ -65,44 +65,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			20xXbmMUJbCdW4jPjFOKPunFWpo=
+			/7CQ82ZXaKAtU05pjyBnbJfGQxk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sag1svK7JO9gJzgqH08OuePoKXOOty60pr+NvVFNqRI=
+			3FoD7jN8nAic3qRacMOQCJncoc3fWYRKoiJp8OuxUbw=
 			</data>
 		</dict>
 		<key>Modules/RokidSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aLJYoOJyw/NfvuvjPiZXk3Sc31A=
+			jSdbygEVubGakUKO4HXbWuRlJFE=
 			</data>
 			<key>hash2</key>
 			<data>
-			1lWSrOZtv2nQiLrC9M/VZB/DHFjKrPOAVYMj0WGhfZM=
+			XYMJ8FE9SATqDNE4UvomykV8vJkkKE9AfB1LTLjD0do=
 			</data>
 		</dict>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KR4ZmHD0dAXZ0UCn19J7/5oY7a8=
+			Kt/fSvXapXSVvtv5X9S6NA52Fko=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q28JlS9ewRVv5RZmrOzo2sSHa0frzBh4O8AioP6mPeg=
+			/NrNSApoauNw9Y9lVnVa5UP48KDxG9+1ZzGXNvboUK0=
 			</data>
 		</dict>
 		<key>Modules/RokidSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sT+NzOmJAMVZLolb11ZkLaNK+Cw=
+			/6AcXzFCKla9bMeUlkzbLcBYKa0=
 			</data>
 			<key>hash2</key>
 			<data>
-			+PVWfcWCohfqfFbGXjLKtXrUHdfx4IfIlJzVqVeVrG8=
+			VcVchZ5QACcQyciUAC+ZTmP5NJqJ9Mv5F4DOThJrhFw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
