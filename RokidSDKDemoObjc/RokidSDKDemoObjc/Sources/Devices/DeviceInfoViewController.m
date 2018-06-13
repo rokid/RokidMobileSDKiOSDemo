@@ -44,6 +44,8 @@
                         @"4.10 设置当前设备(本地缓存)",
                         @"4.11 获取当前设备(本地缓存)",
                         @"4.12 ping当前设备",
+                        @"4.13 设置夜间模式",
+                        @"4.14 取消夜间模式",
                         KEY_SHOW_LOG,
                        nil];
     
@@ -189,6 +191,38 @@
             ret = [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f alive:%s",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume, device.alive ? "yes" : "no" ];
             
             return ret;
+        }
+        case 12: { // 设置夜间模式
+            RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
+            SDKDeviceNightMode * nightMode = [SDKDeviceNightMode init];
+            nightMode.state = SDKDeviceNightModeStateOpen;
+            nightMode.startTime = @"23:00";
+            nightMode.endTime = @"7:00";
+            
+            [RokidMobileSDK.device updateNightModeWithDevice:device nightmode:nightMode completion:^(RKError * error, RKDevice * device) {
+                // TODO 处理回调
+            }];
+            
+            ret = [NSString stringWithFormat:@"startTime: %@, endTime:%@", nightMode.startTime,nightMode.endTime];
+            return ret;
+        }
+        case 13: { // 取消夜间模式
+            RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
+            
+            [RokidMobileSDK.device getNightModeWithDevice:device completion:^(RKError * error, SDKDeviceNightMode * nightMode) {
+                
+                if (error != nil) {
+                    return;
+                }
+                
+                // 状态设置关闭
+                nightMode.state = SDKDeviceNightModeStateClose;
+                [RokidMobileSDK.device updateNightModeWithDevice:device nightmode:nightMode completion:^(RKError * error, RKDevice * device) {
+                    // TODO 处理回调
+                }];
+            }];
+            
+            return @"取消夜间模式";
         }
         default:
             break;

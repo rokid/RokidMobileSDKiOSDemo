@@ -202,13 +202,13 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC8RokidSDK5RBBLE")
@@ -818,6 +818,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKBinderMan
 @end
 
 @class SDKDeviceVersionInfo;
+@class SDKDeviceNightMode;
 
 SWIFT_CLASS("_TtC8RokidSDK16SDKDeviceManager")
 @interface SDKDeviceManager : NSObject
@@ -840,9 +841,25 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 - (RKDevice * _Nullable)getDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
 - (void)setInitDeviceNickPrefixWithName:(NSString * _Nonnull)name;
 - (void)pingDeviceWithDevice:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
-- (void)getNightModeWithDevice:(RKDevice * _Nonnull)device completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable, RKDeviceNightMode * _Nullable))completion;
-- (void)updateNightModeWithDevice:(RKDevice * _Nonnull)device nightmode:(RKDeviceNightMode * _Nonnull)nightmode completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
+- (void)getNightModeWithDevice:(RKDevice * _Nonnull)device completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable, SDKDeviceNightMode * _Nullable))completion;
+- (void)updateNightModeWithDevice:(RKDevice * _Nonnull)device nightmode:(SDKDeviceNightMode * _Nonnull)nightmode completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
 @end
+
+enum SDKDeviceNightModeState : NSInteger;
+
+SWIFT_CLASS("_TtC8RokidSDK18SDKDeviceNightMode")
+@interface SDKDeviceNightMode : NSObject
+@property (nonatomic) enum SDKDeviceNightModeState state;
+@property (nonatomic, copy) NSString * _Nonnull startTime;
+@property (nonatomic, copy) NSString * _Nonnull endTime;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithState:(enum SDKDeviceNightModeState)state startTime:(NSString * _Nonnull)startTime endTime:(NSString * _Nonnull)endTime OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, SDKDeviceNightModeState) {
+  SDKDeviceNightModeStateClose = 0,
+  SDKDeviceNightModeStateOpen = 1,
+};
 
 
 SWIFT_CLASS("_TtC8RokidSDK20SDKDeviceVersionInfo")
