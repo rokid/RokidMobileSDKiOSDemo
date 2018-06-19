@@ -236,6 +236,23 @@
         账号被登出 (单点登录)
      */
     [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.ShouldLogout object:nil];
+    
+    /*
+     媒体播放中
+     */
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.MediaPlaying object:nil];
+    
+    /*
+     媒体暂停
+     */
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.MediaPaused object:nil];
+    
+    /*
+     媒体停止
+     */
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.MediaStopped object:nil];
+    
+    
 }
 
 - (void)handleNotification: (NSNotification *)notification {
