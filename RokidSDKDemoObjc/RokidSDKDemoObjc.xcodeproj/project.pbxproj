@@ -376,7 +376,6 @@
 				D4D38EF11FF354790006BC0E /* Frameworks */,
 				D4D38EF41FF354790006BC0E /* Resources */,
 				F0EF419D0F8FCE1BBE767879 /* [CP] Embed Pods Frameworks */,
-				28435E9D244E80DBB24C8CEC /* [CP] Copy Pods Resources */,
 				DD0332D22052C25500F3771B /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -397,7 +396,6 @@
 				D4F9513B1FCE5D360091179D /* Frameworks */,
 				D4F9513C1FCE5D360091179D /* Resources */,
 				393A47C129C15F770947D7D8 /* [CP] Embed Pods Frameworks */,
-				722B957E991B58181C375D0C /* [CP] Copy Pods Resources */,
 				D4B574C0200FA13900C20D0E /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -480,21 +478,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28435E9D244E80DBB24C8CEC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-DontUse/Pods-DontUse-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		393A47C129C15F770947D7D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,7 +491,9 @@
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -519,27 +504,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MQTTClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		722B957E991B58181C375D0C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9FB72A70B226EC0E7A74C126 /* [CP] Check Pods Manifest.lock */ = {

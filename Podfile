@@ -31,6 +31,12 @@ target 'RokidSDKDemoObjc' do
   # sqlite
   pod 'SQLite.swift', '~> 0.11.4'
 
+  # network
+  pod 'AFNetworking', '2.6.3'
+
+  # MQTT
+  pod 'MQTTClient'
+
   # Model
   #pod 'HandyJSON', '~> 1.8.0'
 

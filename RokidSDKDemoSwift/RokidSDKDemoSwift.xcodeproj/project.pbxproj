@@ -155,7 +155,6 @@
 				D4F9511D1FCE5D0B0091179D /* Frameworks */,
 				D4F9511E1FCE5D0B0091179D /* Resources */,
 				5A815E9E7BE6D6F2C4958D88 /* [CP] Embed Pods Frameworks */,
-				1BAE455A1C7C5CD18A9DF748 /* [CP] Copy Pods Resources */,
 				DD2A524120413FCF0083CD4D /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -216,21 +215,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BAE455A1C7C5CD18A9DF748 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoSwift/Pods-RokidSDKDemoSwift-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5A815E9E7BE6D6F2C4958D88 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

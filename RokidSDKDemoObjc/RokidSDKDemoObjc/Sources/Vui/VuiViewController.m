@@ -41,17 +41,34 @@
 
 
 - (IBAction)clickASR:(id)sender {
-    [RokidMobileSDK.vui  sendAsrWithAsr: @"播放白龙马" to: self.device];
+    [RokidMobileSDK.vui sendAsrWithAsr:@"播放白龙马" to:self.device completion:^(BOOL succeed) {
+        if (succeed) {
+            // TODO
+        } else {
+            // TODO
+        }
+    }];
 }
 
 - (IBAction)clickTTS:(id)sender {
-    //[RokidMobileSDK.vui  sendTtsWithTts:@"我是若琪，有什么需要帮忙的?" to: self.device];
+    [RokidMobileSDK.vui sendTtsWithTts:@"我是若琪，有什么需要帮忙的?" to:self.device completion:^(BOOL succeed) {
+        if (succeed) {
+            // TODO
+        } else {
+            // TODO
+        }
+    }];
 }
 
 - (IBAction)clickSendTopicMessage:(id)sender {
-    [RokidMobileSDK.vui sendMessageWithTopic:@"title" text:@"text" to:self.device];
+    [RokidMobileSDK.vui sendMessageWithTopic:@"title" text:@"text" to:self.device completion:^(BOOL succeed) {
+        if (succeed) {
+            // TODO
+        } else {
+            // TODO
+        }
+    }];
 }
-
 
 - (IBAction)asrcfind:(id)sender {
     [RokidMobileSDK.vui asrCorrectFindWithOriginText:@"识别错误的那巨话" complete:^(RKError * error, RKTTExchangeRule * rule) {
@@ -85,9 +102,6 @@
         NSLog(@"%@", error);
     }];
 }
-
-
-
 
 /*
 #pragma mark - Navigation

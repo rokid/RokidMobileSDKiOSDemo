@@ -78,23 +78,21 @@
     NSString * ret = @"";
     switch (indexPath.row) {
         case 0:{
-            ret = @"....";
-            return ret;
+            return @"....";
         }
-        case 1:{//4.2 获取 设备基本信息
+        case 1:{ // 4.2 获取 设备基本信息
             NSDictionary * tmp = [RokidMobileSDK.device getBasicInfoWithDeviceId: self.device.id] ;
-            ret =  [tmp description];
-            return ret;
+            return [tmp description];
         }
-        case 2:{//@"4.3 获取设备的 Loaction 信息",
+        case 2:{ // @"4.3 获取设备的 Loaction 信息"
             ret =  @"getLocation not open ";
             return ret;
         }
-        case 3:{//@"4.4 更新设备的 Location 信息",
+        case 3:{ // @"4.4 更新设备的 Location 信息"
             ret = @"update Location not open";
             return ret;
         }
-        case 4:{//@"4.5 更新当前设备的昵称",
+        case 4:{ // @"4.5 更新当前设备的昵称"
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [RokidMobileSDK.device updateNickWithDeviceId:self.device.id newNick:@"Rokider" completion:^(RKError * error) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -103,38 +101,44 @@
             ret = [NSString stringWithFormat:@"%@ --> %@", self.device.nick, @"Rokider"];
             return ret;
         }
-        case 5:{ //(@"4.6 获取系统版本信息"),
+        case 5:{ // @"4.6 获取系统版本信息"
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            BOOL bRet = [RokidMobileSDK.device getVersionWithDeviceId:self.device.id completion:^(NSError * error, SDKDeviceVersionInfo * versionInfo) {
+            [RokidMobileSDK.device getVersionWithDeviceId:self.device.id completion:^(RKError * error, SDKDeviceVersionInfo * versionInfo) {
+                
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                NSLog(bRet? @"success" : @"failed");
                 NSString * str = [versionInfo description];
                 NSLog(@"%@", [NSString stringWithFormat:@"versionInfo:%@",str]);
             }];
-            ret = @"请查看log";
-            return ret;
+            
+            return @"请查看log";
         }
-        case 6:{//@"4.7 开始系统升级",
-            [UIAlertController showAlertFrom:self Title:@"提示"  Message:@"进行系统升级" handle:^(UIAlertAction *action) {
-                BOOL bRet = [RokidMobileSDK.device startSystemUpdateWithDeviceId:self.device.id];
-                NSLog(bRet? @"success" : @"failed");
+        case 6:{ // @"4.7 开始系统升级"
+            [UIAlertController showAlertFrom:self Title:@"提示" Message:@"进行系统升级" handle:^(UIAlertAction *action) {
+                
+                [RokidMobileSDK.device startSystemUpdateWithDeviceId:self.device.id completion:^(BOOL succeed) {
+                    NSLog(succeed? @"success" : @"failed");
+                }];
+                
             } cancel:^(UIAlertAction *action) {
                 
             }];
-            ret =  @"系统升级...";
-            return ret;
+            
+            return @"系统升级...";
         }
-        case 7:{//@"4.8 设备恢复出厂设置",
-            [UIAlertController showAlertFrom:self Title:@"提示"  Message:@"设备恢复出厂设置" handle:^(UIAlertAction *action) {
-                BOOL bRet = [RokidMobileSDK.device resetDeviceWithDeviceId:self.device.id];
-                NSLog(bRet? @"success" : @"failed");
+        case 7:{ // @"4.8 设备恢复出厂设置"
+            [UIAlertController showAlertFrom:self Title:@"提示" Message:@"设备恢复出厂设置" handle:^(UIAlertAction *action) {
+                
+                [RokidMobileSDK.device resetDeviceWithDeviceId:self.device.id completion:^(BOOL succeed) {
+                    NSLog(succeed? @"success" : @"failed");
+                }];
+                
             } cancel:^(UIAlertAction *action) {
                 
             }];
-            ret = @"设备恢复出厂设置...";
-            return ret;
+            
+            return @"设备恢复出厂设置...";
         }
-        case 8:{//4.9 解绑设备
+        case 8:{ // 4.9 解绑设备
             [UIAlertController showAlertFrom:self Title:@"提示"  Message:@"解绑设备" handle:^(UIAlertAction *action) {
                 
                 [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -145,10 +149,10 @@
             } cancel:^(UIAlertAction *action) {
                 
             }];
-            ret = @"解绑设备...";
-            return ret;
+            
+            return @"解绑设备...";
         }
-        case 9:{//4.10 设置当前设备(本地缓存)
+        case 9:{ // 4.10 设置当前设备(本地缓存)
             [UIAlertController showAlertFrom:self Title:@"提示"  Message:@"设置当前设备" handle:^(UIAlertAction *action) {
                 [RokidMobileSDK.device setCurrentDeviceWithDevice:self.device];
                 
@@ -156,16 +160,15 @@
                 
             }];
             
-            ret = @"设置当前设备...";
-            return ret;
+            return @"设置当前设备...";
         }
-        case 10:{//@"4.11 获取当前设备(本地缓存)",
+        case 10:{ // @"4.11 获取当前设备(本地缓存)"
             RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
             ret = [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume ];
             
             return ret;
         }
-        case 11:{//@"4.12 ping当前设备",
+        case 11:{ // @"4.12 ping当前设备"
             RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
             [RokidMobileSDK.device pingDeviceWithDevice:device completion:^(RKError * error, RKDevice * device) {
                 NSLog(@"%@, %@",error.message, device);
@@ -186,11 +189,8 @@
                 }
                 
             }];
-            
       
-            ret = [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f alive:%s",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume, device.alive ? "yes" : "no" ];
-            
-            return ret;
+            return [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f alive:%s",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume, device.alive ? "yes" : "no" ];
         }
         case 12: { // 设置夜间模式
             RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
@@ -231,7 +231,6 @@
     return  ret;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([[self.itemsArray objectAtIndex:indexPath.row] isEqualToString: KEY_SHOW_LOG]){
         return  100;
@@ -239,8 +238,6 @@
         return  44;
     }
 }
-
-
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
@@ -265,7 +262,4 @@
     [self addCell:indexPath];
 }
 
-
 @end
-
-

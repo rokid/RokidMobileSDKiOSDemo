@@ -157,25 +157,39 @@
                     
                     SDKAlarm * alarm = [SDKAlarm init];
                     alarm.year = 2018;
-                    BOOL bRet = [RokidMobileSDK.skill.alarm createWithDeviceId:self.device.id alarm: alarm];
-                    if (bRet){
-                        //create success
-                    }else {
-                        //create failed
-                    }
+                    [RokidMobileSDK.skill.alarm createWithDeviceId:self.device.id alarm:alarm completion:^(BOOL succeed) {
+                        if (succeed){
+                            //create success
+                        }else {
+                            //create failed
+                        }
+                    }];
                 }
                 break;
                 case 2:{
                     //创建一个闹钟，选择一个闹钟，再删除
                     SDKAlarm * alarm;
-                    [RokidMobileSDK.skill.alarm deleteWithDeviceId:self.device.id alarm:alarm];
+                    
+                    [RokidMobileSDK.skill.alarm deleteWithDeviceId:self.device.id alarm:alarm completion:^(BOOL succeed) {
+                        if (succeed){
+                            //create success
+                        }else {
+                            //create failed
+                        }
+                    }];
                 }
                 break;
                 case 3:{
                      //创建一个闹钟，选择一个闹钟，再更新
                     SDKAlarm * alarm;
                     SDKAlarm * alarmNew;
-                    [RokidMobileSDK.skill.alarm updateWithDeviceId:self.device.id alarm:alarm to:alarmNew];
+                    [RokidMobileSDK.skill.alarm updateWithDeviceId:self.device.id alarm:alarm to:alarmNew completion:^(BOOL succeed) {
+                        if (succeed){
+                            //create success
+                        }else {
+                            //create failed
+                        }
+                    }];
                 }
                 break;
                 default:
@@ -223,7 +237,14 @@
                 case  1:{
                     //创建一个提醒，选择一个提醒，再删除
                     SDKRemind * reminder;
-                    [RokidMobileSDK.skill.remind deleteWithDeviceId:self.device.id remind:reminder];
+
+                    [RokidMobileSDK.skill.remind deleteWithDeviceId:self.device.id remind:reminder completion:^(BOOL succeed) {
+                        if (succeed){
+                            //create success
+                        }else {
+                            //create failed
+                        }
+                    }];
                     break;
                 }
                 default:

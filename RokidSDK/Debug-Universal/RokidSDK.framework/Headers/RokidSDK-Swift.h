@@ -190,6 +190,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @interface NSBundle (SWIFT_EXTENSION(RokidSDK))
 @property (nonatomic, readonly, copy) NSString * _Nullable rb_versionString;
 @property (nonatomic, readonly, copy) NSString * _Nullable rb_buildCode;
+@property (nonatomic, readonly, copy) NSString * _Nonnull rb_fullVersion;
 @property (nonatomic, readonly, copy) NSString * _Nullable rb_appIdentifierPrefix;
 @property (nonatomic, readonly, copy) NSString * _Nullable rb_appId;
 @end
@@ -202,13 +203,13 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
-
-
 
 
 SWIFT_CLASS("_TtC8RokidSDK5RBBLE")
@@ -374,6 +375,7 @@ SWIFT_PROTOCOL("_TtP8RokidSDK27RKBridgeModulePhoneDelegate_")
 - (void)touchDown;
 - (void)touchMove;
 - (void)touchUp;
+- (void)scrollWithX:(float)x y:(float)y;
 @end
 
 @protocol RKBridgeModuleViewDelegate;
@@ -389,12 +391,14 @@ SWIFT_CLASS("_TtC8RokidSDK18RKBridgeModuleView")
 SWIFT_PROTOCOL("_TtP8RokidSDK26RKBridgeModuleViewDelegate_")
 @protocol RKBridgeModuleViewDelegate
 - (void)showToastWithMessage:(NSString * _Nonnull)message;
-- (void)showLoadingWithMessage:(NSString * _Nonnull)message;
-- (void)hideLoading;
+- (void)showBridgeLoading;
+- (void)hideBridgeLoading;
 - (void)setNavigationBarTitleWithTitle:(NSString * _Nonnull)title;
 - (void)setNavigationBarStyleWithStyle:(NSString * _Nonnull)style;
 - (void)setNavigationBarRightWithButton:(NSDictionary<NSString *, id> * _Nonnull)button;
+- (void)setNavigationBarRightsWithButtons:(NSArray<NSDictionary<NSString *, id> *> * _Nonnull)buttons;
 - (void)setNavigationBarRightDotStateWithState:(BOOL)state;
+- (void)navigationBarVisibilityWithIsHidden:(BOOL)isHidden;
 - (void)errorViewWithState:(BOOL)state retryUrl:(NSString * _Nonnull)retryUrl;
 @end
 
@@ -405,9 +409,11 @@ SWIFT_CLASS("_TtC8RokidSDK6RKCard")
 @property (nonatomic, copy) NSString * _Nullable from;
 @property (nonatomic, copy) NSString * _Nullable to;
 @property (nonatomic, copy) NSString * _Nullable msgId;
+@property (nonatomic, copy) NSString * _Nullable msgTopic;
 @property (nonatomic, copy) NSString * _Nullable appId;
 @property (nonatomic, copy) NSString * _Null_unspecified msgText;
 @property (nonatomic) NSInteger dbId;
+- (nonnull instancetype)initWithCard:(RKCard * _Nonnull)card OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'RKCard.init(card:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -415,6 +421,8 @@ SWIFT_CLASS("_TtC8RokidSDK6RKCard")
 
 SWIFT_CLASS("_TtC8RokidSDK10RKChatCard")
 @interface RKChatCard : RKCard
+- (nonnull instancetype)initWithChatCard:(RKChatCard * _Nonnull)chatCard OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'RKChatCard.init(chatCard:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)initWithCard:(RKCard * _Nonnull)card SWIFT_UNAVAILABLE SWIFT_DEPRECATED_OBJC("Swift initializer 'RKChatCard.init(card:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 @class RKDeviceNightMode;
@@ -423,6 +431,7 @@ enum RKDeviceOnlineStatus : NSInteger;
 @class RKDeviceAccent;
 @class RKDeviceVTWord;
 @class RKDeviceLocation;
+@class RKDeviceDomainInfo;
 @class RKDeviceBattery;
 
 /// 设备类型。其主要状态由此manager维护，修改时会发出通知，通知的userInfo中会包含device id和修改的信息
@@ -466,6 +475,8 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @property (nonatomic) BOOL isContinuousDialogEnabled;
 /// 唤醒音效
 @property (nonatomic) BOOL isWakeupSoundEffectsEnabled;
+/// 摇一摇
+@property (nonatomic) BOOL isShakeItOffEnabled;
 /// 待机灯光
 @property (nonatomic) BOOL isStandbyLightEnabled;
 /// 设备昵称，可修改
@@ -490,6 +501,8 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @property (nonatomic, copy) NSString * _Nonnull callbackTimestamp;
 @property (nonatomic) double alarmVolume;
 @property (nonatomic) double maxAlarmVolume;
+/// 默认技能，key为domianId， value为domainInfo
+@property (nonatomic, copy) NSDictionary<NSString *, RKDeviceDomainInfo *> * _Nonnull domainInfos;
 /// 电量：0-100,默认满格100
 @property (nonatomic, strong) RKDeviceBattery * _Nullable battery;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
@@ -500,10 +513,9 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 
 
 
-
-
-
-
+@interface RKDevice (SWIFT_EXTENSION(RokidSDK))
+- (NSString * _Nullable)defaultSkillIdOf:(NSString * _Nonnull)domainId SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 @interface RKDevice (SWIFT_EXTENSION(RokidSDK))
@@ -654,34 +666,26 @@ typedef SWIFT_ENUM(NSInteger, RKErrorCode) {
 
 SWIFT_CLASS("_TtC8RokidSDK11RKGuideCard")
 @interface RKGuideCard : RKCard
+- (nonnull instancetype)initWithCard:(RKCard * _Nonnull)card SWIFT_UNAVAILABLE SWIFT_DEPRECATED_OBJC("Swift initializer 'RKGuideCard.init(card:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 
 SWIFT_CLASS("_TtC8RokidSDK11RKImageCard")
 @interface RKImageCard : RKCard
+- (nonnull instancetype)initWithCard:(RKCard * _Nonnull)card SWIFT_UNAVAILABLE SWIFT_DEPRECATED_OBJC("Swift initializer 'RKImageCard.init(card:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 
-SWIFT_CLASS("_TtC8RokidSDK18RKNotificationName")
-@interface RKNotificationName : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CurrentDeviceUpdated;)
-+ (NSString * _Nonnull)CurrentDeviceUpdated SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull DeviceStatusUpdated;)
-+ (NSString * _Nonnull)DeviceStatusUpdated SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull DeviceListUpdated;)
-+ (NSString * _Nonnull)DeviceListUpdated SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CardReceived;)
-+ (NSString * _Nonnull)CardReceived SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AlarmVolumeChanged;)
-+ (NSString * _Nonnull)AlarmVolumeChanged SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ShouldLogout;)
-+ (NSString * _Nonnull)ShouldLogout SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC8RokidSDK12RKNativeCard")
+@interface RKNativeCard : RKCard
+- (nonnull instancetype)initWithCard:(RKCard * _Nonnull)card SWIFT_UNAVAILABLE SWIFT_DEPRECATED_OBJC("Swift initializer 'RKNativeCard.init(card:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 
 SWIFT_CLASS("_TtC8RokidSDK13RKSummaryCard")
 @interface RKSummaryCard : RKCard
+- (nonnull instancetype)initWithSummary:(RKSummaryCard * _Nonnull)summary OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'RKSummaryCard.init(summary:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)initWithCard:(RKCard * _Nonnull)card SWIFT_UNAVAILABLE SWIFT_DEPRECATED_OBJC("Swift initializer 'RKSummaryCard.init(card:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 
@@ -718,6 +722,19 @@ SWIFT_CLASS("_TtC8RokidSDK11RKWebBridge")
 - (void)setAppDelegateWithDelegate:(id <RKBridgeModuleAppDelegate> _Nonnull)delegate;
 - (void)setViewDelegateWithDelegate:(id <RKBridgeModuleViewDelegate> _Nonnull)delegate;
 @end
+
+
+
+/// 媒体管理器
+SWIFT_CLASS("_TtC8RokidSDK14RXMediaManager")
+@interface RXMediaManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+- (void)getPlayInfo SWIFT_DEPRECATED_OBJC("Swift method 'RXMediaManager.getPlayInfo()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
+
+
 
 
 
@@ -832,9 +849,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 - (void)getLocationWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, RKDeviceLocation * _Nullable))completion SWIFT_DEPRECATED_MSG("use device.location instead!");
 - (void)updateLocationWithDeviceId:(NSString * _Nonnull)deviceId location:(RKDeviceLocation * _Nonnull)location completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)updateNickWithDeviceId:(NSString * _Nonnull)deviceId newNick:(NSString * _Nonnull)newNick completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
-- (BOOL)getVersionWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(NSError * _Nullable, SDKDeviceVersionInfo * _Nullable))completion SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)startSystemUpdateWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)resetDeviceWithDeviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+- (void)getVersionWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, SDKDeviceVersionInfo * _Nullable))completion;
+- (void)startSystemUpdateWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)resetDeviceWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(BOOL))completion;
 - (void)unbindDeviceWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)setCurrentDeviceWithDevice:(RKDevice * _Nonnull)device;
 - (RKDevice * _Nullable)getCurrentDevice SWIFT_WARN_UNUSED_RESULT;
@@ -878,6 +895,30 @@ SWIFT_CLASS("_TtC8RokidSDK20SDKDeviceVersionInfo")
 @end
 
 
+SWIFT_CLASS("_TtC8RokidSDK19SDKNotificationName")
+@interface SDKNotificationName : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CurrentDeviceUpdated;)
++ (NSString * _Nonnull)CurrentDeviceUpdated SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull DeviceStatusUpdated;)
++ (NSString * _Nonnull)DeviceStatusUpdated SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull DeviceListUpdated;)
++ (NSString * _Nonnull)DeviceListUpdated SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CardReceived;)
++ (NSString * _Nonnull)CardReceived SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AlarmVolumeChanged;)
++ (NSString * _Nonnull)AlarmVolumeChanged SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ShouldLogout;)
++ (NSString * _Nonnull)ShouldLogout SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull MediaPlaying;)
++ (NSString * _Nonnull)MediaPlaying SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull MediaPaused;)
++ (NSString * _Nonnull)MediaPaused SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull MediaStopped;)
++ (NSString * _Nonnull)MediaStopped SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC8RokidSDK9SDKRemind")
 @interface SDKRemind : NSObject
 @property (nonatomic) NSInteger id;
@@ -913,9 +954,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSkillAlar
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKAlarm *> * _Nullable))completion;
-- (BOOL)createWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)updateWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm to:(SDKAlarm * _Nonnull)to SWIFT_WARN_UNUSED_RESULT;
+- (void)createWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)deleteWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)updateWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm to:(SDKAlarm * _Nonnull)to completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
@@ -926,7 +967,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSkillRemi
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKRemind *> * _Nullable))completion;
-- (BOOL)deleteWithDeviceId:(NSString * _Nonnull)deviceId remind:(SDKRemind * _Nonnull)remind SWIFT_WARN_UNUSED_RESULT;
+- (void)deleteWithDeviceId:(NSString * _Nonnull)deviceId remind:(SDKRemind * _Nonnull)remind completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
@@ -936,9 +977,9 @@ SWIFT_CLASS("_TtC8RokidSDK13SDKVuiManager")
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
 - (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
-- (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device;
-- (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device;
-- (void)sendMessageWithTopic:(NSString * _Nonnull)topic text:(NSString * _Nonnull)text to:(RKDevice * _Nonnull)device;
+- (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)sendMessageWithTopic:(NSString * _Nonnull)topic text:(NSString * _Nonnull)text to:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(BOOL))completion;
 - (void)asrCorrectFindWithOriginText:(NSString * _Nonnull)originText complete:(void (^ _Nonnull)(RKError * _Nullable, RKTTExchangeRule * _Nullable))complete;
 - (void)asrCorrectUpdateWithRuleId:(NSInteger)ruleId originText:(NSString * _Nonnull)originText targetText:(NSString * _Nonnull)targetText complete:(void (^ _Nonnull)(RKError * _Nullable, NSDictionary<NSString *, NSString *> * _Nullable))complete;
 - (void)asrCorrectCreateWithOriginText:(NSString * _Nonnull)originText targetText:(NSString * _Nonnull)targetText complete:(void (^ _Nonnull)(RKError * _Nullable, RKTTExchangeRule * _Nullable))complete;
@@ -962,6 +1003,9 @@ SWIFT_CLASS("_TtC8RokidSDK13SDKVuiManager")
 @end
 
 
+@interface UIDevice (SWIFT_EXTENSION(RokidSDK))
+- (BOOL)isIphoneX SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'UIDevice.isIphoneX()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

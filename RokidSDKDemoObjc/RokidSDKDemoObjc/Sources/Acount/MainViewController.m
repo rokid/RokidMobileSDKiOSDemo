@@ -24,15 +24,15 @@
 
     [self.loginButton addTarget:nil action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.logoutButton addTarget:nil action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
-    
+
     /*
      * 等 SDK init 完成后才能进行 UI 操作, 简化 Demo 的逻辑
      */
     self.view.userInteractionEnabled = YES;
-    
+
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
     [self.view addGestureRecognizer:tapGesture];
-    
+
 
     // SDK init
     [RokidMobileSDK.shared initSDKWithAppKey:Properties.shared.appKey
@@ -40,7 +40,7 @@
                                    accessKey:Properties.shared.accessKey
                                   completion:^(RKError * error) {
         NSLog(@"[SDK init] result = %@", error);
-        
+
         // SDK init 完成
         if (!error) {
             NSLog(@"SDK init success");
@@ -50,9 +50,9 @@
 
         //RokidMobileSDK.shared.customSchema = @"xmly";
     }];
-    
+
     NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
-    
+
     //RokidMobileSDK.shared.debug = true;
     self.telInput.text = @"15998589691";
     self.passwordInput.text = @"123456";
@@ -74,23 +74,23 @@
         if (!error) {
             NSLog(@"[Login] OK" );
              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
-            
+
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert success" message:@"可以其他操作了" preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             }]];
             [self presentViewController:alert animated:true completion:nil];
-            
-            
+
+
         } else {
              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
-            
+
             NSError *newError = [NSError errorWithDomain:@"RKError"
                                                     code:error.code
                                                 userInfo:@{
                                                            @"Message": error.message? :@""
                                                            }];
             NSLog(@"[Login] Error %@", newError);
-            
+
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert" message:@"error" preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             }]];
@@ -100,30 +100,30 @@
 #else
     NSString * userId = @"";
     NSString * token = @"";
-    
+
     [RokidMobileSDK.account tokenLoginWithUserId:userId token:token completion:^(RKError * error) {
-        
+
         NSLog(@"%@", error);
         if (!error) {
             NSLog(@"[Login] OK" );
             [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
-            
+
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert success" message:@"可以其他操作了" preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             }]];
             [self presentViewController:alert animated:true completion:nil];
-            
-            
+
+
         }else {
             [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
-            
+
             NSError *newError = [NSError errorWithDomain:@"RKError"
                                                     code:error.code
                                                 userInfo:@{
                                                            @"Message": error.message? :@""
                                                            }];
             NSLog(@"[Login] Error %@", newError);
-            
+
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert" message:@"error" preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             }]];
@@ -150,7 +150,7 @@
             }
         }];
     }
-    
+
     /*
      指定 pageSize = 25
      */
@@ -161,7 +161,7 @@
             }
         }];
     }
-    
+
     /*
      默认 pageSize = 20
      */
@@ -182,7 +182,13 @@
         if (!device.alive) {
             NSLog(@"设备不在线");
         } else {
-            [RokidMobileSDK.vui sendAsrWithAsr:@"你好若琪" to:device];
+            [RokidMobileSDK.vui sendAsrWithAsr:@"你好若琪" to:device completion:^(BOOL succeed) {
+                if (succeed) {
+                    // TODO
+                } else {
+                    // TODO
+                }
+            }];
         }
     }
 }
@@ -196,8 +202,8 @@
             removed: card array,
         }
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.CardReceived object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.CardReceived object:nil];
+
     /*
         device manager 的 current device 改变
         userinfo: {
@@ -205,8 +211,8 @@
             id: 现在的id
         }
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.CurrentDeviceUpdated object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.CurrentDeviceUpdated object:nil];
+
     /*
         device manager 缓存的 device list 改变
         userinfo: {
@@ -214,8 +220,8 @@
             removed: device array,
         }
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.DeviceListUpdated object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.DeviceListUpdated object:nil];
+
     /*
         device 在线状态改变
         userinfo: {
@@ -223,36 +229,36 @@
             id: device id,
         }
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.DeviceStatusUpdated object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.DeviceStatusUpdated object:nil];
+
     /*
         设备音量改变
         object: device
         可以通过 device.alarmVolume 获取当前音量
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.AlarmVolumeChanged object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.AlarmVolumeChanged object:nil];
+
     /*
         账号被登出 (单点登录)
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.ShouldLogout object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.ShouldLogout object:nil];
+
     /*
      媒体播放中
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.MediaPlaying object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.MediaPlaying object:nil];
+
     /*
      媒体暂停
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.MediaPaused object:nil];
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.MediaPaused object:nil];
+
     /*
      媒体停止
      */
-    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:RKNotificationName.MediaStopped object:nil];
-    
-    
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.MediaStopped object:nil];
+
+    [NSNotificationCenter.rokidsdk addObserver:self selector:@selector(handleNotification:) name:SDKNotificationName.ShouldLogout object:nil];
 }
 
 - (void)handleNotification: (NSNotification *)notification {
@@ -265,4 +271,3 @@
 }
 
 @end
-
