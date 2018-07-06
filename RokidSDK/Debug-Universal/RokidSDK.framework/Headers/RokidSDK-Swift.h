@@ -395,7 +395,6 @@ SWIFT_PROTOCOL("_TtP8RokidSDK26RKBridgeModuleViewDelegate_")
 - (void)hideBridgeLoading;
 - (void)setNavigationBarTitleWithTitle:(NSString * _Nonnull)title;
 - (void)setNavigationBarStyleWithStyle:(NSString * _Nonnull)style;
-- (void)setNavigationBarRightWithButton:(NSDictionary<NSString *, id> * _Nonnull)button;
 - (void)setNavigationBarRightsWithButtons:(NSArray<NSDictionary<NSString *, id> *> * _Nonnull)buttons;
 - (void)setNavigationBarRightDotStateWithState:(BOOL)state;
 - (void)navigationBarVisibilityWithIsHidden:(BOOL)isHidden;
@@ -915,6 +914,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)MediaPaused SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull MediaStopped;)
 + (NSString * _Nonnull)MediaStopped SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ChannelMessage;)
++ (NSString * _Nonnull)ChannelMessage SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -975,8 +976,8 @@ SWIFT_CLASS("_TtC8RokidSDK13SDKVuiManager")
 @interface SDKVuiManager : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-- (void)getCardListWithMaxDbId:(NSInteger)maxDbId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
-- (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable))completion;
+- (void)getCardListWithMaxDbId:(NSInteger)maxDbId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable, BOOL))completion;
+- (void)getCardListWithMaxDbId:(NSInteger)maxDbId pageSize:(NSInteger)pageSize completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKCard *> * _Nullable, BOOL))completion;
 - (void)sendAsrWithAsr:(NSString * _Nonnull)asr to:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(BOOL))completion;
 - (void)sendTtsWithTts:(NSString * _Nonnull)tts to:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(BOOL))completion;
 - (void)sendMessageWithTopic:(NSString * _Nonnull)topic text:(NSString * _Nonnull)text to:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(BOOL))completion;
@@ -1003,9 +1004,6 @@ SWIFT_CLASS("_TtC8RokidSDK13SDKVuiManager")
 @end
 
 
-@interface UIDevice (SWIFT_EXTENSION(RokidSDK))
-- (BOOL)isIphoneX SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'UIDevice.isIphoneX()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
