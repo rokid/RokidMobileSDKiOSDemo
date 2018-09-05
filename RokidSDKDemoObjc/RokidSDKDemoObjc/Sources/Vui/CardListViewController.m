@@ -39,7 +39,7 @@
     NSInteger dbId = [self dbId];
     NSLog(@"max dbid = %ld", dbId);
     
-    [RokidMobileSDK.vui getCardListWithMaxDbId:dbId pageSize:20 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+    [RokidMobileSDK.vui getCardListWithMaxDbId:dbId pageSize:20 completion:^(RKError *error, NSArray<RKCard *> *cardArray, BOOL hasMore) {
         if (dbId == 0) {
             
         }
