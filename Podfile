@@ -11,60 +11,27 @@ source 'https://github.com/aliyun/aliyun-specs.git'
 target 'RokidSDKDemoSwift' do
   project 'RokidSDKDemoSwift/RokidSDKDemoSwift.xcodeproj'
 
-  # sqlite
-  pod 'SQLite.swift', '~> 0.11.4'
+    pod 'Alamofire', '4.7.3'
+    pod 'ProtocolBuffers-Swift', '4.0.0'
+    pod 'MQTTClient','0.14.0'
 
-  # Model
-  #pod 'HandyJSON', '~> 1.8.0'
+    pod 'ReachabilitySwift', '4.1.0'
+    pod 'SQLite.swift', '~> 0.11.4'
 
-  pod 'ProtocolBuffers-Swift', '3.0.23'
-  pod 'SnapKit', '3.2.0'
-  pod 'CocoaAsyncSocket', '7.6.0'
-  pod 'Starscream', '2.0.3'
-
-  pod 'MJRefresh'
 end
 
 target 'RokidSDKDemoObjc' do
   project 'RokidSDKDemoObjc/RokidSDKDemoObjc.xcodeproj'
 
-  # sqlite
-  pod 'SQLite.swift', '~> 0.11.4'
+    # sqlite
+    pod 'SQLite.swift', '~> 0.11.4'
+    # network
+    pod 'Alamofire', '4.7.3'
+    # MQTT
+    pod 'MQTTClient','0.14.0'
+    pod 'ProtocolBuffers-Swift', '4.0.0'
+    pod 'ReachabilitySwift', '4.1.0'
+    pod 'MBProgressHUD', '~> 1.1.0'
+    pod 'MJRefresh'
 
-  # network
-  pod 'AFNetworking', '2.6.3'
-
-  # MQTT
-  pod 'MQTTClient'
-
-  # Model
-  #pod 'HandyJSON', '~> 1.8.0'
-
-  pod 'ProtocolBuffers-Swift', '3.0.23'
-  pod 'SnapKit', '3.2.0'
-  pod 'CocoaAsyncSocket', '7.6.0'
-  pod 'Starscream', '2.0.3'
-  pod 'ReachabilitySwift', '4.1.0'
-  
-  pod 'MJRefresh'
-  pod 'MBProgressHUD', '~> 1.1.0'
-end
-
-
-target 'DontUse' do
-  project 'RokidSDKDemoObjc/RokidSDKDemoObjc.xcodeproj'
-
-  # sqlite
-  pod 'SQLite.swift', '~> 0.11.4'
-
-  # Model
-  #pod 'HandyJSON', '~> 1.8.0'
-
-  pod 'ProtocolBuffers-Swift', '3.0.23'
-  pod 'SnapKit', '3.2.0'
-  pod 'CocoaAsyncSocket', '7.6.0'
-  pod 'Starscream', '2.0.3'
-
-  pod 'MJRefresh'
-  pod 'MBProgressHUD', '~> 1.1.0'
 end
