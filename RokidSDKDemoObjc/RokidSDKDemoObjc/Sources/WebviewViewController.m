@@ -32,13 +32,18 @@
     self.webbridge = [RKWebBridge injectWebBridgeTo:self.webView];
     
     // 设置 RKBridgeModuleViewDelegate，用于实现 Native UI 的功能
-    [self.webbridge setViewDelegateWithDelegate:self];
+    [self.webbridge setViewDelegateWithDelegate: self];
+    [self.webbridge setAppDelegateWithDelegate: self];
+    [self.webbridge setPhoneDelegateWithDelegate: self];
     
     [self.view addSubview:self.webView];
     self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
-    NSURL *url =[NSBundle.mainBundle URLForResource:@"test" withExtension:@"html"];
-    [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:url]];
+    NSURL *url = [NSURL URLWithString: self.urlStr];
+    //NSURL *url =[NSBundle.mainBundle URLForResource:@"test" withExtension:@"html"];
+    
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +82,10 @@
 // 用户手指抬起
 - (void)touchUp {
 }
-    
+
+- (void)scrollWithX:(float)x y:(float)y {
+}
+
 // 关闭当前页面
 - (void)close {
 }
@@ -93,28 +101,49 @@
 // 使用外部浏览器 打开Url
 - (void)openExternalWithUrlStr:(NSString * _Nonnull)urlStr {
 }
-    
+
+- (void)goBackWithModule:(NSString * _Nonnull)module_ page:(NSString * _Nonnull)page {
+}
+
 // 隐藏 加载中UI组件
 - (void)hideLoading {
     [self.hud hideAnimated: true];
 }
-    
+
 // 设置 标题栏标题
 - (void)setNavigationBarTitleWithTitle:(NSString * _Nonnull)title {
+    NSLog(@"setNavigationBarTitleWithTitle : %@", title);
+    self.navigationItem.title = title;
 }
-    
+
+- (void)hideBridgeLoading {
+}
+
+- (void)navigationBarVisibilityWithIsHidden:(BOOL)isHidden {
+}
+
+- (void)setNavigationBarRightsWithButtons:(NSArray<NSDictionary<NSString *,id> *> * _Nonnull)buttons {
+}
+
+- (void)showBridgeLoading {
+}
+
+- (void)showToastWithMessage:(NSString * _Nonnull)message {
+    NSLog(@"%@", message);
+}
+
 // 设置 标题栏风格
 - (void)setNavigationBarStyleWithStyle:(NSString * _Nonnull)style {
 }
-    
+
 // 设置 标题栏 右侧按钮
 - (void)setNavigationBarRightWithButton:(NSDictionary<NSString *, id> * _Nonnull)button {
 }
-    
+
 // 设置 标题栏 右侧按钮小红点状态
 - (void)setNavigationBarRightDotStateWithState:(BOOL)state {
 }
-    
+
 // 显示 异常UI组件
 - (void)errorViewWithState:(BOOL)state retryUrl:(NSString * _Nonnull)retryUrl {
 }

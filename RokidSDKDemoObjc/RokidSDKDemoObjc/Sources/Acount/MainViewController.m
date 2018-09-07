@@ -143,35 +143,35 @@
     /*
      pageSize 不能超过 100，这个会报错
      */
-    if (/* DISABLES CODE */ (false)) {
-        [RokidMobileSDK.vui getCardListWithMaxDbId:0 pageSize:101 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
-            for (RKCard *card in cardArray) {
-                NSLog(@"msg = %@", card.msgText);
-            }
-        }];
-    }
+//    if (/* DISABLES CODE */ (false)) {
+//        [RokidMobileSDK.vui getCardListWithMaxDbId:0 pageSize:101 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+//            for (RKCard *card in cardArray) {
+//                NSLog(@"msg = %@", card.msgText);
+//            }
+//        }];
+//    }
+//
+//    /*
+//     指定 pageSize = 25
+//     */
+//    if (/* DISABLES CODE */ (false)) {
+//        [RokidMobileSDK.vui getCardListWithMaxDbId:0 pageSize:25 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+//            for (RKCard *card in cardArray) {
+//                NSLog(@"msg = %@", card.msgText);
+//            }
+//        }];
+//    }
 
-    /*
-     指定 pageSize = 25
-     */
-    if (/* DISABLES CODE */ (false)) {
-        [RokidMobileSDK.vui getCardListWithMaxDbId:0 pageSize:25 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
-            for (RKCard *card in cardArray) {
-                NSLog(@"msg = %@", card.msgText);
-            }
-        }];
-    }
-
-    /*
-     默认 pageSize = 20
-     */
-    if (true) {
-        [RokidMobileSDK.vui getCardListWithMaxDbId:0 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
-            for (RKCard *card in cardArray) {
-                NSLog(@"msg = %@", card.msgText);
-            }
-        }];
-    }
+//    /*
+//     默认 pageSize = 20
+//     */
+//    if (true) {
+//        [RokidMobileSDK.vui getCardListWithMaxDbId:0 completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
+//            for (RKCard *card in cardArray) {
+//                NSLog(@"msg = %@", card.msgText);
+//            }
+//        }];
+//    }
 }
 
 

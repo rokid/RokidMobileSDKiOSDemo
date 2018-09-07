@@ -56,7 +56,7 @@
     /*
      扫描蓝牙设备，根据前缀过滤设备
      */
-    [RokidMobileSDK.binder startBLEScanWithType:@"Rokid-Pebble-" onDeviceChange:^(NSArray<RKBLEDevice *> * devices) {
+    [RokidMobileSDK.binder startBLEScanWithType:@"Rokid-" onDeviceChange:^(NSArray<RKBLEDevice *> * devices) {
         self.loadingView.hidden = YES;
         [self.loadingView stopAnimating];
         self.deviceList = devices;

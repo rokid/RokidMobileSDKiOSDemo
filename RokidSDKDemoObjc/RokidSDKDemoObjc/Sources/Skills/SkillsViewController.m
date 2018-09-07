@@ -11,12 +11,11 @@
 #import "IotViewController.h"
 #import "IotRoomViewController.h"
 #import "SMContainerViewController.h"
-
+#import "WebviewViewController.h"
 
 @import RokidSDK;
 
 @interface SkillsViewController ()
-@property(nonatomic, strong) NSArray * category;
 @property(nonatomic, strong) NSDictionary * itemsAll;
 @property (strong, nonatomic)  RKDevice * device;
 @end
@@ -29,15 +28,12 @@
     
     NSArray * alarmItems = @[@"获取闹钟列表", @"新建闹钟", @"删除闹钟", @"更新闹钟"];
     NSArray * remindItems = @[@"获取提醒列表", @"删除提醒"];
-    NSArray * iotItems = @[@"智能家居web"];
+    NSArray * iotItems = @[@"智能家居 H5"];
+    NSArray * storeItems = @[@"技能商店 H5"];
     
-    self.itemsAll = @{@"1闹钟" : alarmItems, @"2提醒": remindItems,@"3智能家居": iotItems};
+    self.itemsAll = @{@"1闹钟" : alarmItems, @"2提醒" : remindItems, @"3智能家居" : iotItems, @"4技能商店" : storeItems};
     
-    self.category = self.itemsAll.allKeys;
-    
-  
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SkillTableViewCell"];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -59,7 +55,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.category.count;
+    return self.itemsAll.count;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -73,17 +69,34 @@
         case 2:
             return   [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) count];
             break;
+        case 3:
+            return   [((NSArray *)[self.itemsAll valueForKey:@"4技能商店"]) count];
+            break;
         default:
             return 1;
             break;
     }
 }
 
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return   (NSString *)[self.itemsAll.allKeys objectAtIndex:section];
-    
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return  @"1闹钟";
+            break;
+        case 1:
+            return  @"2提醒";
+            break;
+        case 2:
+            return @"3智能家居";
+            break;
+        case 3:
+            return  @"4技能商店";
+            break;
+        default:
+            return @"";
+            break;
+    }
 }
-
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
@@ -95,11 +108,15 @@
             break;
         }
         case 1:{
-           title = [((NSArray *)[self.itemsAll valueForKey:@"2提醒"]) objectAtIndex:indexPath.row];
+            title = [((NSArray *)[self.itemsAll valueForKey:@"2提醒"]) objectAtIndex:indexPath.row];
             break;
         }
         case 2:{
             title = [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) objectAtIndex:indexPath.row];
+            break;
+        }
+        case 3:{
+            title = [((NSArray *)[self.itemsAll valueForKey:@"4技能商店"]) objectAtIndex:indexPath.row];
             break;
         }
         default:
@@ -149,7 +166,7 @@
                         self.textview.text =  ret;
                     }];
                 }
-                break;
+                    break;
                 case 1:{
                     
                     NSLog(@"RKAlarm 需要 先get ");
@@ -165,7 +182,7 @@
                         }
                     }];
                 }
-                break;
+                    break;
                 case 2:{
                     //创建一个闹钟，选择一个闹钟，再删除
                     SDKAlarm * alarm;
@@ -178,9 +195,9 @@
                         }
                     }];
                 }
-                break;
+                    break;
                 case 3:{
-                     //创建一个闹钟，选择一个闹钟，再更新
+                    //创建一个闹钟，选择一个闹钟，再更新
                     SDKAlarm * alarm;
                     SDKAlarm * alarmNew;
                     [RokidMobileSDK.skill.alarm updateWithDeviceId:self.device.id alarm:alarm to:alarmNew completion:^(BOOL succeed) {
@@ -191,12 +208,12 @@
                         }
                     }];
                 }
-                break;
+                    break;
                 default:
-                break;
+                    break;
             }
         }
-        break;
+            break;
             
         case 1:{
             
@@ -237,7 +254,7 @@
                 case  1:{
                     //创建一个提醒，选择一个提醒，再删除
                     SDKRemind * reminder;
-
+                    
                     [RokidMobileSDK.skill.remind deleteWithDeviceId:self.device.id remind:reminder completion:^(BOOL succeed) {
                         if (succeed){
                             //create success
@@ -251,15 +268,22 @@
                     break;
             }
         }
-        break;
+            break;
         case 2:{
             NSLog(@"---> ");
             UIStoryboard * main =  [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             IotViewController * target = [main instantiateViewControllerWithIdentifier: NSStringFromClass([IotViewController class])];
             [self.navigationController pushViewController:target animated:true];
-            
+        }
             break;
-          }
+        case 3: {
+            NSLog(@"---> storev2");
+            
+            WebviewViewController * target = [[WebviewViewController alloc] init];
+            [target setUrlStr: @"https://skill.rokid.com/storev2/#/?header=0"];
+            [self.navigationController pushViewController:target animated:true];
+        }
+            break;
         default:
             break;
     }
@@ -268,13 +292,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

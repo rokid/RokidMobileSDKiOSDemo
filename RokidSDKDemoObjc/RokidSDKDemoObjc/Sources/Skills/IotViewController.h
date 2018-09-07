@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 @import RokidSDK;
 
-
 @interface IotViewController : UIViewController<RKBridgeModuleAppDelegate>
 @end
