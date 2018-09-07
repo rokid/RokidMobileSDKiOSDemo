@@ -21,9 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     self.cardList = [[NSMutableArray alloc] init];
-    
+
     self.cardListView.dataSource = self;
     self.cardListView.delegate = self;
     self.cardListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(fetchCardList)];
@@ -38,23 +38,23 @@
 - (void)fetchCardList {
     NSInteger dbId = [self dbId];
     NSLog(@"max dbid = %ld", dbId);
-    
-//    [RokidMobileSDK.vui getCardListWithMaxDbId:dbId completion:^(RKError * error, NSArray<RKCard *> * cardArray) {
-//        if (dbId == 0) {
-//
-//        }
-//        NSLog(@"✅cardArray = %ld", cardArray.count);
-//        [cardArray enumerateObjectsUsingBlock:^(RKCard * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            NSLog(@"dbid = %ld\n", obj.dbId);
-//        }];
-//
-//        if (cardArray != nil && cardArray.count > 0) {
-//            NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, [cardArray count])];
-//            [self.cardList insertObjects:cardArray atIndexes:indexes];
-//        }
-//        [self.cardListView.mj_header endRefreshing];
-//        [self.cardListView reloadData];
-//    }];
+
+    [RokidMobileSDK.vui getCardListWithMaxDbId:dbId pageSize:20 completion:^(RKError *error, NSArray<RKCard *> *cardArray, BOOL hasMore) {
+        if (dbId == 0) {
+
+        }
+        NSLog(@"✅cardArray = %ld", cardArray.count);
+        [cardArray enumerateObjectsUsingBlock:^(RKCard * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"dbid = %ld\n", obj.dbId);
+        }];
+
+        if (cardArray != nil && cardArray.count > 0) {
+            NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, [cardArray count])];
+            [self.cardList insertObjects:cardArray atIndexes:indexes];
+        }
+        [self.cardListView.mj_header endRefreshing];
+        [self.cardListView reloadData];
+    }];
 }
 
 - (NSInteger) dbId {
@@ -81,7 +81,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"<%ld>(%ld)",(long)indexPath.row, card.dbId];
 //    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[card.msgText dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 //    cell.textLabel.text = dict[""]
-    
+
     return cell;
 }
 

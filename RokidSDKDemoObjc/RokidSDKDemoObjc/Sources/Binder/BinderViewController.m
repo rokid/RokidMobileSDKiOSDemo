@@ -8,9 +8,11 @@
 
 #import "BinderViewController.h"
 #import "MainViewController.h"
+#import "SendWiFiAccountViewController.h"
+
 @import RokidSDK;
 
-@interface BinderViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface BinderViewController ()<UITableViewDataSource, UITableViewDelegate, RKBindManagerObserver>
 
 @property (strong, nonatomic) NSArray<RKBLEDevice *> *deviceList;
 
@@ -21,38 +23,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+
     self.deviceList = [NSArray<RKBLEDevice *> array];
-    
+
     self.loadingView.hidden = YES;
     [self.loadingView stopAnimating];
-    
+
     self.bleList.dataSource = self;
     self.bleList.delegate = self;
-    
-    [self.scanButton addTarget:nil action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    [RokidMobileSDK.binder onBLEStatusChangeWithStatusChange:^(CBCentralManagerState state) {
-        if (state == CBManagerStatePoweredOn) {
-            [self scan];
-        }
-    }];
-}
 
-- (void)onClick {
-    CBCentralManagerState state = [RokidMobileSDK.binder getBLEStatus];
-    if (state != CBManagerStatePoweredOn) {
-        NSLog(@"ble not poweron: %d", state);
-    } else {
-        [self scan];
-    }
+    [RokidMobileSDK.binder addObserver:self];
+    [RokidMobileSDK.binder enableBLE];
 }
 
 - (void)scan {
     self.loadingView.hidden = NO;
     [self.loadingView startAnimating];
     self.deviceList = nil;
-    
+
     /*
      扫描蓝牙设备，根据前缀过滤设备
      */
@@ -63,6 +51,38 @@
         [self.bleList reloadData];
     }];
 }
+
+// MARK: - RKBindManagerObserver
+
+- (void)onBLEEnabled:(BOOL)isEnable {
+    if (isEnable) {
+        [RokidMobileSDK.binder startScanServices];
+    }
+}
+
+- (void)onBLEDeviceListChangedWithList:(NSArray<RKBLEDevice *> *)list {
+
+    self.deviceList = list;
+    [self.bleList reloadData];
+}
+
+/*
+ 扫描蓝牙设备，根据前缀过滤设备
+ */
+- (BOOL)isDeviceExpectedWithDevice:(RKBLEDevice *)device {
+    return [device.name containsString:@"Rokid"];
+}
+
+- (void)onBLEDeviceConnectedWithDevice:(RKBLEDevice *)device {
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SendWiFiAccountViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SendWiFiAccountViewController"];
+    vc.currentDevice = device;
+    [self.navigationController pushViewController:vc animated:true];
+
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.deviceList == nil) {
@@ -75,10 +95,10 @@
     if (self.deviceList == nil) {
         return nil;
     }
-    
+
     UITableViewCell *cell = [self.bleList dequeueReusableCellWithIdentifier:@"device"];
     RKBLEDevice *device = self.deviceList[indexPath.row];
-    
+
     if (cell != nil && device != nil) {
         cell.textLabel.text = device.name;
     }
@@ -86,20 +106,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
     if (self.deviceList != nil) {
         RKBLEDevice *device = self.deviceList[indexPath.row];
         if (device != nil) {
-            [RokidMobileSDK.binder connectBLEDevice:device complete:^(BOOL result, NSError * error) {
-                
-                // 需登录后才可以使用，因为配网和绑定是捆绑操作
-                [RokidMobileSDK.binder sendBLEBindWifiWithDevice:device ssid:@"xxx" password:@"xxx" bssid:@"xxx" completion:^(RKError * error) {
-                    if (error) {
-                        NSLog(@"RokidMobileSDK.binder sendBLEBinderData error = %@", error);
-                    } else {
-                        NSLog(@"RokidMobileSDK.binder sendBLEBinderData OK");
-                    }
-                }];
-            }];
+
+            [RokidMobileSDK.binder connectWithDevice:device];
+
         }
     }
 }
@@ -109,14 +123,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end
