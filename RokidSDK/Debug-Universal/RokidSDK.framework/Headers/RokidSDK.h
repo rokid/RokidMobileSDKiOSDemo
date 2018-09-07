@@ -2,8 +2,8 @@
 //  RokidSDK.h
 //  RokidSDK
 //
-//  Created by BeyondChao on 2018/8/31.
-//  Copyright © 2018年 BeyondChao. All rights reserved.
+//  Created by Yock on 2017/11/27.
+//  Copyright © 2017年 Rokid. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char RokidSDKVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <RokidSDK/PublicHeader.h>
 
-
+#import <CoreBluetooth/CoreBluetooth.h>

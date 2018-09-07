@@ -8,7 +8,7 @@
 
 #import "SendWiFiAccountViewController.h"
 
-@interface SendWiFiAccountViewController () <RKBindManagerObserver>
+@interface SendWiFiAccountViewController () <SDKBinderObserver>
 
 @property (weak, nonatomic) IBOutlet UITextField *wifiNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *wifiPasswordTextField;
@@ -37,65 +37,44 @@
 - (IBAction)sendBtnClick:(UIButton *)sender {
     
     RKWiFi *wifi = [[RKWiFi alloc] initWithSsid:self.wifiNameTextField.text
-                                          bssid:@"rokidguys"];
+                                          bssid:@"123456"];
+    
     [RokidMobileSDK.binder sendWiFiWithDevice:self.currentDevice
                                          wifi:wifi
-                                     password:@"rokidguys"];
+                                     password:@"123456"];
 }
 
-// MARK: - RKBindManagerObserver
+// MARK: - SDKBinderObserver
 
 - (void)onBLEDeviceBindStateUpdatedWithDevice:(RKBLEDevice *)device response:(RKBLEResponse *)response {
     
-    switch (response.bleConnectState) {
-        case RKBLEConnectStateKWiFiConnceting:
-            
+    switch (response.sCode.intValue) {
+        case 10:
             self.progressContent = [NSString stringWithFormat:@"%@\n连接中...\n", self.progressContent];
-            
             break;
-            
-        case RKBLEConnectStateKWiFiConnceted:
-            
+        case 11:
             self.progressContent = [NSString stringWithFormat:@"%@\n连接成功...\n", self.progressContent];
-            
             break;
-            
-        case RKBLEConnectStateKWiFiLoginFailure:
-            
+        case -11:
             self.progressContent = [NSString stringWithFormat:@"%@\n连接失败...\n", self.progressContent];
-            
             break;
-            
-        case RKBLEConnectStateKWiFiLoging:
-            
+        case 100:
             self.progressContent = [NSString stringWithFormat:@"%@\n登录中...\n", self.progressContent];
-
             break;
-            
-        case RKBLEConnectStateKWiFiLoginSuccess:
-            
+        case 101:
             self.progressContent = [NSString stringWithFormat:@"%@\n登录成功...\n", self.progressContent];
-
             break;
-            
-        case RKBLEConnectStateKWiFiBinding:
-            
+        case 200:
             self.progressContent = [NSString stringWithFormat:@"%@\n绑定中...\n", self.progressContent];
-
             break;
-            
-        case RKBLEConnectStateKWiFiBindSuccess:
-            
+        case 201:
             self.progressContent = [NSString stringWithFormat:@"%@\n绑定成功...\n", self.progressContent];
-            
             [NSObject performSelector:@selector(bindSuccessHandle) withObject:nil afterDelay:0.8];
-            
             break;
-            
         default:
             break;
     }
-    
+
     self.stateTextView.text = self.progressContent;
 }
 

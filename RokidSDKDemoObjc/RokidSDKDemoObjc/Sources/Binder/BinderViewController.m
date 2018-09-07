@@ -12,7 +12,7 @@
 
 @import RokidSDK;
 
-@interface BinderViewController ()<UITableViewDataSource, UITableViewDelegate, RKBindManagerObserver>
+@interface BinderViewController ()<UITableViewDataSource, UITableViewDelegate, SDKBinderObserver>
 
 @property (strong, nonatomic) NSArray<RKBLEDevice *> *deviceList;
 
@@ -44,24 +44,18 @@
     /*
      扫描蓝牙设备，根据前缀过滤设备
      */
-    [RokidMobileSDK.binder startBLEScanWithType:@"Rokid-" onDeviceChange:^(NSArray<RKBLEDevice *> * devices) {
-        self.loadingView.hidden = YES;
-        [self.loadingView stopAnimating];
-        self.deviceList = devices;
-        [self.bleList reloadData];
-    }];
+    [RokidMobileSDK.binder startScanWithBlePrefix:@"Rokid-"];
 }
 
-// MARK: - RKBindManagerObserver
+// MARK: - SDKBinderObserver
 
 - (void)onBLEEnabled:(BOOL)isEnable {
-    if (isEnable) {
-        [RokidMobileSDK.binder startScanServices];
-    }
+    // 确定蓝牙已经打开
 }
 
 - (void)onBLEDeviceListChangedWithList:(NSArray<RKBLEDevice *> *)list {
-
+    self.loadingView.hidden = YES;
+    [self.loadingView stopAnimating];
     self.deviceList = list;
     [self.bleList reloadData];
 }
@@ -69,10 +63,6 @@
 /*
  扫描蓝牙设备，根据前缀过滤设备
  */
-- (BOOL)isDeviceExpectedWithDevice:(RKBLEDevice *)device {
-    return [device.name containsString:@"Rokid"];
-}
-
 - (void)onBLEDeviceConnectedWithDevice:(RKBLEDevice *)device {
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
