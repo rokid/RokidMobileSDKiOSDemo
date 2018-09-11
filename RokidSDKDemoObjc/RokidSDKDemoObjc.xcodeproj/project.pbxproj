@@ -36,6 +36,9 @@
 		D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4F951511FCE5D360091179D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
+		DD09B3482147C63C004800FC /* AliyunLOGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; };
+		DD09B3492147C645004800FC /* AliyunLOGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; };
+		DD09B34A2147C645004800FC /* AliyunLOGiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D4B574BF200FA13900C20D0E /* RokidSDK.framework in Embed Frameworks */,
+				DD09B34A2147C645004800FC /* AliyunLOGiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +110,7 @@
 		D4F9514D1FCE5D360091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9514F1FCE5D360091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RokidSDKDemoObjc/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D4F951501FCE5D360091179D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunLOGiOS.framework; path = ../RokidSDK/AliyunLOGiOS.framework; sourceTree = "<group>"; };
 		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
 		F80BEAAE20494FCE008D0FBE /* IOTWKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOTWKWebView.h; sourceTree = "<group>"; };
@@ -118,7 +123,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
+				DD09B3482147C63C004800FC /* AliyunLOGiOS.framework in Frameworks */,
 				63731100213F8304006E8B6B /* RokidSDK.framework in Frameworks */,
+				DD09B3492147C645004800FC /* AliyunLOGiOS.framework in Frameworks */,
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 				D4B574BE200FA13900C20D0E /* RokidSDK.framework in Frameworks */,
 			);
@@ -280,6 +287,7 @@
 		D4F951351FCE5D360091179D = {
 			isa = PBXGroup;
 			children = (
+				DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */,
 				637310FF213F8304006E8B6B /* RokidSDK.framework */,
 				D406B04F1FEAB854003AADEE /* RokidSDK */,
 				D4F951401FCE5D360091179D /* RokidSDKDemoObjc */,
@@ -408,6 +416,9 @@
 				"${BUILT_PRODUCTS_DIR}/ProtocolBuffers-Swift/ProtocolBuffers.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
@@ -418,6 +429,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtocolBuffers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunOSSiOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 			);
@@ -460,7 +474,6 @@
 				D4F951461FCE5D360091179D /* MainViewController.m in Sources */,
 				D43AFFE81FFF741900324778 /* Properties.m in Sources */,
 				63731103213F8418006E8B6B /* SendWiFiAccountViewController.m in Sources */,
-				70B0D627206D2E14000F7EF0 /* SkillsViewControllerNew.m in Sources */,
 				D43DCE131FD96D23005C158A /* BinderViewController.m in Sources */,
 				D4F951511FCE5D360091179D /* main.m in Sources */,
 				703F2873202AD33D00FD1670 /* SkillsViewController.m in Sources */,
@@ -613,6 +626,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../RokidSDK/Debug-Universal",
 					"$(inherited)",
+					"$(SRCROOT)/../RokidSDK/",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -637,6 +651,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../RokidSDK/Debug-Universal",
 					"$(inherited)",
+					"$(SRCROOT)/../RokidSDK/",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoObjc/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
