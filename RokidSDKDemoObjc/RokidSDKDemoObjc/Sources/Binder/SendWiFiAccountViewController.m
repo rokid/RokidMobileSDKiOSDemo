@@ -33,15 +33,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+    
+- (void)dealloc {
+    [RokidMobileSDK.binder removeObserver:self];
+}
 
 - (IBAction)sendBtnClick:(UIButton *)sender {
     
     RKWiFi *wifi = [[RKWiFi alloc] initWithSsid:self.wifiNameTextField.text
-                                          bssid:@"123456"];
+                                          bssid:@""];
     
     [RokidMobileSDK.binder sendWiFiWithDevice:self.currentDevice
                                          wifi:wifi
-                                     password:@"123456"];
+                                     password:self.wifiPasswordTextField.text];
+    [self.wifiNameTextField resignFirstResponder];
+    [self.wifiPasswordTextField resignFirstResponder];
 }
 
 // MARK: - SDKBinderObserver
@@ -53,23 +59,23 @@
             self.progressContent = [NSString stringWithFormat:@"%@\n连接中...\n", self.progressContent];
             break;
         case 11:
-            self.progressContent = [NSString stringWithFormat:@"%@\n连接成功...\n", self.progressContent];
+            self.progressContent = [NSString stringWithFormat:@"%@\nOK 连接成功!\n", self.progressContent];
             break;
         case -11:
-            self.progressContent = [NSString stringWithFormat:@"%@\n连接失败...\n", self.progressContent];
+            self.progressContent = [NSString stringWithFormat:@"%@\nError连接失败!\n", self.progressContent];
             break;
         case 100:
             self.progressContent = [NSString stringWithFormat:@"%@\n登录中...\n", self.progressContent];
             break;
         case 101:
-            self.progressContent = [NSString stringWithFormat:@"%@\n登录成功...\n", self.progressContent];
+            self.progressContent = [NSString stringWithFormat:@"%@\nOK 登录成功!\n", self.progressContent];
             break;
         case 200:
             self.progressContent = [NSString stringWithFormat:@"%@\n绑定中...\n", self.progressContent];
             break;
         case 201:
-            self.progressContent = [NSString stringWithFormat:@"%@\n绑定成功...\n", self.progressContent];
-            [NSObject performSelector:@selector(bindSuccessHandle) withObject:nil afterDelay:0.8];
+            self.progressContent = [NSString stringWithFormat:@"%@\nOK 绑定成功!\n", self.progressContent];
+            self.progressContent = [NSString stringWithFormat:@"%@\nOK 配网完成！\n", self.progressContent];
             break;
         default:
             break;

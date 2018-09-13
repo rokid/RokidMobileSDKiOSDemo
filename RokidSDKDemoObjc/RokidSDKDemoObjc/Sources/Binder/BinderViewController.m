@@ -31,26 +31,26 @@
 
     self.bleList.dataSource = self;
     self.bleList.delegate = self;
-
-    [RokidMobileSDK.binder addObserver:self];
     [RokidMobileSDK.binder enableBLE];
+    [RokidMobileSDK.binder addObserver:self];
+}
+    
+- (void)dealloc {
+    [RokidMobileSDK.binder removeObserver:self];
 }
 
 - (void)scan {
     self.loadingView.hidden = NO;
     [self.loadingView startAnimating];
     self.deviceList = nil;
-
-    /*
-     扫描蓝牙设备，根据前缀过滤设备
-     */
-    [RokidMobileSDK.binder startScanWithBlePrefix:@"Rokid-"];
 }
 
 // MARK: - SDKBinderObserver
 
 - (void)onBLEEnabled:(BOOL)isEnable {
     // 确定蓝牙已经打开
+    [RokidMobileSDK.binder startScanWithBlePrefix:@""];
+
 }
 
 - (void)onBLEDeviceListChangedWithList:(NSArray<RKBLEDevice *> *)list {
@@ -101,9 +101,7 @@
     if (self.deviceList != nil) {
         RKBLEDevice *device = self.deviceList[indexPath.row];
         if (device != nil) {
-
             [RokidMobileSDK.binder connectWithDevice:device];
-
         }
     }
 }
