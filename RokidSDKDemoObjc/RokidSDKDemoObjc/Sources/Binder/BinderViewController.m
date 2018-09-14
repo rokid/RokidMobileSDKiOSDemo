@@ -102,6 +102,7 @@
         RKBLEDevice *device = self.deviceList[indexPath.row];
         if (device != nil) {
             [RokidMobileSDK.binder connectWithDevice:device];
+            [RokidMobileSDK.binder stopScan];
         }
     }
 }
