@@ -957,6 +957,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 - (void)pingDeviceWithDevice:(RKDevice * _Nonnull)device completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
 - (void)getNightModeWithDevice:(RKDevice * _Nonnull)device completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable, SDKDeviceNightMode * _Nullable))completion;
 - (void)updateNightModeWithDevice:(RKDevice * _Nonnull)device nightmode:(SDKDeviceNightMode * _Nonnull)nightmode completion:(void (^ _Nonnull)(RKError * _Nullable, RKDevice * _Nullable))completion;
+/// 读取自定义存储数据
+- (void)getServiceInfoWithDevice:(RKDevice * _Nonnull)device namespace:(NSString * _Nonnull)namespace_ key:(NSString * _Nonnull)key completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+/// 存储自定义存储数据
+- (void)storeServiceInfoWithDevice:(RKDevice * _Nonnull)device namespace:(NSString * _Nonnull)namespace_ key:(NSString * _Nonnull)key kvMapString:(NSString * _Nonnull)kvMapString completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 @end
 
 enum SDKDeviceNightModeState : NSInteger;

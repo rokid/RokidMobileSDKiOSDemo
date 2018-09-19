@@ -36,9 +36,8 @@
 		D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4F951511FCE5D360091179D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
-		DD09B3482147C63C004800FC /* AliyunLOGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; };
-		DD09B3492147C645004800FC /* AliyunLOGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; };
-		DD09B34A2147C645004800FC /* AliyunLOGiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDAB62892151EEFB00D98233 /* AliyunLOGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; };
+		DDAB628A2151EEFB00D98233 /* AliyunLOGiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D4B574BF200FA13900C20D0E /* RokidSDK.framework in Embed Frameworks */,
-				DD09B34A2147C645004800FC /* AliyunLOGiOS.framework in Embed Frameworks */,
+				DDAB628A2151EEFB00D98233 /* AliyunLOGiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,9 +122,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
-				DD09B3482147C63C004800FC /* AliyunLOGiOS.framework in Frameworks */,
+				DDAB62892151EEFB00D98233 /* AliyunLOGiOS.framework in Frameworks */,
 				63731100213F8304006E8B6B /* RokidSDK.framework in Frameworks */,
-				DD09B3492147C645004800FC /* AliyunLOGiOS.framework in Frameworks */,
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 				D4B574BE200FA13900C20D0E /* RokidSDK.framework in Frameworks */,
 			);
