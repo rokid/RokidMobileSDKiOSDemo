@@ -36,11 +36,11 @@
     [RokidMobileSDK.binder enableBLE];
 }
 
-- (void)scan {
+- (IBAction)startScan:(id)sender {
     self.loadingView.hidden = NO;
     [self.loadingView startAnimating];
     self.deviceList = nil;
-
+    
     /*
      扫描蓝牙设备，根据前缀过滤设备
      */
@@ -112,8 +112,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 @end

@@ -1,4 +1,4 @@
 framework module AliyunLOGiOS {
-    header "AliyunLOGiOS-Swift.h"
-    requires objc
+  header "AliyunLOGiOS-Swift.h"
+  requires objc
 }

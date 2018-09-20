@@ -1,0 +1,11 @@
+framework module RokidSDK {
+  umbrella header "RokidSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module RokidSDK.Swift {
+    header "RokidSDK-Swift.h"
+    requires objc
+}

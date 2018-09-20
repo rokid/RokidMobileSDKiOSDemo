@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7yY-IR-7kW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7yY-IR-7kW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="cye-Iy-qYA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="500"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="device" rowHeight="28" id="5gG-GR-jL8">
@@ -41,10 +39,19 @@
                                 <rect key="frame" x="312" y="39" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-L2-wr7">
+                                <rect key="frame" x="275" y="72" width="85" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <state key="normal" title="扫描设备"/>
+                                <connections>
+                                    <action selector="startScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W3A-hI-qbt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cye-Iy-qYA" firstAttribute="top" secondItem="nrm-17-IOX" secondAttribute="bottom" id="9vs-LM-A8W"/>
+                            <constraint firstItem="cye-Iy-qYA" firstAttribute="top" secondItem="nrm-17-IOX" secondAttribute="bottom" constant="54" id="9vs-LM-A8W"/>
                             <constraint firstAttribute="trailing" secondItem="cye-Iy-qYA" secondAttribute="trailing" id="Bq2-7b-e47"/>
                             <constraint firstItem="cye-Iy-qYA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Q1e-Cq-fjb"/>
                             <constraint firstItem="9rP-BO-1xI" firstAttribute="top" secondItem="cye-Iy-qYA" secondAttribute="bottom" id="UyP-2S-TsJ"/>
@@ -54,6 +61,7 @@
                     <connections>
                         <outlet property="bleList" destination="cye-Iy-qYA" id="ehz-fX-9Zh"/>
                         <outlet property="loadingView" destination="4Lw-Sd-5Sj" id="qDA-i8-Txf"/>
+                        <outlet property="scanButton" destination="E6e-L2-wr7" id="bim-Go-mOT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -102,7 +110,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZ6-qW-4ZE">
-                                                    <rect key="frame" x="237" y="6" width="108" height="30"/>
+                                                    <rect key="frame" x="237" y="7" width="108" height="30"/>
                                                     <color key="backgroundColor" red="0.4880891664" green="0.67783108950000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="108" id="zXe-gZ-a2V"/>
@@ -769,7 +777,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mby-dd-VJE">
-                                <rect key="frame" x="118" y="86" width="227" height="30"/>
+                                <rect key="frame" x="118" y="85.5" width="227" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
