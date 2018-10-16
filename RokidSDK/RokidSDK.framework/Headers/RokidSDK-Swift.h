@@ -220,13 +220,13 @@ SWIFT_CLASS("_TtC8RokidSDK13DeviceSetting")
 
 
 
-
-
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC8RokidSDK11RBUDPSocket")
@@ -801,6 +801,8 @@ SWIFT_CLASS("_TtC8RokidSDK14RXMediaManager")
 
 
 
+
+
 SWIFT_CLASS("_TtC8RokidSDK10RokidAlarm")
 @interface RokidAlarm : NSObject
 @property (nonatomic) NSInteger id;
@@ -994,6 +996,23 @@ SWIFT_CLASS("_TtC8RokidSDK20SDKDeviceVersionInfo")
 @property (nonatomic, copy) NSString * _Nonnull version;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK15SDKMediaManager")
+@interface SDKMediaManager : NSObject
+/// 控制类 *
+- (void)requestPlayIntentWithSkillId:(NSString * _Nonnull)skillId id:(NSString * _Nonnull)id completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestPauseIntentWithSkillId:(NSString * _Nonnull)skillId completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestPreviousIntentWithSkillId:(NSString * _Nonnull)skillId completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestNextIntentWithSkillId:(NSString * _Nonnull)skillId completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestPlayInfoIntentWithSkillId:(NSString * _Nonnull)skillId completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+/// 显示类 *
+- (void)requestSkillListIntentWithCompletion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestHomeIntentWithSkillId:(NSString * _Nonnull)skillId completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestListIntentWithSkillId:(NSString * _Nonnull)skillId groupId:(NSString * _Nonnull)groupId startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex extend:(NSString * _Nonnull)extend completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestDetailIntentWithSkillId:(NSString * _Nonnull)skillId groupId:(NSString * _Nonnull)groupId startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex order:(NSString * _Nonnull)order extend:(NSString * _Nonnull)extend completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

@@ -63,8 +63,7 @@
     [self.passwordInput resignFirstResponder];
 }
 
-- (void)login
-{
+- (void)login {
     [self tapView:nil];
     
     [RokidMobileSDK.account tempLoginWithName:self.telInput.text
@@ -74,11 +73,12 @@
                                              NSLog(@"[Login] OK" );
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
                                              
-                                             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert success" message:@"可以其他操作了" preferredStyle:UIAlertControllerStyleAlert];
-                                             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                             }]];
-                                             [self presentViewController:alert animated:true completion:nil];
-                                             
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert success" message:@"可以其他操作了" preferredStyle:UIAlertControllerStyleAlert];
+                                                 [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                                 }]];
+                                                 [self presentViewController:alert animated:true completion:nil];
+                                             });
                                              
                                          } else {
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
@@ -90,16 +90,17 @@
                                                                                             }];
                                              NSLog(@"[Login] Error %@", newError);
                                              
-                                             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert" message:@"error" preferredStyle:UIAlertControllerStyleAlert];
-                                             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                             }]];
-                                             [self presentViewController:alert animated:true completion:nil];
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert" message:@"error" preferredStyle:UIAlertControllerStyleAlert];
+                                                 [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                                 }]];
+                                                 [self presentViewController:alert animated:true completion:nil];
+                                             });
                                          }
                                      }];
 }
 
-- (void)logout
-{
+- (void)logout {
     [RokidMobileSDK.account logout];
 }
 
@@ -173,6 +174,12 @@
 
 - (void)handleNotification: (NSNotification *)notification {
     NSLog(@"[ViewContoller handleNotification] %@", notification);
+    
+    if ([notification.name isEqual: @"RXDeviceListUpdated"]) {
+        [RokidMobileSDK.device queryDeviceListWithCompletion:^(RKError * error, NSArray<RKDevice *> * device_list) {
+            NSLog(@"device_list = %@", device_list);
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

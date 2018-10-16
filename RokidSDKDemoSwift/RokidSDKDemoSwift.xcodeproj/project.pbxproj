@@ -12,20 +12,23 @@
 		D4F951261FCE5D0B0091179D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F951251FCE5D0B0091179D /* MainViewController.swift */; };
 		D4F951291FCE5D0B0091179D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F951271FCE5D0B0091179D /* Main.storyboard */; };
 		D4F9512B1FCE5D0B0091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9512A1FCE5D0B0091179D /* Assets.xcassets */; };
-		DD2A523F20413FCF0083CD4D /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A523920413F680083CD4D /* RokidSDK.framework */; };
-		DD2A524020413FCF0083CD4D /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A523920413F680083CD4D /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD2A5244204144460083CD4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2A5246204144460083CD4D /* LaunchScreen.storyboard */; };
 		DD2A524920414A630083CD4D /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD2A524720414A620083CD4D /* config.plist */; };
+		DDD8D3752153751000795282 /* AliyunLOGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36C215374F800795282 /* AliyunLOGiOS.framework */; };
+		DDD8D3762153751000795282 /* AliyunLOGiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36C215374F800795282 /* AliyunLOGiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDD8D3772153751000795282 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36D215374F800795282 /* RokidSDK.framework */; };
+		DDD8D3782153751000795282 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36D215374F800795282 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DD2A524120413FCF0083CD4D /* Embed Frameworks */ = {
+		DDD8D3792153751000795282 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DD2A524020413FCF0083CD4D /* RokidSDK.framework in Embed Frameworks */,
+				DDD8D3762153751000795282 /* AliyunLOGiOS.framework in Embed Frameworks */,
+				DDD8D3782153751000795282 /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,9 +44,10 @@
 		D4F951281FCE5D0B0091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4F9512A1FCE5D0B0091179D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4F9512F1FCE5D0B0091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD2A523920413F680083CD4D /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		DD2A5245204144460083CD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD2A524720414A620083CD4D /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		DDD8D36C215374F800795282 /* AliyunLOGiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunLOGiOS.framework; sourceTree = "<group>"; };
+		DDD8D36D215374F800795282 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		E795AEC787AEF517C3C02F57 /* Pods-RokidSDKDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoSwift.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoSwift/Pods-RokidSDKDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,7 +57,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E117C20316ECD7F48BD8C45 /* Pods_RokidSDKDemoSwift.framework in Frameworks */,
-				DD2A523F20413FCF0083CD4D /* RokidSDK.framework in Frameworks */,
+				DDD8D3772153751000795282 /* RokidSDK.framework in Frameworks */,
+				DDD8D3752153751000795282 /* AliyunLOGiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,18 +134,11 @@
 		DD2A523620413F680083CD4D /* RokidSDK */ = {
 			isa = PBXGroup;
 			children = (
-				DD2A523820413F680083CD4D /* Debug-Universal */,
+				DDD8D36C215374F800795282 /* AliyunLOGiOS.framework */,
+				DDD8D36D215374F800795282 /* RokidSDK.framework */,
 			);
 			name = RokidSDK;
 			path = ../RokidSDK;
-			sourceTree = "<group>";
-		};
-		DD2A523820413F680083CD4D /* Debug-Universal */ = {
-			isa = PBXGroup;
-			children = (
-				DD2A523920413F680083CD4D /* RokidSDK.framework */,
-			);
-			path = "Debug-Universal";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +153,7 @@
 				D4F9511D1FCE5D0B0091179D /* Frameworks */,
 				D4F9511E1FCE5D0B0091179D /* Resources */,
 				5A815E9E7BE6D6F2C4958D88 /* [CP] Embed Pods Frameworks */,
-				DD2A524120413FCF0083CD4D /* Embed Frameworks */,
+				DDD8D3792153751000795282 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,7 +220,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoSwift/Pods-RokidSDKDemoSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework",
 				"${BUILT_PRODUCTS_DIR}/ProtocolBuffers-Swift/ProtocolBuffers.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -230,7 +233,12 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunOSSiOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MQTTClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtocolBuffers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
@@ -408,7 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../RokidSDK/Debug-Universal",
+					"$(SRCROOT)/../RokidSDK",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoSwift/Resources/Info.plist";
@@ -428,7 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZEB3P6V4Y;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../RokidSDK/Debug-Universal",
+					"$(SRCROOT)/../RokidSDK",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/RokidSDKDemoSwift/Resources/Info.plist";
