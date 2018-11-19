@@ -28,10 +28,11 @@
     
     NSArray * alarmItems = @[@"获取闹钟列表", @"新建闹钟", @"删除闹钟", @"更新闹钟"];
     NSArray * remindItems = @[@"获取提醒列表", @"删除提醒"];
+    NSArray * mediaItems = @[@"获取内容技能列表", @"获取技能首页信息"];
     NSArray * iotItems = @[@"智能家居 H5"];
     NSArray * storeItems = @[@"技能商店 H5"];
     
-    self.itemsAll = @{@"1闹钟" : alarmItems, @"2提醒" : remindItems, @"3智能家居" : iotItems, @"4技能商店" : storeItems};
+    self.itemsAll = @{@"1闹钟" : alarmItems, @"2提醒" : remindItems, @"3媒体内容" : mediaItems, @"4智能家居" : iotItems, @"5技能商店" : storeItems};
     
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SkillTableViewCell"];
 }
@@ -67,10 +68,13 @@
             return   [((NSArray *)[self.itemsAll valueForKey:@"2提醒"]) count];
             break;
         case 2:
-            return   [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) count];
+            return   [((NSArray *)[self.itemsAll valueForKey:@"3媒体内容"]) count];
             break;
         case 3:
-            return   [((NSArray *)[self.itemsAll valueForKey:@"4技能商店"]) count];
+            return   [((NSArray *)[self.itemsAll valueForKey:@"4智能家居"]) count];
+            break;
+        case 4:
+            return   [((NSArray *)[self.itemsAll valueForKey:@"5技能商店"]) count];
             break;
         default:
             return 1;
@@ -81,16 +85,19 @@
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return  @"1闹钟";
+            return @"1闹钟";
             break;
         case 1:
-            return  @"2提醒";
+            return @"2提醒";
             break;
         case 2:
-            return @"3智能家居";
+            return @"3媒体内容";
             break;
         case 3:
-            return  @"4技能商店";
+            return @"4智能家居";
+            break;
+        case 4:
+            return @"5技能商店";
             break;
         default:
             return @"";
@@ -112,11 +119,15 @@
             break;
         }
         case 2:{
-            title = [((NSArray *)[self.itemsAll valueForKey:@"3智能家居"]) objectAtIndex:indexPath.row];
+            title = [((NSArray *)[self.itemsAll valueForKey:@"3媒体内容"]) objectAtIndex:indexPath.row];
             break;
         }
         case 3:{
-            title = [((NSArray *)[self.itemsAll valueForKey:@"4技能商店"]) objectAtIndex:indexPath.row];
+            title = [((NSArray *)[self.itemsAll valueForKey:@"4智能家居"]) objectAtIndex:indexPath.row];
+            break;
+        }
+        case 4:{
+            title = [((NSArray *)[self.itemsAll valueForKey:@"5技能商店"]) objectAtIndex:indexPath.row];
             break;
         }
         default:
@@ -216,7 +227,6 @@
             break;
             
         case 1:{
-            
             switch (indexPath.row) {
                 case 0:{
                     [RokidMobileSDK.skill.remind getListWithDeviceId:self.device.id completion:^(RKError * error, NSArray<SDKRemind *> * remindArr){
@@ -270,13 +280,17 @@
         }
             break;
         case 2:{
+            [self mediaAction:indexPath.row];
+        }
+            break;
+        case 3:{
             NSLog(@"---> ");
             UIStoryboard * main =  [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             IotViewController * target = [main instantiateViewControllerWithIdentifier: NSStringFromClass([IotViewController class])];
             [self.navigationController pushViewController:target animated:true];
         }
             break;
-        case 3: {
+        case 4: {
             NSLog(@"---> storev2");
             
             WebviewViewController * target = [[WebviewViewController alloc] init];
@@ -289,6 +303,24 @@
     }
 }
 
+- (void)mediaAction:(long) index {
+    switch (index) {
+        case 0: {
+            [RokidMobileSDK.media requestSkillListIntentWithCompletion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestSkillListIntent: %@", responseJson);
+            }];
+        }
+            break;
+        case 1: {
+            [RokidMobileSDK.media requestHomeIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" completion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestHomeIntentWithSkillId: %@", responseJson);
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 
 /*

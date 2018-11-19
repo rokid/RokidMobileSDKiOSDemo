@@ -33,7 +33,6 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
     [self.view addGestureRecognizer:tapGesture];
     
-    
     // SDK init
     [RokidMobileSDK.shared initSDKWithAppKey:Properties.shared.appKey
                                    appSecret:Properties.shared.appSecret
@@ -47,15 +46,12 @@
                                           self.view.userInteractionEnabled = YES;
                                           [self addNotificationObserver];
                                       };
-                                      
-                                      //RokidMobileSDK.shared.customSchema = @"xmly";
                                   }];
     
-    NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
+    // 打开 Debug 切换到 测试环境
+    RokidMobileSDK.shared.debug = true;
     
-    //RokidMobileSDK.shared.debug = true;
-    self.telInput.text = @"15998589691";
-    self.passwordInput.text = @"123456";
+    NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
 }
 
 - (void)tapView:(UITapGestureRecognizer *)gesture {
