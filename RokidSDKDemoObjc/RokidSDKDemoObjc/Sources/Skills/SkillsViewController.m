@@ -28,7 +28,7 @@
     
     NSArray * alarmItems = @[@"获取闹钟列表", @"新建闹钟", @"删除闹钟", @"更新闹钟"];
     NSArray * remindItems = @[@"获取提醒列表", @"删除提醒"];
-    NSArray * mediaItems = @[@"获取内容技能列表", @"获取技能首页信息"];
+    NSArray * mediaItems = @[@"获取内容技能列表", @"获取技能Home信息", @"获取技能List信息", @"获取技能Detail信息", @"播放媒体", @"获取播放信息", @"上一首", @"下一首"];
     NSArray * iotItems = @[@"智能家居 H5"];
     NSArray * storeItems = @[@"技能商店 H5"];
     
@@ -313,6 +313,42 @@
             break;
         case 1: {
             [RokidMobileSDK.media requestHomeIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" completion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestHomeIntentWithSkillId: %@", responseJson);
+            }];
+        }
+            break;
+        case 2: {
+            [RokidMobileSDK.media requestListIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" groupId:@"16" startIndex:0 endIndex:5 extend:@"" completion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestListIntentWithSkillId: %@", responseJson);
+            }];
+        }
+            break;
+        case 3: {
+            [RokidMobileSDK.media requestDetailIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" groupId:@"269179" startIndex:0 endIndex:5 order:@"" extend:@"" completion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestDetailIntentWithSkillId: %@", responseJson);
+            }];
+        }
+            break;
+        case 4: {
+            [RokidMobileSDK.media requestPlayIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" id:@"326970" completion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestPlayIntentWithSkillId: %@", responseJson);
+            }];
+        }
+            break;
+        case 5: {
+            [RokidMobileSDK.media requestPlayInfoIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" completion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestPlayInfoIntentWithSkillId: %@", responseJson);
+            }];
+        }
+            break;
+        case 6: {
+            [RokidMobileSDK.media requestNextIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" completion:^(RKError * error, NSString * responseJson) {
+                NSLog(@"Rokid Mobile SDK Media - requestNextIntentWithSkillId: %@", responseJson);
+            }];
+        }
+            break;
+        case 7: {
+            [RokidMobileSDK.media requestPreviousIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" completion:^(RKError * error, NSString * responseJson) {
                 NSLog(@"Rokid Mobile SDK Media - requestHomeIntentWithSkillId: %@", responseJson);
             }];
         }

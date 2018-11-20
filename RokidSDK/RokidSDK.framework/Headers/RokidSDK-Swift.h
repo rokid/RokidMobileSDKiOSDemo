@@ -884,6 +884,7 @@ SWIFT_CLASS("_TtC8RokidSDK10RokidAlarm")
 @class SDKVuiManager;
 @class SDKSKillManager;
 @class SDKMediaManager;
+enum SDKEnv : NSInteger;
 
 SWIFT_CLASS("_TtC8RokidSDK14RokidMobileSDK")
 @interface RokidMobileSDK : NSObject
@@ -904,7 +905,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKMediaMana
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)initSDKWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret accessKey:(NSString * _Nonnull)accessKey completion:(SWIFT_NOESCAPE void (^ _Nonnull)(RKError * _Nullable))completion SWIFT_METHOD_FAMILY(none);
-@property (nonatomic) BOOL debug;
+@property (nonatomic) enum SDKEnv env;
+@property (nonatomic) BOOL openLog;
 @end
 
 
@@ -1105,6 +1107,12 @@ SWIFT_CLASS("_TtC8RokidSDK20SDKDeviceVersionInfo")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, SDKEnv, closed) {
+  SDKEnvRelease = 0,
+  SDKEnvPre = 1,
+  SDKEnvDev = 2,
+};
 
 
 SWIFT_CLASS("_TtC8RokidSDK15SDKMediaManager")

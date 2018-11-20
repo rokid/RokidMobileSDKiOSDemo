@@ -48,10 +48,9 @@
                                       };
                                   }];
     
-    // 打开 Debug 切换到 测试环境
-    RokidMobileSDK.shared.debug = true;
-    
-    NSLog(@"now debug : %@",  RokidMobileSDK.shared.debug? @"true" : @"false");
+    // 测试环境
+    RokidMobileSDK.shared.env = SDKEnvPre;
+    RokidMobileSDK.shared.openLog = true;
 }
 
 - (void)tapView:(UITapGestureRecognizer *)gesture {
