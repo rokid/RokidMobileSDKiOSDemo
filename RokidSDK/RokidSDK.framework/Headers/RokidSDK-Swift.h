@@ -334,12 +334,14 @@ SWIFT_CLASS("_TtC8RokidSDK12RKBLERequest")
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
+@class RKWiFi;
 
 SWIFT_CLASS("_TtC8RokidSDK13RKBLEResponse")
 @interface RKBLEResponse : NSObject
 @property (nonatomic, copy) NSString * _Nonnull topic;
 @property (nonatomic, copy) NSString * _Nullable sCode;
 @property (nonatomic, copy) NSString * _Nullable sMsg;
+@property (nonatomic, copy) NSArray<RKWiFi *> * _Nullable wifiList;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
 @property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
