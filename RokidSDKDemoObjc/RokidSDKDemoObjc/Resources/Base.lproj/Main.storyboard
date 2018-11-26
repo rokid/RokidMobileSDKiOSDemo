@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7yY-IR-7kW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7yY-IR-7kW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -782,6 +782,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg6-V8-MKH">
+                                <rect key="frame" x="139.5" y="318.5" width="96" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="666-3c-uIa"/>
+                                    <constraint firstAttribute="height" constant="30" id="ISm-Ij-Fvk"/>
+                                </constraints>
+                                <state key="normal" title="获取 Wifi 列表"/>
+                                <connections>
+                                    <action selector="getWifiListBtnClick:" destination="30X-j1-7XU" eventType="touchUpInside" id="P4E-U9-ChW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -794,6 +805,7 @@
                             <constraint firstItem="CvQ-UN-Jfs" firstAttribute="leading" secondItem="mby-dd-VJE" secondAttribute="leading" id="GOI-H5-yIC"/>
                             <constraint firstItem="CvQ-UN-Jfs" firstAttribute="trailing" secondItem="mby-dd-VJE" secondAttribute="trailing" id="Jzd-Ia-mTb"/>
                             <constraint firstItem="ikK-7B-CL8" firstAttribute="leading" secondItem="SuV-5B-Cxj" secondAttribute="leading" constant="20" id="MBc-ae-0CJ"/>
+                            <constraint firstItem="bg6-V8-MKH" firstAttribute="centerX" secondItem="SuV-5B-Cxj" secondAttribute="centerX" id="MN8-lu-wwO"/>
                             <constraint firstAttribute="trailing" secondItem="mby-dd-VJE" secondAttribute="trailing" constant="30" id="OmA-1S-Jo3"/>
                             <constraint firstItem="0TC-oO-h5i" firstAttribute="leading" secondItem="SuV-5B-Cxj" secondAttribute="leading" id="QVs-V0-i6W"/>
                             <constraint firstItem="V2n-kS-mli" firstAttribute="top" secondItem="CvQ-UN-Jfs" secondAttribute="bottom" constant="30" id="ZF9-Vg-BqQ"/>
@@ -802,10 +814,12 @@
                             <constraint firstAttribute="trailing" secondItem="V2n-kS-mli" secondAttribute="trailing" constant="30" id="el4-Ot-xFw"/>
                             <constraint firstItem="ikK-7B-CL8" firstAttribute="top" secondItem="73y-Fl-Cay" secondAttribute="bottom" constant="70" id="fbe-PY-OjV"/>
                             <constraint firstItem="V2n-kS-mli" firstAttribute="centerX" secondItem="SuV-5B-Cxj" secondAttribute="centerX" id="oVr-ox-NA4"/>
+                            <constraint firstItem="bg6-V8-MKH" firstAttribute="centerY" secondItem="SuV-5B-Cxj" secondAttribute="centerY" id="t8A-fb-IQR"/>
                             <constraint firstItem="CvQ-UN-Jfs" firstAttribute="centerY" secondItem="r28-RQ-UaO" secondAttribute="centerY" id="ugj-Wb-VB9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getWifiList" destination="bg6-V8-MKH" id="PoS-YD-3oh"/>
                         <outlet property="stateTextView" destination="0TC-oO-h5i" id="NV8-ii-noe"/>
                         <outlet property="wifiNameTextField" destination="mby-dd-VJE" id="QdH-aw-lFe"/>
                         <outlet property="wifiPasswordTextField" destination="CvQ-UN-Jfs" id="MA9-Ob-1xp"/>

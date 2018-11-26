@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *wifiNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *wifiPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextView *stateTextView;
+@property (weak, nonatomic) IBOutlet UIButton *getWifiList;
 
 @property (copy, nonatomic) NSString *progressContent;
 
@@ -44,7 +45,14 @@
                                      password:@"123456"];
 }
 
+- (IBAction)getWifiListBtnClick:(UIButton *)sender {
+    [RokidMobileSDK.binder getWifiListWithDevice:self.currentDevice];
+}
+
 // MARK: - SDKBinderObserver
+-(void)onBLEDeviceWiFiListUpdatedWithDevice:(RKBLEDevice *)device response:(RKBLEResponse *)response {
+    NSArray<RKWiFi *> *list = response.wifiList;
+}
 
 - (void)onBLEDeviceBindStateUpdatedWithDevice:(RKBLEDevice *)device response:(RKBLEResponse *)response {
     
