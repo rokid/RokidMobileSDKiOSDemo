@@ -80,10 +80,10 @@
         case 0:{
             return @"....";
         }
-        case 1:{ // 4.2 获取 设备基本信息
-            NSDictionary * tmp = [RokidMobileSDK.device getBasicInfoWithDeviceId: self.device.id] ;
-            return [tmp description];
-        }
+//        case 1:{ // 4.2 获取 设备基本信息
+//            NSDictionary * tmp = [RokidMobileSDK.device getBasicInfoWithDeviceId: self.device.id] ;
+//            return [tmp description];
+//        }
         case 2:{ // @"4.3 获取设备的 Loaction 信息"
             ret =  @"getLocation not open ";
             return ret;

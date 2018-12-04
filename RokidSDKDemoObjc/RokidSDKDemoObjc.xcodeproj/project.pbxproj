@@ -33,8 +33,6 @@
 		D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4F951511FCE5D360091179D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
-		DDAB62892151EEFB00D98233 /* AliyunLOGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; };
-		DDAB628A2151EEFB00D98233 /* AliyunLOGiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDD8D36A21536E2800795282 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36621536D9A00795282 /* RokidSDK.framework */; };
 		DDD8D36B21536E2800795282 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36621536D9A00795282 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */; };
@@ -47,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DDAB628A2151EEFB00D98233 /* AliyunLOGiOS.framework in Embed Frameworks */,
 				DDD8D36B21536E2800795282 /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -121,7 +118,6 @@
 			files = (
 				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
 				DDD8D36A21536E2800795282 /* RokidSDK.framework in Frameworks */,
-				DDAB62892151EEFB00D98233 /* AliyunLOGiOS.framework in Frameworks */,
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +342,7 @@
 				TargetAttributes = {
 					D4F9513D1FCE5D360091179D = {
 						CreatedOnToolsVersion = 9.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -619,6 +615,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rokid.mobile.sdk.demo.objc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RokidSDKDemoObjc/Sources/Account/RokidSDKDemoObjc-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -644,6 +641,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rokid.mobile.sdk.demo.objc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RokidSDKDemoObjc/Sources/Account/RokidSDKDemoObjc-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

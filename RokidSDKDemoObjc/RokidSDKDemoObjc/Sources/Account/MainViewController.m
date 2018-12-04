@@ -49,7 +49,7 @@
                                   }];
     
     // 测试环境
-    RokidMobileSDK.shared.env = SDKEnvPre;
+    RokidMobileSDK.shared.env = SDKEnvRelease;
     RokidMobileSDK.shared.openLog = true;
 }
 

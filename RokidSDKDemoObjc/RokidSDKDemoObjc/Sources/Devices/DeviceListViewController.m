@@ -85,9 +85,6 @@
     RKDevice *device = self.deviceList[indexPath.row];
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    NSLog(@"%@", device.basicInfo);
-
     /*
      设置为 current
      */

@@ -96,6 +96,9 @@
 
 // 在一个新的 ViewController 中打开Url
 - (void)openNewWebViewWithTitle:(NSString * _Nonnull)title urlStr:(NSString * _Nonnull)urlStr {
+    WebviewViewController * target = [[WebviewViewController alloc] init];
+    [target setUrlStr: urlStr];
+    [self.navigationController pushViewController:target animated:true];
 }
 
 // 使用外部浏览器 打开Url

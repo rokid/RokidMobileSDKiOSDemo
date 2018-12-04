@@ -294,7 +294,9 @@
             NSLog(@"---> storev2");
             
             WebviewViewController * target = [[WebviewViewController alloc] init];
-            [target setUrlStr: @"https://skill.rokid.com/storev2/#/?header=0"];
+//            [target setUrlStr: @"https://skill.rokid.com/storev2/#/?header=0&newview=1"];
+            [target setUrlStr: @"http://local.rokid.com:8881/storev2-h5.html#/?header=0&newview=1"];
+//            [target setUrlStr: @"http://local.rokid.com:8881/storev2-h5.html#/detail/RD311D28837747059F938D3107FCB9F2/0?header=0"];
             [self.navigationController pushViewController:target animated:true];
         }
             break;

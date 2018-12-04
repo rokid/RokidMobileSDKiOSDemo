@@ -13,7 +13,7 @@ def dependence_lib
     pod 'SQLite.swift', '0.11.5'
     pod 'Alamofire', '4.7.3'
     pod 'AFNetworking', '2.6.3'
-    pod 'AliyunOSSiOS', '2.1.2'
+    pod 'AliyunOSSiOS', '2.10.7'
     pod 'MQTTClient','0.14.0'
     pod 'ProtocolBuffers-Swift', '4.0.0'
     pod 'ReachabilitySwift', '4.1.0'
