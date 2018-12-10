@@ -103,7 +103,6 @@
 		D4F9514D1FCE5D360091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9514F1FCE5D360091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RokidSDKDemoObjc/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D4F951501FCE5D360091179D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunLOGiOS.framework; sourceTree = "<group>"; };
 		DDD8D36621536D9A00795282 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,7 +225,6 @@
 		D406B04F1FEAB854003AADEE /* RokidSDK */ = {
 			isa = PBXGroup;
 			children = (
-				DD09B3472147C63C004800FC /* AliyunLOGiOS.framework */,
 				DDD8D36621536D9A00795282 /* RokidSDK.framework */,
 			);
 			name = RokidSDK;

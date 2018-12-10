@@ -1470,6 +1470,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKBinderMan
 /// 让BLE设备搜索自己的Wi-Fi列表
 - (void)getWifiListWithDevice:(RKBLEDevice * _Nonnull)device;
 - (void)sendWiFiWithDevice:(RKBLEDevice * _Nonnull)device wifi:(RKWiFi * _Nonnull)wifi password:(NSString * _Nullable)password;
+/// MARK: - RKBindManagerObserver
+/// observer过滤器，获取到的列表是筛选后的结果
+- (BOOL)isDeviceExpectedWithDevice:(RKBLEDevice * _Nonnull)device SWIFT_WARN_UNUSED_RESULT;
+/// 手机蓝牙状态变更，用户是开起来了蓝牙功能
+- (void)onBLEEnabled:(BOOL)isEnable;
+/// 检测到的设备列表更新
+- (void)onBLEDeviceListChangedWithList:(NSArray<RKBLEDevice *> * _Nonnull)list;
+/// 连接设备
+- (void)onBLEDeviceConnectedWithDevice:(RKBLEDevice * _Nonnull)device;
+/// 连接设备失败
+- (void)onBLEDeviceConnectFailedWithDevice:(RKBLEDevice * _Nonnull)device error:(NSError * _Nonnull)error;
+/// 断开设备连接
+- (void)onBLEDeviceDisconnectedWithDevice:(RKBLEDevice * _Nonnull)device;
+/// 设备Wi-Fi列表更新
+- (void)onBLEDeviceWiFiListUpdatedWithDevice:(RKBLEDevice * _Nonnull)device response:(RKBLEResponse * _Nonnull)response;
+/// 发送Wi-Fi账号密码成功
+- (void)onBLEDeviceSendWiFiSuccessedWithDevice:(RKBLEDevice * _Nonnull)device;
+/// 发送Wi-Fi账号密码失败
+- (void)onDeviceSendWiFiFailedWithDevice:(RKBLEDevice * _Nonnull)device;
+/// 设备联网状态更新了
+- (void)onBLEDeviceBindStateUpdatedWithDevice:(RKBLEDevice * _Nonnull)device response:(RKBLEResponse * _Nonnull)response;
+- (void)onBLEDeviceDidFetchMetadataWithDevice:(RKBLEDevice * _Nonnull)device response:(RKBLEResponse * _Nonnull)response;
+- (void)onBLEDeviceAuthoriseWithDevice:(RKBLEDevice * _Nonnull)device state:(enum RKDeviceAuthState)state;
 @end
 
 
@@ -1672,9 +1695,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSkillAlar
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKAlarm *> * _Nullable))completion;
+- (void)getCloudListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKAlarm *> * _Nullable))completion;
 - (void)createWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)createCloudWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm completion:(void (^ _Nonnull)(BOOL))completion;
 - (void)deleteWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)deteteCloudWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm completion:(void (^ _Nonnull)(BOOL))completion;
 - (void)updateWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm to:(SDKAlarm * _Nonnull)to completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)updateCloudWithDeviceId:(NSString * _Nonnull)deviceId alarm:(SDKAlarm * _Nonnull)alarm to:(SDKAlarm * _Nonnull)to completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
@@ -1685,7 +1712,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKSkillRemi
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)getListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKRemind *> * _Nullable))completion;
+- (void)getCloudListWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<SDKRemind *> * _Nullable))completion;
 - (void)deleteWithDeviceId:(NSString * _Nonnull)deviceId remind:(SDKRemind * _Nonnull)remind completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)deleteCloudWithDeviceId:(NSString * _Nonnull)deviceId remind:(SDKRemind * _Nonnull)remind completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
