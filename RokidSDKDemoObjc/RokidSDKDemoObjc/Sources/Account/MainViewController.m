@@ -169,12 +169,6 @@
 
 - (void)handleNotification: (NSNotification *)notification {
     NSLog(@"[ViewContoller handleNotification] %@", notification);
-    
-    if ([notification.name isEqual: @"RXDeviceListUpdated"]) {
-        [RokidMobileSDK.device queryDeviceListWithCompletion:^(RKError * error, NSArray<RKDevice *> * device_list) {
-            NSLog(@"device_list = %@", device_list);
-        }];
-    }
 }
 
 - (void)didReceiveMemoryWarning {

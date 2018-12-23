@@ -36,8 +36,6 @@
         NSLog(@"device_list = %@", device_list);
         [self.deviceListView reloadData];
     }];
-    
-   
 }
 
 - (void)didReceiveMemoryWarning {

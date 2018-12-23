@@ -318,7 +318,7 @@
         }
             break;
         case 2: {
-            [RokidMobileSDK.media requestListIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" groupId:@"16" startIndex:0 endIndex:5 extend:@"" completion:^(RKError * error, NSString * responseJson) {
+            [RokidMobileSDK.media requestListIntentWithSkillId:@"RC528E2DD8E745E195173D9F8BE48436" groupId:@"16" linkUrl:@"" startIndex:0 endIndex:5 extend:@"" completion:^(RKError * error, NSString * responseJson) {
                 NSLog(@"Rokid Mobile SDK Media - requestListIntentWithSkillId: %@", responseJson);
             }];
         }

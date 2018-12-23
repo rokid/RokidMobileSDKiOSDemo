@@ -1416,11 +1416,16 @@ SWIFT_CLASS("_TtC8RokidSDK20SDKAlexaBinderHelper")
 @interface SDKAlexaBinderHelper : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKAlexaBinderHelper * _Nonnull shared;)
 + (SDKAlexaBinderHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-/// 让BLE设备搜索自己的Wi-Fi列表
+/// 让BLE设备搜索自己的 WiFi 列表
 - (void)getWifiListWithDevice:(RKBLEDevice * _Nonnull)device vendor:(NSString * _Nonnull)vendor;
+/// 发送 WiFi 给设备
 - (void)sendWiFiWithDevice:(RKBLEDevice * _Nonnull)device wifi:(RKWiFi * _Nonnull)wifi password:(NSString * _Nullable)password vendor:(NSString * _Nonnull)vendor;
+/// 获取指定设备信息
 - (void)getDeviceMetaDataWithDevice:(RKBLEDevice * _Nonnull)device vendor:(NSString * _Nonnull)vendor;
+/// 发送授权信息给设备
 - (void)sendAlexaAuthDataWithDevice:(RKBLEDevice * _Nonnull)device uri:(NSString * _Nonnull)uri cliendId:(NSString * _Nonnull)cliendId aCode:(NSString * _Nonnull)aCode vendor:(NSString * _Nonnull)vendor;
+/// 发送自定义的请求， request: 通过 RKBLERequest构造器 init(topic: String, params: [String: String]? = nil, vendor: String? = nil)
+- (void)sendAlexaRequestWithDevice:(RKBLEDevice * _Nonnull)device request:(RKBLERequest * _Nonnull)request;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1614,7 +1619,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKMediaMana
 /// 显示类 *
 - (void)requestSkillListIntentWithCompletion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
 - (void)requestHomeIntentWithSkillId:(NSString * _Nonnull)skillId completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
-- (void)requestListIntentWithSkillId:(NSString * _Nonnull)skillId groupId:(NSString * _Nonnull)groupId startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex extend:(NSString * _Nonnull)extend completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
+- (void)requestListIntentWithSkillId:(NSString * _Nonnull)skillId groupId:(NSString * _Nonnull)groupId linkUrl:(NSString * _Nonnull)linkUrl startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex extend:(NSString * _Nonnull)extend completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
 - (void)requestDetailIntentWithSkillId:(NSString * _Nonnull)skillId groupId:(NSString * _Nonnull)groupId startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex order:(NSString * _Nonnull)order extend:(NSString * _Nonnull)extend completion:(void (^ _Nonnull)(RKError * _Nullable, NSString * _Nullable))completion;
 @end
 
@@ -1727,6 +1732,7 @@ SWIFT_CLASS("_TtC8RokidSDK16SDKThirdAuthInfo")
 @property (nonatomic, copy) NSString * _Nullable baseRedirectUri;
 @property (nonatomic, copy) NSString * _Nullable callbackThirdUrl;
 @property (nonatomic, copy) NSString * _Nullable otherConfig;
+@property (nonatomic, readonly, copy) NSString * _Nonnull xmlyParam;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1736,6 +1742,8 @@ SWIFT_CLASS("_TtC8RokidSDK17SDKThirdAuthToken")
 @property (nonatomic, copy) NSString * _Nullable access_token;
 @property (nonatomic, copy) NSString * _Nullable expires_in;
 @property (nonatomic, copy) NSString * _Nullable refresh_token;
+@property (nonatomic, copy) NSString * _Nullable nick_name;
+@property (nonatomic, copy) NSString * _Nullable head_img_url;
 @property (nonatomic, copy) NSString * _Nullable type;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
