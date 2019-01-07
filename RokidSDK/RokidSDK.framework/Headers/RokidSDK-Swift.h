@@ -271,13 +271,13 @@ SWIFT_CLASS("_TtC8RokidSDK13DeviceSetting")
 @end
 
 
-
-
 @interface NSNotificationCenter (SWIFT_EXTENSION(RokidSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNotificationCenter * _Nonnull rokidsdk;)
 + (NSNotificationCenter * _Nonnull)rokidsdk SWIFT_WARN_UNUSED_RESULT;
 + (void)setRokidsdk:(NSNotificationCenter * _Nonnull)value;
 @end
+
+
 
 @class NSCoder;
 
@@ -686,6 +686,8 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @property (nonatomic, copy) NSString * _Nonnull mac;
 /// 无线电发射设备ID，蓝牙&wifi相关模块可能需要使用
 @property (nonatomic, copy) NSString * _Nonnull cmiit;
+/// 无线局域网服务集标识
+@property (nonatomic, copy) NSString * _Nonnull ssid;
 /// 局域网IP
 @property (nonatomic, copy) NSString * _Nonnull lan_ip;
 /// 公网IP
@@ -756,6 +758,17 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @end
 
 
+@interface RKDevice (SWIFT_EXTENSION(RokidSDK))
+- (NSString * _Nonnull)getInfo2Log SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.getInfo2Log()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSString * _Nonnull)getInfoJsonString SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.getInfoJsonString()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
+
+@interface RKDevice (SWIFT_EXTENSION(RokidSDK))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable initDeviceNickPrefix;)
++ (NSString * _Nullable)initDeviceNickPrefix SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
++ (void)setInitDeviceNickPrefix:(NSString * _Nullable)newValue;
+@end
 
 
 @interface RKDevice (SWIFT_EXTENSION(RokidSDK))
@@ -766,13 +779,6 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 - (BOOL)isAvailableSince:(NSString * _Nonnull)ver SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)moreThanVersionSince:(NSString * _Nonnull)ver SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)lessThanVersionSince:(NSString * _Nonnull)ver SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface RKDevice (SWIFT_EXTENSION(RokidSDK))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable initDeviceNickPrefix;)
-+ (NSString * _Nullable)initDeviceNickPrefix SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
-+ (void)setInitDeviceNickPrefix:(NSString * _Nullable)newValue;
 @end
 
 
@@ -1162,14 +1168,15 @@ SWIFT_CLASS("_TtC8RokidSDK19RKQQBindStatusModel")
 @end
 
 
-SWIFT_CLASS("_TtC8RokidSDK14RKRobotManager")
-@interface RKRobotManager : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKRobotManager * _Nonnull shared SWIFT_DEPRECATED_OBJC("Swift property 'RKRobotManager.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
-+ (RKRobotManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'RKRobotManager.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)startWithIsNovice:(BOOL)isNovice groupId:(NSString * _Nonnull)groupId cardId:(NSString * _Nonnull)cardId SWIFT_DEPRECATED_OBJC("Swift method 'RKRobotManager.start(isNovice:groupId:cardId:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)tryContinue SWIFT_DEPRECATED_OBJC("Swift method 'RKRobotManager.tryContinue()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (BOOL)tryBlockOn:(RKCard * _Nonnull)card SWIFT_DEPRECATED_OBJC("Swift method 'RKRobotManager.tryBlock(on:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC8RokidSDK20RKQueryResClientInfo")
+@interface RKQueryResClientInfo : NSObject
+@property (nonatomic) BOOL isOnline;
+@property (nonatomic, copy) NSString * _Nullable username;
+@property (nonatomic, copy) NSString * _Nullable deviceId;
+@property (nonatomic, copy) NSString * _Nullable deviceTypeId;
+@property (nonatomic, copy) NSString * _Nullable accountId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
 
@@ -1540,6 +1547,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SDKDeviceMan
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 - (void)onDeviceStatueUpdated:(NSNotification * _Nonnull)noti;
 - (void)queryDeviceListWithCompletion:(void (^ _Nonnull)(RKError * _Nullable, NSArray<RKDevice *> * _Nullable))completion;
+/// 查询设备的状态
+/// \param deviceList 设备列表
+///
+/// \param completion 完成回调（设备状态信息列表）
+///
+- (void)queryDevicesStateFor:(NSArray<RKDevice *> * _Nonnull)deviceList completion:(void (^ _Nonnull)(NSArray<RKQueryResClientInfo *> * _Nullable))completion;
 - (void)getLocationWithDeviceId:(NSString * _Nonnull)deviceId completion:(void (^ _Nonnull)(RKError * _Nullable, RKDeviceLocation * _Nullable))completion SWIFT_DEPRECATED_MSG("use device.location instead!");
 - (void)updateLocationWithDeviceId:(NSString * _Nonnull)deviceId location:(RKDeviceLocation * _Nonnull)location completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)updateNickWithDeviceId:(NSString * _Nonnull)deviceId newNick:(NSString * _Nonnull)newNick completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
