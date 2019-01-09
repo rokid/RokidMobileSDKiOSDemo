@@ -1392,7 +1392,7 @@ enum SDKAlarmRepeatMode : NSInteger;
 
 SWIFT_CLASS("_TtC8RokidSDK8SDKAlarm")
 @interface SDKAlarm : NSObject
-@property (nonatomic) NSInteger id;
+@property (nonatomic, copy) NSString * _Nonnull id;
 @property (nonatomic) NSInteger year;
 @property (nonatomic) NSInteger month;
 @property (nonatomic) NSInteger day;
