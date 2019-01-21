@@ -913,6 +913,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isPostNotification SWIFT_
 
 
 @class NSURLSessionTask;
+@class RKDeviceVtWordDO;
 
 @interface RKDeviceManager (SWIFT_EXTENSION(RokidSDK))
 + (void)reloadSilently SWIFT_DEPRECATED_OBJC("Swift method 'RKDeviceManager.reloadSilently()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -923,6 +924,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isPostNotification SWIFT_
 + (void)getBatteryOf:(RKDevice * _Nonnull)device SWIFT_DEPRECATED_OBJC("Swift method 'RKDeviceManager.getBattery(of:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// 重新连接设备
 + (void)reconnectWithDevice:(RKDevice * _Nonnull)device SWIFT_DEPRECATED_OBJC("Swift method 'RKDeviceManager.reconnect(device:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// 检查自定义激活词是否合法，如果合法会返回拼音
+/// \param word 自定义激活词
+///
+/// \param completion 回调。第二个参数表示错误信息，第三个参数表示拼音，这两个string参数总是只有一个有值
+///
++ (void)checkActiveWord:(NSString * _Nonnull)word completion:(void (^ _Nonnull)(NSError * _Nullable, NSString * _Nullable, RKDeviceVtWordDO * _Nullable))completion SWIFT_DEPRECATED_OBJC("Swift method 'RKDeviceManager.checkActiveWord(_:completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// 删除语音
 + (void)deleteWithAccent:(RKDeviceAccent * _Nonnull)accent device:(RKDevice * _Nonnull)device complete:(void (^ _Nonnull)(NSError * _Nullable))complete SWIFT_DEPRECATED_OBJC("Swift method 'RKDeviceManager.delete(accent:device:complete:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// 新增语音
@@ -1038,7 +1045,6 @@ SWIFT_CLASS("_TtC8RokidSDK14RKDeviceVTWord")
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
-@class RKDeviceVtWordError;
 
 SWIFT_CLASS("_TtC8RokidSDK16RKDeviceVtWordDO")
 @interface RKDeviceVtWordDO : NSObject
@@ -1046,15 +1052,6 @@ SWIFT_CLASS("_TtC8RokidSDK16RKDeviceVtWordDO")
 @property (nonatomic, copy) NSArray<NSArray<NSString *> *> * _Null_unspecified pinyin_display SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceVtWordDO.pinyin_display' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) NSArray<NSString *> * _Null_unspecified py SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceVtWordDO.py' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) NSString * _Null_unspecified txt SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceVtWordDO.txt' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) RKDeviceVtWordError * _Nullable error SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceVtWordDO.error' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC8RokidSDK19RKDeviceVtWordError")
-@interface RKDeviceVtWordError : NSObject
-@property (nonatomic, copy) NSString * _Null_unspecified tip SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceVtWordError.tip' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -1680,7 +1677,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 SWIFT_CLASS("_TtC8RokidSDK9SDKRemind")
 @interface SDKRemind : NSObject
-@property (nonatomic) NSInteger id;
+@property (nonatomic, copy) NSString * _Nonnull id;
 @property (nonatomic) NSInteger year;
 @property (nonatomic) NSInteger month;
 @property (nonatomic) NSInteger day;
