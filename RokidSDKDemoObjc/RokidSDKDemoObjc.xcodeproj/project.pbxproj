@@ -18,7 +18,6 @@
 		70A689B120465902000E9451 /* IotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B020465902000E9451 /* IotViewController.m */; };
 		70A689B4204699B1000E9451 /* IotRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B3204699B1000E9451 /* IotRoomViewController.m */; };
 		70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F6DC5D203ACA0600D63F3B /* RKTabViewController.m */; };
-		8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		D43AFFE41FFF706C00324778 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE31FFF706C00324778 /* config.plist */; };
 		D43AFFE81FFF741900324778 /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AFFE71FFF741900324778 /* Properties.m */; };
 		D43DCE101FD96D0C005C158A /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE0F1FD96D0C005C158A /* DeviceListViewController.m */; };
@@ -33,24 +32,9 @@
 		D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4F951511FCE5D360091179D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
-		DDD8D36A21536E2800795282 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36621536D9A00795282 /* RokidSDK.framework */; };
-		DDD8D36B21536E2800795282 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36621536D9A00795282 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DEFC9D905300322BF298297C /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
 		F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		D4B574C0200FA13900C20D0E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DDD8D36B21536E2800795282 /* RokidSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		618DEB1C8EAE54D454752A25 /* Pods-RokidSDKDemoObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,8 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
-				DDD8D36A21536E2800795282 /* RokidSDK.framework in Frameworks */,
-				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
+				DEFC9D905300322BF298297C /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +301,6 @@
 				D4F9513B1FCE5D360091179D /* Frameworks */,
 				D4F9513C1FCE5D360091179D /* Resources */,
 				393A47C129C15F770947D7D8 /* [CP] Embed Pods Frameworks */,
-				D4B574C0200FA13900C20D0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -399,6 +381,7 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${PODS_ROOT}/RokidSDK/RokidSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -410,6 +393,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MQTTClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RokidSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
