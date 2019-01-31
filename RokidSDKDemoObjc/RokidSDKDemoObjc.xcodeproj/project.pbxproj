@@ -87,7 +87,6 @@
 		D4F9514D1FCE5D360091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9514F1FCE5D360091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RokidSDKDemoObjc/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D4F951501FCE5D360091179D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DDD8D36621536D9A00795282 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
 		F80BEAAE20494FCE008D0FBE /* IOTWKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOTWKWebView.h; sourceTree = "<group>"; };
@@ -205,20 +204,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D406B04F1FEAB854003AADEE /* RokidSDK */ = {
-			isa = PBXGroup;
-			children = (
-				DDD8D36621536D9A00795282 /* RokidSDK.framework */,
-			);
-			name = RokidSDK;
-			path = ../RokidSDK;
-			sourceTree = "<group>";
-		};
 		D43AFFE01FFF6DAB00324778 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				D4F951411FCE5D360091179D /* AppDelegate.h */,
 				D4F951421FCE5D360091179D /* AppDelegate.m */,
+				D4F951501FCE5D360091179D /* main.m */,
 				70F45D6C202AE589001E5822 /* Account */,
 				703F2868202AD2B200FD1670 /* Binder */,
 				703F2869202AD2CD00FD1670 /* Devices */,
@@ -239,7 +230,6 @@
 			children = (
 				D4B574C6200FA68A00C20D0E /* test.html */,
 				D4F9514F1FCE5D360091179D /* Info.plist */,
-				D4F951501FCE5D360091179D /* main.m */,
 				D4EF1D7F1FEBD84100195BE7 /* RokidSDKDemoObjc.entitlements */,
 				D4F9514A1FCE5D360091179D /* Assets.xcassets */,
 				D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */,
@@ -252,7 +242,6 @@
 		D4F951351FCE5D360091179D = {
 			isa = PBXGroup;
 			children = (
-				D406B04F1FEAB854003AADEE /* RokidSDK */,
 				D4F951401FCE5D360091179D /* RokidSDKDemoObjc */,
 				D4F9513F1FCE5D360091179D /* Products */,
 				D4F951571FCE5DEA0091179D /* Frameworks */,

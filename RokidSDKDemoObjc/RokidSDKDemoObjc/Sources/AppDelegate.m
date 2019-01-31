@@ -19,7 +19,7 @@
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     NSString *userAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-    NSString *newUserAgent = [userAgent stringByAppendingString:@" Rokid/SDK/1.6.0"];// 自定义需要拼接的字符串
+    NSString *newUserAgent = [userAgent stringByAppendingString:@" Rokid/SDK/1.6.7"];// 自定义需要拼接的字符串
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent, @"UserAgent", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     
