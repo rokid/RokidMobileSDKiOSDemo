@@ -189,22 +189,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
-SWIFT_CLASS("_TtC8RokidSDK12BinderConfig")
-@interface BinderConfig : NSObject
-@property (nonatomic, copy) NSArray<NSString *> * _Nullable deviceTypeIds SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.deviceTypeIds' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable title SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.title' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable linkUrl SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.linkUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable iconUrl SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.iconUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSArray<NSString *> * _Nullable tips SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.tips' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable requestUrl SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.requestUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable requestDomain SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.requestDomain' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable requestIntent SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.requestIntent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable requestVersion SWIFT_DEPRECATED_OBJC("Swift property 'BinderConfig.requestVersion' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (BOOL)isValid SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'BinderConfig.isValid()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (BOOL)isInvalid SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'BinderConfig.isInvalid()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
 
 
 @interface NSBundle (SWIFT_EXTENSION(RokidSDK))
@@ -223,23 +207,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CBUUID * _No
 + (CBUUID * _Nonnull)CharacteristicV1 SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'CBUUID.CharacteristicV1' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CBUUID * _Nonnull CharacteristicV2 SWIFT_DEPRECATED_OBJC("Swift property 'CBUUID.CharacteristicV2' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
 + (CBUUID * _Nonnull)CharacteristicV2 SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'CBUUID.CharacteristicV2' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@end
-
-
-SWIFT_CLASS("_TtC8RokidSDK17DeviceCompatModel")
-@interface DeviceCompatModel : NSObject
-@property (nonatomic, copy) NSString * _Nullable deviceTypeId SWIFT_DEPRECATED_OBJC("Swift property 'DeviceCompatModel.deviceTypeId' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable miniVersion SWIFT_DEPRECATED_OBJC("Swift property 'DeviceCompatModel.miniVersion' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, copy) NSString * _Nonnull miniVersionName SWIFT_DEPRECATED_OBJC("Swift property 'DeviceCompatModel.miniVersionName' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
-
-
-@interface DeviceCompatModel (SWIFT_EXTENSION(RokidSDK))
-+ (void)fetchVoiceAccountSupportWithCompletion:(void (^ _Nonnull)(NSArray<DeviceCompatModel *> * _Nullable))completion SWIFT_DEPRECATED_OBJC("Swift method 'DeviceCompatModel.fetchVoiceAccountSupport(completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)fetchMQTTStatusCompatWithCompletion:(void (^ _Nonnull)(NSArray<DeviceCompatModel *> * _Nullable))completion SWIFT_DEPRECATED_OBJC("Swift method 'DeviceCompatModel.fetchMQTTStatusCompat(completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)fetchCloudAlarmSupportWithCompletion:(void (^ _Nonnull)(NSArray<DeviceCompatModel *> * _Nullable))completion SWIFT_DEPRECATED_OBJC("Swift method 'DeviceCompatModel.fetchCloudAlarmSupport(completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 
@@ -432,7 +399,6 @@ SWIFT_CLASS("_TtC8RokidSDK11RKBLEDevice")
 SWIFT_CLASS("_TtC8RokidSDK12RKBLERequest")
 @interface RKBLERequest : NSObject
 - (nonnull instancetype)initWithTopic:(NSString * _Nonnull)topic params:(NSDictionary<NSString *, NSString *> * _Nullable)params vendor:(NSString * _Nullable)vendor OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -446,8 +412,7 @@ SWIFT_CLASS("_TtC8RokidSDK13RKBLEResponse")
 @property (nonatomic, copy) NSString * _Nullable sCode;
 @property (nonatomic, copy) NSString * _Nullable sMsg;
 @property (nonatomic, copy) NSArray<RKWiFi *> * _Nullable wifiList;
-@property (nonatomic, readonly, copy) NSString * _Nonnull description;
-@property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
+- (NSString * _Nonnull)toJson SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKBLEResponse.toJson()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -540,6 +505,24 @@ SWIFT_PROTOCOL("_TtP8RokidSDK21RKBindManagerObserver_")
 - (void)onBLEDeviceDidFetchMetadataWithDevice:(RKBLEDevice * _Nonnull)device response:(RKBLEResponse * _Nonnull)response;
 /// 设备授权状态更新for alexa
 - (void)onBLEDeviceAuthoriseWithDevice:(RKBLEDevice * _Nonnull)device state:(enum RKDeviceAuthState)state;
+@end
+
+
+SWIFT_CLASS("_TtC8RokidSDK14RKBinderConfig")
+@interface RKBinderConfig : NSObject
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable deviceTypeIds SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.deviceTypeIds' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable title SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.title' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable linkUrl SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.linkUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable iconUrl SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.iconUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable tips SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.tips' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable requestUrl SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.requestUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable requestDomain SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.requestDomain' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable requestIntent SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.requestIntent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable requestVersion SWIFT_DEPRECATED_OBJC("Swift property 'RKBinderConfig.requestVersion' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)isValid SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKBinderConfig.isValid()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)isInvalid SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKBinderConfig.isInvalid()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
 
@@ -738,10 +721,22 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 @property (nonatomic) double maxAlarmVolume;
 /// 默认技能，key为domianId， value为domainInfo
 @property (nonatomic, copy) NSDictionary<NSString *, RKDeviceDomainInfo *> * _Nonnull domainInfos;
+/// 是否支持云闹钟
+@property (nonatomic) BOOL cloudAlarmSupport SWIFT_DEPRECATED_OBJC("Swift property 'RKDevice.cloudAlarmSupport' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// 是否支持定时场景（智能场景=定时场景+语音场景+（传感器场景））
+@property (nonatomic) BOOL sceneTimingSupport SWIFT_DEPRECATED_OBJC("Swift property 'RKDevice.sceneTimingSupport' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// [技能id: boolean] 该云技能是否支持云技能，(如果该技能的值为true，则只发送请求告诉云端，如果为false，则mqtt消息和请求都要发送)
+/// 影响 RXMediaManager 中的媒体播控，其中的媒体的 nativeAppId，不在需要，只需匹配 cloudAppId
+@property (nonatomic, copy) NSDictionary<NSString *, NSNumber *> * _Nullable cloudSkillSupports SWIFT_DEPRECATED_OBJC("Swift property 'RKDevice.cloudSkillSupports' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// 是否支持声纹
+@property (nonatomic) BOOL voiceAccountSupport SWIFT_DEPRECATED_OBJC("Swift property 'RKDevice.voiceAccountSupport' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// 是否支持MQTT, 老的设备只支持ping来获取状态，新的设备可以通过MQTT 服务器来获取状态
+@property (nonatomic) BOOL mqttStatusSupport SWIFT_DEPRECATED_OBJC("Swift property 'RKDevice.mqttStatusSupport' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// 电量：0-100,默认满格100
 @property (nonatomic, strong) RKDeviceBattery * _Nullable battery;
 /// 更新在线状态
 - (void)setOnlineStateAndNotify:(enum RKDeviceOnlineStatus)state notify:(BOOL)notify SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.setOnlineStateAndNotify(_:notify:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)supportCloudAppId:(NSString * _Nonnull)cloudAppId SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.supportCloudAppId(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
@@ -759,8 +754,8 @@ SWIFT_CLASS("_TtC8RokidSDK8RKDevice")
 
 
 @interface RKDevice (SWIFT_EXTENSION(RokidSDK))
-- (NSString * _Nonnull)getInfo2Log SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.getInfo2Log()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (NSString * _Nonnull)getInfoJsonString SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.getInfoJsonString()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSDictionary<NSString *, id> * _Nonnull)toDic SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.toDic()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSString * _Nonnull)toJson SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RKDevice.toJson()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 
@@ -895,12 +890,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isPostNotification SWIFT_
 @end
 
 
+
+
 @interface RKDeviceManager (SWIFT_EXTENSION(RokidSDK))
 /// 根据domainId获取默认播放源
 + (void)getDefaultSkillIdWithDevice:(RKDevice * _Nonnull)device domainId:(NSString * _Nonnull)domainId complete:(void (^ _Nonnull)(NSString * _Nullable))complete SWIFT_DEPRECATED_OBJC("Swift method 'RKDeviceManager.getDefaultSkillId(device:domainId:complete:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
-
-
 
 
 @interface RKDeviceManager (SWIFT_EXTENSION(RokidSDK))
@@ -1174,15 +1169,6 @@ SWIFT_CLASS("_TtC8RokidSDK20RKQueryResClientInfo")
 @property (nonatomic, copy) NSString * _Nullable accountId;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC8RokidSDK14RKSkillManager")
-@interface RKSkillManager : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RKSkillManager * _Nonnull shared SWIFT_DEPRECATED_OBJC("Swift property 'RKSkillManager.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
-+ (RKSkillManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'RKSkillManager.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)setup SWIFT_DEPRECATED_OBJC("Swift method 'RKSkillManager.setup()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class RKSuggestSpeakModel;
@@ -1809,17 +1795,6 @@ SWIFT_CLASS("_TtC8RokidSDK12SecurityUtil")
 - (BOOL)isIphone6Plus SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'UIDevice.isIphone6Plus()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (BOOL)isIphone5 SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'UIDevice.isIphone5()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (BOOL)isIphoneX SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'UIDevice.isIphoneX()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@end
-
-
-SWIFT_CLASS("_TtC8RokidSDK10UpdateInfo")
-@interface UpdateInfo : NSObject
-@property (nonatomic, copy) NSString * _Null_unspecified title SWIFT_DEPRECATED_OBJC("Swift property 'UpdateInfo.title' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Null_unspecified summary SWIFT_DEPRECATED_OBJC("Swift property 'UpdateInfo.summary' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Null_unspecified versionName SWIFT_DEPRECATED_OBJC("Swift property 'UpdateInfo.versionName' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Null_unspecified linkUrl SWIFT_DEPRECATED_OBJC("Swift property 'UpdateInfo.linkUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
 #if __has_attribute(external_source_symbol)
