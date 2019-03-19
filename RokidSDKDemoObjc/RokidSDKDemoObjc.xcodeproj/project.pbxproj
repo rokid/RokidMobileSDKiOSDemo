@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6358C03B213F88FD00DC5A8A /* BinderCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358C03A213F88FD00DC5A8A /* BinderCompleteViewController.m */; };
 		63731103213F8418006E8B6B /* SendWiFiAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63731101213F8416006E8B6B /* SendWiFiAccountViewController.m */; };
+		639FF9C02240982A006A0701 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9BE2240981E006A0701 /* RokidSDK.framework */; };
+		639FF9C12240982A006A0701 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9BE2240981E006A0701 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7025D874206CE82E0077AEC1 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */; };
 		7025D888206D289A0077AEC1 /* SMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7025D887206D289A0077AEC1 /* SMContainerViewController.m */; };
 		7027A307202EB4F1005F2DF5 /* UIAlertController+Rokid.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */; };
@@ -33,8 +35,6 @@
 		D4F9514B1FCE5D360091179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514A1FCE5D360091179D /* Assets.xcassets */; };
 		D4F9514E1FCE5D360091179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F9514C1FCE5D360091179D /* LaunchScreen.storyboard */; };
 		D4F951511FCE5D360091179D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F951501FCE5D360091179D /* main.m */; };
-		DDD8D36A21536E2800795282 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36621536D9A00795282 /* RokidSDK.framework */; };
-		DDD8D36B21536E2800795282 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDD8D36621536D9A00795282 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F80BEAB020494FCE008D0FBE /* IOTWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80BEAAF20494FCE008D0FBE /* IOTWKWebView.m */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DDD8D36B21536E2800795282 /* RokidSDK.framework in Embed Frameworks */,
+				639FF9C12240982A006A0701 /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +58,7 @@
 		6358C03A213F88FD00DC5A8A /* BinderCompleteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinderCompleteViewController.m; sourceTree = "<group>"; };
 		63731101213F8416006E8B6B /* SendWiFiAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendWiFiAccountViewController.m; sourceTree = "<group>"; };
 		63731102213F8417006E8B6B /* SendWiFiAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendWiFiAccountViewController.h; sourceTree = "<group>"; };
+		639FF9BE2240981E006A0701 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		7025D872206CE82E0077AEC1 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		7025D886206D289A0077AEC1 /* SMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMContainerViewController.h; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		D4F9514D1FCE5D360091179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F9514F1FCE5D360091179D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RokidSDKDemoObjc/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		D4F951501FCE5D360091179D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DDD8D36621536D9A00795282 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		E7E53BC0D971910F1EA55899 /* Pods_DontUse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontUse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDBF9366B04D4FA7155F54B /* Pods-DontUse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.release.xcconfig"; sourceTree = "<group>"; };
 		F80BEAAE20494FCE008D0FBE /* IOTWKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOTWKWebView.h; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
-				DDD8D36A21536E2800795282 /* RokidSDK.framework in Frameworks */,
+				639FF9C02240982A006A0701 /* RokidSDK.framework in Frameworks */,
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,7 +225,7 @@
 		D406B04F1FEAB854003AADEE /* RokidSDK */ = {
 			isa = PBXGroup;
 			children = (
-				DDD8D36621536D9A00795282 /* RokidSDK.framework */,
+				639FF9BE2240981E006A0701 /* RokidSDK.framework */,
 			);
 			name = RokidSDK;
 			path = ../RokidSDK;

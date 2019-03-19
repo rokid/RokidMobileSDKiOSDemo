@@ -969,17 +969,6 @@ typedef SWIFT_ENUM(NSInteger, RKDeviceOnlineStatus, closed) {
 };
 
 
-SWIFT_CLASS("_TtC8RokidSDK16RKDeviceShortCut")
-@interface RKDeviceShortCut : NSObject
-@property (nonatomic, copy) NSString * _Nullable title SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceShortCut.title' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable imageUrl SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceShortCut.imageUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable linkUrl SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceShortCut.linkUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) BOOL isNew SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceShortCut.isNew' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
-
-
 SWIFT_CLASS("_TtC8RokidSDK13RKDeviceSkill")
 @interface RKDeviceSkill : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -989,13 +978,11 @@ SWIFT_CLASS("_TtC8RokidSDK13RKDeviceSkill")
 
 SWIFT_CLASS("_TtC8RokidSDK12RKDeviceType")
 @interface RKDeviceType : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull typeId SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.typeId' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, copy) NSString * _Nonnull typeName SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.typeName' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable blePrefix SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.blePrefix' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable imageUrl SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.imageUrl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable cnName SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.cnName' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSArray<DeviceSetting *> * _Nullable quickSettingList SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.quickSettingList' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSArray<NSArray<DeviceSetting *> *> * _Nullable settingList SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.settingList' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nonnull typeId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull typeName;
+@property (nonatomic, copy) NSString * _Nullable blePrefix;
+@property (nonatomic, copy) NSString * _Nullable imageUrl;
+@property (nonatomic, copy) NSString * _Nullable cnName;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) RKDeviceType * _Nonnull default_ SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.default' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
 + (RKDeviceType * _Nonnull)default SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'RKDeviceType.default' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
