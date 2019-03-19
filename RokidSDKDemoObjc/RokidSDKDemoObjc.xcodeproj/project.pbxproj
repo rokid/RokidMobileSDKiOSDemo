@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		6358C03B213F88FD00DC5A8A /* BinderCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358C03A213F88FD00DC5A8A /* BinderCompleteViewController.m */; };
 		63731103213F8418006E8B6B /* SendWiFiAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63731101213F8416006E8B6B /* SendWiFiAccountViewController.m */; };
-		639FF9C02240982A006A0701 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9BE2240981E006A0701 /* RokidSDK.framework */; };
-		639FF9C12240982A006A0701 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9BE2240981E006A0701 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		639FF9C62240D851006A0701 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9C52240D851006A0701 /* RokidSDK.framework */; };
+		639FF9C72240D857006A0701 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9C52240D851006A0701 /* RokidSDK.framework */; };
+		639FF9C82240D857006A0701 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9C52240D851006A0701 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7025D874206CE82E0077AEC1 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */; };
 		7025D888206D289A0077AEC1 /* SMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7025D887206D289A0077AEC1 /* SMContainerViewController.m */; };
 		7027A307202EB4F1005F2DF5 /* UIAlertController+Rokid.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */; };
@@ -45,7 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				639FF9C12240982A006A0701 /* RokidSDK.framework in Embed Frameworks */,
+				639FF9C82240D857006A0701 /* RokidSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +59,7 @@
 		6358C03A213F88FD00DC5A8A /* BinderCompleteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinderCompleteViewController.m; sourceTree = "<group>"; };
 		63731101213F8416006E8B6B /* SendWiFiAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendWiFiAccountViewController.m; sourceTree = "<group>"; };
 		63731102213F8417006E8B6B /* SendWiFiAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendWiFiAccountViewController.h; sourceTree = "<group>"; };
-		639FF9BE2240981E006A0701 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
+		639FF9C52240D851006A0701 /* RokidSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RokidSDK.framework; sourceTree = "<group>"; };
 		7025D872206CE82E0077AEC1 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		7025D886206D289A0077AEC1 /* SMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMContainerViewController.h; sourceTree = "<group>"; };
@@ -116,7 +117,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
-				639FF9C02240982A006A0701 /* RokidSDK.framework in Frameworks */,
+				639FF9C72240D857006A0701 /* RokidSDK.framework in Frameworks */,
+				639FF9C62240D851006A0701 /* RokidSDK.framework in Frameworks */,
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,7 +227,7 @@
 		D406B04F1FEAB854003AADEE /* RokidSDK */ = {
 			isa = PBXGroup;
 			children = (
-				639FF9BE2240981E006A0701 /* RokidSDK.framework */,
+				639FF9C52240D851006A0701 /* RokidSDK.framework */,
 			);
 			name = RokidSDK;
 			path = ../RokidSDK;
