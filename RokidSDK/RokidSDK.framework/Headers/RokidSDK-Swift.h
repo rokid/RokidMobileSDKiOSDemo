@@ -1622,6 +1622,7 @@ enum SDKThirdAuthType : NSInteger;
 /// 将 QQ 认证信息 上传到 Account 服务器
 - (void)uploadQQBindInfoWithInfo:(NSString * _Nonnull)info thirdAuthInfo:(SDKThirdAuthInfo * _Nonnull)thirdAuthInfo deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)uploadWXBindInfoWithCode:(NSString * _Nonnull)code thirdAuthInfo:(SDKThirdAuthInfo * _Nonnull)thirdAuthInfo deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
+- (void)uploadKuGouTokenInfoWithDeviceTypeId:(NSString * _Nonnull)deviceTypeId deviceId:(NSString * _Nonnull)deviceId tokenInfo:(NSString * _Nonnull)tokenInfo completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)unbindThirdAuthWithType:(enum SDKThirdAuthType)type deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 @end
 
@@ -1741,6 +1742,7 @@ typedef SWIFT_ENUM(NSInteger, SDKThirdAuthType, closed) {
     SDKThirdAuthTypeQQ = 0,
     SDKThirdAuthTypeWX = 1,
     SDKThirdAuthTypeXMLY = 2,
+    SDKThirdAuthTypeKUGOU = 3,
 };
 
 
@@ -3422,6 +3424,7 @@ enum SDKThirdAuthType : NSInteger;
 /// 将 QQ 认证信息 上传到 Account 服务器
 - (void)uploadQQBindInfoWithInfo:(NSString * _Nonnull)info thirdAuthInfo:(SDKThirdAuthInfo * _Nonnull)thirdAuthInfo deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)uploadWXBindInfoWithCode:(NSString * _Nonnull)code thirdAuthInfo:(SDKThirdAuthInfo * _Nonnull)thirdAuthInfo deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
+- (void)uploadKuGouTokenInfoWithDeviceTypeId:(NSString * _Nonnull)deviceTypeId deviceId:(NSString * _Nonnull)deviceId tokenInfo:(NSString * _Nonnull)tokenInfo completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)unbindThirdAuthWithType:(enum SDKThirdAuthType)type deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 @end
 
@@ -3541,6 +3544,7 @@ typedef SWIFT_ENUM(NSInteger, SDKThirdAuthType, closed) {
   SDKThirdAuthTypeQQ = 0,
   SDKThirdAuthTypeWX = 1,
   SDKThirdAuthTypeXMLY = 2,
+  SDKThirdAuthTypeKUGOU = 3,
 };
 
 
@@ -5218,6 +5222,7 @@ enum SDKThirdAuthType : NSInteger;
 /// 将 QQ 认证信息 上传到 Account 服务器
 - (void)uploadQQBindInfoWithInfo:(NSString * _Nonnull)info thirdAuthInfo:(SDKThirdAuthInfo * _Nonnull)thirdAuthInfo deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)uploadWXBindInfoWithCode:(NSString * _Nonnull)code thirdAuthInfo:(SDKThirdAuthInfo * _Nonnull)thirdAuthInfo deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
+- (void)uploadKuGouTokenInfoWithDeviceTypeId:(NSString * _Nonnull)deviceTypeId deviceId:(NSString * _Nonnull)deviceId tokenInfo:(NSString * _Nonnull)tokenInfo completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 - (void)unbindThirdAuthWithType:(enum SDKThirdAuthType)type deviceTypeId:(NSString * _Nonnull)deviceTypeId completion:(void (^ _Nonnull)(RKError * _Nullable))completion;
 @end
 
@@ -5337,6 +5342,7 @@ typedef SWIFT_ENUM(NSInteger, SDKThirdAuthType, closed) {
   SDKThirdAuthTypeQQ = 0,
   SDKThirdAuthTypeWX = 1,
   SDKThirdAuthTypeXMLY = 2,
+  SDKThirdAuthTypeKUGOU = 3,
 };
 
 
