@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6358C03B213F88FD00DC5A8A /* BinderCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358C03A213F88FD00DC5A8A /* BinderCompleteViewController.m */; };
 		63731103213F8418006E8B6B /* SendWiFiAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63731101213F8416006E8B6B /* SendWiFiAccountViewController.m */; };
-		639FF9C62240D851006A0701 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9C52240D851006A0701 /* RokidSDK.framework */; };
 		639FF9C72240D857006A0701 /* RokidSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9C52240D851006A0701 /* RokidSDK.framework */; };
 		639FF9C82240D857006A0701 /* RokidSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 639FF9C52240D851006A0701 /* RokidSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7025D874206CE82E0077AEC1 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7025D873206CE82E0077AEC1 /* HMSegmentedControl.m */; };
@@ -118,7 +117,6 @@
 			files = (
 				D4B574C3200FA2A800C20D0E /* WebKit.framework in Frameworks */,
 				639FF9C72240D857006A0701 /* RokidSDK.framework in Frameworks */,
-				639FF9C62240D851006A0701 /* RokidSDK.framework in Frameworks */,
 				8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +390,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework",
@@ -415,7 +413,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9FB72A70B226EC0E7A74C126 /* [CP] Check Pods Manifest.lock */ = {
