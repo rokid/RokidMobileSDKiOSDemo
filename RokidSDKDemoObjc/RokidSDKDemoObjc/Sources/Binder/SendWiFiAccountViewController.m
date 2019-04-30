@@ -54,6 +54,10 @@
     NSArray<RKWiFi *> *list = response.wifiList;
 }
 
+- (void)onBLEDeviceInfoUpdatedWithDevice:(RKBLEDevice *)device response:(RKBLEResponse *)response {
+    NSLog(@"sn = %@", response.sn);
+}
+
 - (void)onBLEDeviceBindStateUpdatedWithDevice:(RKBLEDevice *)device response:(RKBLEResponse *)response {
     
     switch (response.sCode.intValue) {
