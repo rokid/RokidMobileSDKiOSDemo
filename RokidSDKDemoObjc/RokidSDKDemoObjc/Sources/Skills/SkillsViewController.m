@@ -180,9 +180,6 @@
                     break;
                 case 1:{
                     
-                    NSLog(@"RKAlarm 需要 先get ");
-                    return;
-                    
                     SDKAlarm * alarm = [SDKAlarm init];
                     alarm.year = 2018;
                     [RokidMobileSDK.skill.alarm createWithDeviceId:self.device.id alarm:alarm completion:^(BOOL succeed) {

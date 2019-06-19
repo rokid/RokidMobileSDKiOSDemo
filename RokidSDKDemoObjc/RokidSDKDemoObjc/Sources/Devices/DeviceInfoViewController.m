@@ -172,7 +172,7 @@
             RKDevice * device = [RokidMobileSDK.device getCurrentDevice];
             [RokidMobileSDK.device pingDeviceWithDevice:device completion:^(RKError * error, RKDevice * device) {
                 NSLog(@"%@, %@",error.message, device);
-                NSLog(@"info: %ld", (long)device.alive);
+                NSLog(@"info: %ld", (long)device.onlineState);
                 switch (device.onlineState) {
                     case 0:
                         NSLog(@"offline");
@@ -190,7 +190,7 @@
                 
             }];
       
-            return [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f alive:%s",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume, device.alive ? "yes" : "no" ];
+            return [NSString stringWithFormat:@"ota: %@, id: %@, rcVersion:%@, maxAlarmVolume:%.f,  alarmVolume : %.f alive:%s",device.ota,device.id,device.rcVersion, device.maxAlarmVolume, device.alarmVolume, device.onlineState ? "yes" : "no" ];
         }
         case 12: { // 设置夜间模式
             RKDevice * device = [RokidMobileSDK.device getCurrentDevice];

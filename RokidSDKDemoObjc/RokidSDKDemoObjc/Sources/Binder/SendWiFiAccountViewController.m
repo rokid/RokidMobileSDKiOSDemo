@@ -52,6 +52,7 @@
 // MARK: - SDKBinderObserver
 -(void)onBLEDeviceWiFiListUpdatedWithDevice:(RKBLEDevice *)device response:(RKBLEResponse *)response {
     NSArray<RKWiFi *> *list = response.wifiList;
+    NSLog(@"count = %lu", (unsigned long)list.count);
 }
 
 - (void)onBLEDeviceInfoUpdatedWithDevice:(RKBLEDevice *)device response:(RKBLEResponse *)response {
