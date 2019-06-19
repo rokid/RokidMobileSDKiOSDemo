@@ -14,7 +14,7 @@ def dependence_lib
     pod 'MBProgressHUD', '1.1.0'
     pod 'MJRefresh'
     
-    pod 'RokidSDK', '~> 1.9.2'
+    pod 'RokidSDK', '~> 1.9.3'
 
 end
 
