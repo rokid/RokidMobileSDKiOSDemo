@@ -15,8 +15,7 @@ def dependence_lib
     pod 'MJRefresh'
     
     pod 'ReachabilitySwift', '4.3.1'
-    pod 'CocoaAsyncSocket', '7.6.0'
-    pod 'Alamofire', '5.0.0-beta.5'
+    pod 'Alamofire', '4.8.2'
     pod 'RokidSDK', '~> 1.9.3'
 
 end
