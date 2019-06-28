@@ -1,5 +1,5 @@
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 inhibit_all_warnings!
 
@@ -14,6 +14,9 @@ def dependence_lib
     pod 'MBProgressHUD', '1.1.0'
     pod 'MJRefresh'
     
+    pod 'ReachabilitySwift', '4.3.1'
+    pod 'CocoaAsyncSocket', '7.6.0'
+    pod 'Alamofire', '5.0.0-beta.5'
     pod 'RokidSDK', '~> 1.9.3'
 
 end
