@@ -7,6 +7,8 @@
 //
 
 #import "RegisterViewController.h"
+#import "MBProgressHUD+Extensions.h"
+
 @import RokidSDK;
 
 @interface RegisterViewController ()
@@ -50,6 +52,7 @@
     
     if (![self.passwordField.text isEqualToString:self.confirmPwdField.text]) {
         NSLog(@"error: 两次输入内容不一样！");
+        [MBProgressHUD showMessage:@"两次输入内容不一样！" to:self.view afterDelay:1.5];
         return;
     }
     
@@ -61,11 +64,13 @@
                                           
                                           if (error == nil) {
                                               [self.navigationController popToRootViewControllerAnimated:YES];
-                                              NSLog(@"succeed: 注册成功！");
+                                              NSLog(@"succeed: 注册成功，请登录");
+                                              [MBProgressHUD showMessage:@"注册成功，请登录!" to:self.view afterDelay:1.8];
 
                                           } else {
                                               // toast error message
                                               NSLog(@"error = %@", error.message);
+                                              [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
                                           }
                                       }];
 }

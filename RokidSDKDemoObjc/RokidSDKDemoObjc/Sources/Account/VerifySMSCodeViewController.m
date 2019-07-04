@@ -8,7 +8,7 @@
 
 #import "VerifySMSCodeViewController.h"
 #import "RegisterViewController.h"
-#import "MBProgressHUD.h"
+#import "MBProgressHUD+Extensions.h"
 @import RokidSDK;
 
 @interface VerifySMSCodeViewController ()
@@ -41,6 +41,7 @@
                                           } else {
                                               // toast error message
                                               NSLog(@"error = %@", error.message);
+                                              [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
                                           }
                                       }];
 }
@@ -55,6 +56,7 @@
                                             } else {
                                                 // toast error message
                                                 NSLog(@"error = %@", error.message);
+                                                [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
                                             }
                                         }];
 }

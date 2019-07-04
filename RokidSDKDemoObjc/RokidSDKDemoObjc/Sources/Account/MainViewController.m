@@ -8,6 +8,9 @@
 
 #import "MainViewController.h"
 #import "Properties.h"
+#import "MBProgressHUD+Extensions.h"
+
+@import RokidSDK;
 
 @interface MainViewController ()
 
@@ -30,6 +33,9 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
     [self.view addGestureRecognizer:tapGesture];
     
+    RokidMobileSDK.shared.env = SDKEnvRelease;
+    RokidMobileSDK.shared.openLog = true;
+
     // SDK init
     [RokidMobileSDK.shared initSDKWithAppKey:Properties.shared.appKey
                                    appSecret:Properties.shared.appSecret
@@ -44,10 +50,6 @@
                                           [self addNotificationObserver];
                                       };
                                   }];
-    
-    // 测试环境
-    RokidMobileSDK.shared.env = SDKEnvRelease;
-    RokidMobileSDK.shared.openLog = true;
 }
 
 - (void)tapView:(UITapGestureRecognizer *)gesture {
@@ -65,12 +67,7 @@
                                              NSLog(@"[Login] OK" );
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
                                              
-                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert success" message:@"可以其他操作了" preferredStyle:UIAlertControllerStyleAlert];
-                                                 [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                                 }]];
-                                                 [self presentViewController:alert animated:true completion:nil];
-                                             });
+                                             [MBProgressHUD showMessage:@"成功，可以其他操作了" to:self.view afterDelay:1.5];
                                              
                                          } else {
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
@@ -82,12 +79,8 @@
                                                                                             }];
                                              NSLog(@"[Login] Error %@", newError);
                                              
-                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"login alert" message:@"error" preferredStyle:UIAlertControllerStyleAlert];
-                                                 [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                                 }]];
-                                                 [self presentViewController:alert animated:true completion:nil];
-                                             });
+                                             [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.5];
+                                             
                                          }
                                      }];
 }
