@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RegisterViewController : UIViewController
 
++ (RegisterViewController *)newRegisterVcWith:(NSString *)phoneNum scode:(NSString *)scode;
+
 @end
 
 NS_ASSUME_NONNULL_END

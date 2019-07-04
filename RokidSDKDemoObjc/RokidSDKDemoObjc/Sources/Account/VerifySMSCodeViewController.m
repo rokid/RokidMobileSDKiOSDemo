@@ -8,6 +8,7 @@
 
 #import "VerifySMSCodeViewController.h"
 #import "RegisterViewController.h"
+#import "MBProgressHUD.h"
 @import RokidSDK;
 
 @interface VerifySMSCodeViewController ()
@@ -25,8 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.navigationItem.title = @"验证码";
 }
+
+#pragma - Target Action
 
 - (IBAction)fetchScodeBtnClick:(UIButton *)sender {
     
@@ -35,6 +38,9 @@
                                       completion:^(RKError * error) {
                                           if (error == nil) {
                                               //
+                                          } else {
+                                              // toast error message
+                                              NSLog(@"error = %@", error.message);
                                           }
                                       }];
 }
@@ -46,16 +52,34 @@
                                         completion:^(RKError * error) {
                                             if (error == nil) {
                                                 [self jumpRegisterVC];
+                                            } else {
+                                                // toast error message
+                                                NSLog(@"error = %@", error.message);
                                             }
                                         }];
 }
 
-- (void)jumpRegisterVC {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    RegisterViewController *registerVC = [sb instantiateViewControllerWithIdentifier:@"RegisterViewController"];
-    [self.navigationController pushViewController:registerVC animated:YES];
+- (IBAction)phoneFieldValueChanged:(UITextField *)sender {
+    [self updateFetchScodeButton];
 }
 
-// MARK: - Target Action
+- (IBAction)scodeFieldValueChanged:(UITextField *)sender {
+    [self updateNextButton];
+}
+
+- (void)updateFetchScodeButton {
+    self.fetchScodeButton.enabled = self.phoneNumField.text.length > 10;
+}
+
+- (void)updateNextButton {
+    self.nextButton.enabled = self.phoneNumField.text.length > 10 && self.scodeField.text.length > 0;
+}
+
+
+- (void)jumpRegisterVC {
+    RegisterViewController *registerVC = [RegisterViewController newRegisterVcWith:self.phoneNumField.text
+                                                                             scode:self.scodeField.text];
+    [self.navigationController pushViewController:registerVC animated:YES];
+}
 
 @end

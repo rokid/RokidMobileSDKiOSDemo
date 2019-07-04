@@ -7,8 +7,16 @@
 //
 
 #import "RegisterViewController.h"
+@import RokidSDK;
 
 @interface RegisterViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UITextField *confirmPwdField;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
+@property (copy, nonatomic) NSString *phoneNum;
+@property (copy, nonatomic) NSString *scode;
 
 @end
 
@@ -16,17 +24,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.navigationItem.title = @"注册";
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
++ (RegisterViewController *)newRegisterVcWith:(NSString *)phoneNum scode:(NSString *)scode {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    RegisterViewController *registerVC = [sb instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+    registerVC.phoneNum = phoneNum;
+    registerVC.scode = scode;
+    return registerVC;
 }
-*/
+
+#pragma - Target Action
+
+- (IBAction)pwdFieldVlaueChanged:(UITextField *)sender {
+    [self updateUI];
+}
+
+- (IBAction)comfirmPwdValueChanged:(UITextField *)sender {
+    [self updateUI];
+}
+
+- (IBAction)registerAccount:(UIButton *)sender {
+    
+    if (![self.passwordField.text isEqualToString:self.confirmPwdField.text]) {
+        NSLog(@"error: 两次输入内容不一样！");
+        return;
+    }
+    
+    [RokidMobileSDK.account registerWithPhoneNum:self.phoneNum
+                                        password:self.passwordField.text
+                                           scode:self.scode
+                                        areaCode:@"+86"
+                                      completion:^(RKError * error) {
+                                          
+                                          if (error == nil) {
+                                              [self.navigationController popToRootViewControllerAnimated:YES];
+                                              NSLog(@"succeed: 注册成功！");
+
+                                          } else {
+                                              // toast error message
+                                              NSLog(@"error = %@", error.message);
+                                          }
+                                      }];
+}
+
+- (void)updateUI {
+    self.registerButton.enabled = self.passwordField.text.length > 0 && self.confirmPwdField.text.length > 0;
+}
 
 @end
