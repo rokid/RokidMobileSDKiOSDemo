@@ -26,7 +26,6 @@ static Properties *sharedProperties;
     return sharedProperties;
 }
 
-
 - (id)init {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"];
     self.plist = [[NSDictionary alloc] initWithContentsOfFile:plistPath];

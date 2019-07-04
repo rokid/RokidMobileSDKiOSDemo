@@ -22,9 +22,6 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
     
-    [self.loginButton addTarget:nil action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-    [self.logoutButton addTarget:nil action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
-    
     /*
      * 等 SDK init 完成后才能进行 UI 操作, 简化 Demo 的逻辑
      */
@@ -58,7 +55,7 @@
     [self.passwordInput resignFirstResponder];
 }
 
-- (void)login {
+- (IBAction)login:(UIButton *)sender {
     [self tapView:nil];
     
     [RokidMobileSDK.account tempLoginWithName:self.telInput.text
@@ -95,7 +92,7 @@
                                      }];
 }
 
-- (void)logout {
+- (IBAction)logout:(UIButton *)sender {
     [RokidMobileSDK.account logout];
 }
 
