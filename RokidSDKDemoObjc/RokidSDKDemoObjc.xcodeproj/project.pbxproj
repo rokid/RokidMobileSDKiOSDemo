@@ -19,6 +19,7 @@
 		70A689B4204699B1000E9451 /* IotRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A689B3204699B1000E9451 /* IotRoomViewController.m */; };
 		70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F6DC5D203ACA0600D63F3B /* RKTabViewController.m */; };
 		8491EC69005DC5B2A98B8E9B /* Pods_RokidSDKDemoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */; };
+		C0E6435122CE2C0000C73355 /* MBProgressHUD+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E6434F22CE2BFF00C73355 /* MBProgressHUD+Extensions.m */; };
 		D43AFFE41FFF706C00324778 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D43AFFE31FFF706C00324778 /* config.plist */; };
 		D43AFFE81FFF741900324778 /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AFFE71FFF741900324778 /* Properties.m */; };
 		D43DCE101FD96D0C005C158A /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DCE0F1FD96D0C005C158A /* DeviceListViewController.m */; };
@@ -76,6 +77,8 @@
 		8F0290D688F18C4012EEDEAC /* Pods-DontUse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontUse.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DontUse/Pods-DontUse.debug.xcconfig"; sourceTree = "<group>"; };
 		942F6C272199D10C985F1A66 /* Pods-RokidSDKDemoObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RokidSDKDemoObjc.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RokidSDKDemoObjc/Pods-RokidSDKDemoObjc.debug.xcconfig"; sourceTree = "<group>"; };
 		A1F1045F1758502C657B112C /* Pods_RokidSDKDemoObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RokidSDKDemoObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E6434F22CE2BFF00C73355 /* MBProgressHUD+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extensions.m"; sourceTree = "<group>"; };
+		C0E6435022CE2BFF00C73355 /* MBProgressHUD+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extensions.h"; sourceTree = "<group>"; };
 		D43AFFE31FFF706C00324778 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		D43AFFE61FFF741900324778 /* Properties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		D43AFFE71FFF741900324778 /* Properties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 		7027A304202EB4BD005F2DF5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C0E6435022CE2BFF00C73355 /* MBProgressHUD+Extensions.h */,
+				C0E6434F22CE2BFF00C73355 /* MBProgressHUD+Extensions.m */,
 				7027A305202EB4F1005F2DF5 /* UIAlertController+Rokid.h */,
 				7027A306202EB4F1005F2DF5 /* UIAlertController+Rokid.m */,
 			);
@@ -440,6 +445,7 @@
 				D43DCE131FD96D23005C158A /* BinderViewController.m in Sources */,
 				D4F951511FCE5D360091179D /* main.m in Sources */,
 				703F2873202AD33D00FD1670 /* SkillsViewController.m in Sources */,
+				C0E6435122CE2C0000C73355 /* MBProgressHUD+Extensions.m in Sources */,
 				70A689B4204699B1000E9451 /* IotRoomViewController.m in Sources */,
 				7027A307202EB4F1005F2DF5 /* UIAlertController+Rokid.m in Sources */,
 				70F6DC5E203ACA0600D63F3B /* RKTabViewController.m in Sources */,

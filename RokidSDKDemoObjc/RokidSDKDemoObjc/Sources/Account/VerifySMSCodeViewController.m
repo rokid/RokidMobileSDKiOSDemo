@@ -9,6 +9,7 @@
 #import "VerifySMSCodeViewController.h"
 #import "RegisterViewController.h"
 #import "MBProgressHUD+Extensions.h"
+#import "ChangePasswordViewController.h"
 @import RokidSDK;
 
 @interface VerifySMSCodeViewController ()
@@ -52,13 +53,31 @@
                                              scode:self.scodeField.text
                                         completion:^(RKError * error) {
                                             if (error == nil) {
-                                                [self jumpRegisterVC];
+                                                if (self.clickFrom == 1) {
+                                                    // 重置密码
+                                                    [self jumpToChangePswVC];
+                                                    
+                                                }else {
+                                                    // 注册
+                                                    [self jumpRegisterVC];
+                                                }
                                             } else {
                                                 // toast error message
                                                 NSLog(@"error = %@", error.message);
                                                 [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
                                             }
                                         }];
+    
+    
+}
+
+- (void)jumpToChangePswVC {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChangePasswordViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ChangePasswordViewController"];
+    vc.scode = self.scodeField.text;
+    vc.accoutId = self.phoneNumField.text;
+    vc.clickFrom = self.clickFrom;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)phoneFieldValueChanged:(UITextField *)sender {

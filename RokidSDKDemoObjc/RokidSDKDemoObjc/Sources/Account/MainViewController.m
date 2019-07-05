@@ -9,12 +9,15 @@
 #import "MainViewController.h"
 #import "Properties.h"
 #import "MBProgressHUD+Extensions.h"
+#import "VerifySMSCodeViewController.h"
+#import "ChangePasswordViewController.h"
 
 @import RokidSDK;
 
 @interface MainViewController ()
 
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIButton *changePwdBtn;
 
 @end
 
@@ -32,6 +35,9 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
     [self.view addGestureRecognizer:tapGesture];
+    
+    self.changePwdBtn.enabled = NO;
+    [self.changePwdBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
     RokidMobileSDK.shared.env = SDKEnvRelease;
     RokidMobileSDK.shared.openLog = true;
@@ -68,6 +74,8 @@
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
                                              
                                              [MBProgressHUD showMessage:@"成功，可以其他操作了" to:self.view afterDelay:1.5];
+                                             self.changePwdBtn.enabled = YES;
+                                             [self.changePwdBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                                              
                                          } else {
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
@@ -87,6 +95,18 @@
 
 - (IBAction)logout:(UIButton *)sender {
     [RokidMobileSDK.account logout];
+}
+- (IBAction)resetPwdClick:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    VerifySMSCodeViewController *vc = [sb instantiateViewControllerWithIdentifier:@"VerifySMSCodeViewController"];
+    vc.clickFrom = 1;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)changePwdClick:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChangePasswordViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ChangePasswordViewController"];
+    vc.clickFrom = 2;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 // 注册事件监听，监听 SDK 的 各种事件

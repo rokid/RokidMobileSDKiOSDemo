@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VerifySMSCodeViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger clickFrom;  // 1 重置密码   2 修改密码
+
 @end
 
 NS_ASSUME_NONNULL_END
