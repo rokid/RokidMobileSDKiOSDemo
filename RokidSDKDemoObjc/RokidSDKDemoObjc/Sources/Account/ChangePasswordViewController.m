@@ -24,14 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setupSubview];
 }
 
 - (void)setupSubview {
-    self.title = self.clickFrom == 1 ? @"重置密码" : @"修改密码";
-    self.oldPswTitle.hidden = self.clickFrom == 1;
-    self.oldPswTextfiled.hidden = self.clickFrom == 1;
+    self.title = self.pwdOperate == Reset ? @"重置密码" : @"修改密码";
+    self.oldPswTitle.hidden = self.pwdOperate == Reset;
+    self.oldPswTextfiled.hidden = self.pwdOperate == Reset;
     self.oldPswTextfiled.delegate = self;
     self.passwordTextfield.delegate = self;
     self.confirmTextfield.delegate = self;
@@ -45,28 +45,33 @@
         return;
     }
     
-    if (self.clickFrom == 1) {
+    if (Reset == self.pwdOperate) {
         // 重置密码
-        [RokidMobileSDK.account resetPasswdWithAccountId:self.accoutId password:self.confirmTextfield.text scode:self.scode complete:^(RKError * _Nullable error) {
-            if (error) {
-                // toast error message
-                NSLog(@"error = %@", error.message);
-                [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
-            }else {
-                 [MBProgressHUD showMessage:@"密码重置成功" to:self.view afterDelay:1.8];
-            }
-        }];
-    }else {
+        [RokidMobileSDK.account resetPasswdWithPhoneNum:self.accoutId
+                                                password:self.confirmTextfield.text
+                                                  scode:self.scode
+                                              completion:^(RKError * _Nullable error) {
+                                                  if (error) {
+                                                      // toast error message
+                                                      NSLog(@"error = %@", error.message);
+                                                      [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
+                                                  }else {
+                                                      [MBProgressHUD showMessage:@"密码重置成功" to:self.view afterDelay:1.8];
+                                                  }
+                                              }];
+    } else if (Change == self.pwdOperate) {
         // 修改密码
-        [RokidMobileSDK.account changePasswdWithOldPasswd:self.oldPswTextfiled.text newPasswd:self.passwordTextfield.text complete:^(RKError * _Nullable error) {
-            if (error) {
-                // toast error message
-                NSLog(@"error = %@", error.message);
-                [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
-            }else {
-                 [MBProgressHUD showMessage:@"密码修改成功" to:self.view afterDelay:1.8];
-            }
-        }];
+        [RokidMobileSDK.account changePasswdWithOldPassword:self.oldPswTextfiled.text
+                                                newPassword:self.passwordTextfield.text
+                                               completion:^(RKError * _Nullable error) {
+                                                   if (error) {
+                                                       // toast error message
+                                                       NSLog(@"error = %@", error.message);
+                                                       [MBProgressHUD showMessage:error.message to:self.view afterDelay:1.8];
+                                                   }else {
+                                                       [MBProgressHUD showMessage:@"密码修改成功" to:self.view afterDelay:1.8];
+                                                   }
+                                               }];
     }
 }
 

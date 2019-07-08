@@ -53,11 +53,11 @@
                                              scode:self.scodeField.text
                                         completion:^(RKError * error) {
                                             if (error == nil) {
-                                                if (self.clickFrom == 1) {
+                                                if (ResetPassword == self.requestSCodeFor) {
                                                     // 重置密码
                                                     [self jumpToChangePswVC];
                                                     
-                                                }else {
+                                                } else if (RegisterFlow == self.requestSCodeFor) {
                                                     // 注册
                                                     [self jumpRegisterVC];
                                                 }
@@ -76,7 +76,7 @@
     ChangePasswordViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ChangePasswordViewController"];
     vc.scode = self.scodeField.text;
     vc.accoutId = self.phoneNumField.text;
-    vc.clickFrom = self.clickFrom;
+    vc.pwdOperate = Change;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

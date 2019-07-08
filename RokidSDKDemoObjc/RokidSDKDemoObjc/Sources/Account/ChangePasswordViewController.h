@@ -10,9 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, PasswordOperate) {
+    Change,
+    Reset,
+};
+
 @interface ChangePasswordViewController : UIViewController
 
-@property (nonatomic, assign) NSInteger clickFrom; // 1 重置密码   2 修改密码
+@property (nonatomic, assign) PasswordOperate pwdOperate;
 
 @property (nonatomic, copy) NSString *scode; // 校验码
 

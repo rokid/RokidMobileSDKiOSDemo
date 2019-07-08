@@ -10,9 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 两个地方需要请求验证码，注册，重置密码
+typedef NS_ENUM(NSInteger, RequestSCodeForType) {
+    RegisterFlow,     // 注册
+    ResetPassword,    // 重置密码
+};
+
 @interface VerifySMSCodeViewController : UIViewController
 
-@property (nonatomic, assign) NSInteger clickFrom;  // 1 重置密码   2 修改密码
+@property (nonatomic, assign) RequestSCodeForType requestSCodeFor;
 
 @end
 

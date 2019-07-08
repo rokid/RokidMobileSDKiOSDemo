@@ -108,7 +108,7 @@
 - (IBAction)resetPwdClick:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     VerifySMSCodeViewController *vc = [sb instantiateViewControllerWithIdentifier:@"VerifySMSCodeViewController"];
-    vc.clickFrom = 1;
+    vc.requestSCodeFor = ResetPassword;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -116,7 +116,7 @@
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ChangePasswordViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ChangePasswordViewController"];
-    vc.clickFrom = 2;
+    vc.pwdOperate = Change;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
