@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UIButton *changePwdBtn;
+@property (weak, nonatomic) IBOutlet UIButton *fetchBtn;
+@property (weak, nonatomic) IBOutlet UIButton *updateBtn;
 
 @end
 
@@ -36,8 +38,7 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
     [self.view addGestureRecognizer:tapGesture];
     
-    self.changePwdBtn.enabled = NO;
-    [self.changePwdBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [self updateButtonState:NO];
     
     RokidMobileSDK.shared.env = SDKEnvRelease;
     RokidMobileSDK.shared.openLog = true;
@@ -63,6 +64,12 @@
     [self.passwordInput resignFirstResponder];
 }
 
+- (void)updateButtonState:(BOOL)isLogin {
+    self.changePwdBtn.enabled = isLogin;
+    self.updateBtn.enabled = isLogin;
+    self.fetchBtn.enabled = isLogin;
+}
+
 - (IBAction)login:(UIButton *)sender {
     [self tapView:nil];
     
@@ -74,8 +81,8 @@
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginOK"];
                                              
                                              [MBProgressHUD showMessage:@"成功，可以其他操作了" to:self.view afterDelay:1.5];
-                                             self.changePwdBtn.enabled = YES;
-                                             [self.changePwdBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+                                             
+                                             [self updateButtonState:YES];
                                              
                                          } else {
                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:@"loginErr"];
@@ -93,21 +100,45 @@
                                      }];
 }
 
-- (IBAction)logout:(UIButton *)sender {
+- (IBAction)logout:(UIBarButtonItem *)sender {
     [RokidMobileSDK.account logout];
 }
+
+
 - (IBAction)resetPwdClick:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     VerifySMSCodeViewController *vc = [sb instantiateViewControllerWithIdentifier:@"VerifySMSCodeViewController"];
     vc.clickFrom = 1;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 - (IBAction)changePwdClick:(id)sender {
+    
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ChangePasswordViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ChangePasswordViewController"];
     vc.clickFrom = 2;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (IBAction)fetchUserInfo:(UIButton *)sender {
+    [RokidMobileSDK.account fetchUserInfoWithCompletion:^(RKError * error, SDKUserInfo * userInfo) {
+        if (error == nil) {
+            NSLog(@"user info nickname = %@, birth = %@, gender = %@, userId = %@", userInfo.nickname, userInfo.birthday, userInfo.gender, userInfo.userId);
+        }
+    }];
+}
+
+- (IBAction)updateUserInfo:(UIButton *)sender {
+    [RokidMobileSDK.account updateUserInfoWithNickname:@"rokiddemo"
+                                                gender:@"male"
+                                              birthday:@"2014/11/26"
+                                            completion:^(RKError * error) {
+                                                if (error == nil) {
+                                                    [MBProgressHUD showMessage:@"更新成功！" to:self.view afterDelay:1.5];
+                                                }
+                                            }];
+}
+
 
 // 注册事件监听，监听 SDK 的 各种事件
 - (void)addNotificationObserver {
