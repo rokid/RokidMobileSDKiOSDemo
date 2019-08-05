@@ -14,9 +14,8 @@ def dependence_lib
     pod 'MBProgressHUD', '1.1.0'
     pod 'MJRefresh'
     
-    pod 'ReachabilitySwift', '4.3.1'
     pod 'Alamofire', '4.8.2'
-    pod 'RokidSDK', '~> 1.10.0'
+    pod 'RokidSDK', '~> 1.10.1'
 
 end
 
