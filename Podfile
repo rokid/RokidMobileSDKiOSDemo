@@ -6,16 +6,14 @@ inhibit_all_warnings!
 workspace 'RokidSDKDemo.xcworkspace'
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/aliyun/aliyun-specs.git'
 
 def dependence_lib
     
-    pod 'AliyunOSSiOS', '2.10.7'
     pod 'MBProgressHUD', '1.1.0'
     pod 'MJRefresh'
-    
     pod 'Alamofire', '4.8.2'
-    pod 'RokidSDK', '~> 1.10.1'
+    
+    pod 'RokidSDK', '~> 1.10.2'
 
 end
 
